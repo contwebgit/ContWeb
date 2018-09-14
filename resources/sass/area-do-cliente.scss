@@ -1,0 +1,99 @@
+/* SASS - Área do Cliente */
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  margin:0px;
+  padding:0px;
+  box-sizing:border-box;
+  background:white;
+}
+
+.navbar{
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.36);
+}
+
+.navbar-nav{
+  margin-right: 0!important;
+  .dropdown{
+    button{
+      border: none;
+      background: transparent;
+    }
+  }
+}
+
+.main-sidebar {
+  margin-left: 40px!important;
+  padding-left: 0!important;
+  min-height:100vh;
+  position:fixed;
+  top:0;
+  left:0;
+  width:250px;
+  box-shadow: inset -1px 0 10px rgba(0, 0, 0, 0.4);
+  background: #224069;
+  margin-top: 82px;
+  ul {
+    list-style:none;
+    margin: 1px 1px 2px 1px!important;
+    padding-left: 0!important;
+    li {
+      margin: 1px;
+      padding:10px;
+      a{
+        color: white;
+        font-size: 1.4em;
+        text-decoration: none;
+        text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.33);
+      }
+      i{
+        color: white;
+        font-size: 1.6em;
+        padding-right: 7px;
+      }
+    }
+    li:hover{
+      background-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.28);
+    }
+    hr{
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.icon-bar{
+  background-color: #f67b30;
+  position: fixed;
+  min-height:100vh;
+  width: 40px;
+  z-index: 9;
+  margin-top: 82px;
+  i{
+    color: #224069;
+    padding: 15px 10px;
+    font-size: 1.6em;
+  }
+  hr{
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.main {
+  color:#fff;
+  display:block;
+  width:100%;
+  background:red;
+  min-height:100vh;
+}
+
