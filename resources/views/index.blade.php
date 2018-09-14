@@ -70,7 +70,7 @@
     <div class="plans" id="plans">
         <div class="container">
             <h2>Planos Mensais</h2>
-            <p>The gentlemen who rented the room would sometimes take their evening meal at home in the living room that was used by everyone, and so the door to this room was often kept closed in the</p>
+            <p class="col-xs-10 offset-xs-1">The gentlemen who rented the room would sometimes take their evening meal at home in the living room that was used by everyone, and so the door to this room was often kept closed in the</p>
             <div class="row">
                 <div class="plan col-md-3 col-xs-12">
                     <div class="pad">
@@ -228,7 +228,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-default col-xs-12">
                     <div class="panel-heading">
                         <h4 data-toggle="collapse" data-parent="#accordion" href="#item4" class="panel-title expand">
                             <i class="right-arrow pull-right">+</i>
@@ -236,7 +236,7 @@
                                 <br><spam style="margin-left: 50px">decontabilidade mesmo estando desobrigado?</spam></a>
                         </h4>
                     </div>
-                    <div id="item4" class="panel-collapse collapse">
+                    <div id="item4" class="panel-collapse collapse col-xs-12">
                         <div class="panel-body">
                             Mesmo que o MEI não precise manter uma escrituração contábil regular, nem possuir um contador responsável pela sua empresa, existe diversas outras razões para que um MEI contrate um serviço de contabilidade, dentre elas:
                             <ul>
@@ -339,7 +339,7 @@
     </div>
     <div class="courses">
         <div class="container">
-            <h2 class="col-md-4">CONHEÇA OS<br>
+            <h2 class="col-md-4 col-xs-10">CONHEÇA OS<br>
                 CURSOS CONTWEB</h2>
             <button>CURSOS ONLINE</button>
         </div>

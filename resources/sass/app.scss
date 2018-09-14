@@ -185,6 +185,12 @@ body{
   }
 }
 
+#accordion > div:nth-child(4) > div.panel-heading > h4 > i,
+#accordion > div:nth-child(9) > div.panel-heading > h4 > i{
+  height: 61px;
+  padding: 7px 6px;
+}
+
 .question-accordion{
   background-color: white;
   padding: 50px;
@@ -225,11 +231,7 @@ body{
   }
 }
 
-#accordion > div:nth-child(4) > div.panel-heading > h4 > i,
-#accordion > div:nth-child(9) > div.panel-heading > h4 > i{
-  height: 61px!important;
-  padding: 7px 6px!important;
-}
+
 
 .courses{
   padding: 100px;
@@ -281,10 +283,58 @@ body{
   color: white;
 }
 
+/* mobile home */
+@media (max-width: 768px){
+  .statistics{
+    padding: 10px;
+    .statistic{
+      text-align: center;
+      .circ{
+        width: 50%;
+        margin-left: 25%;
+        h5 {
+          padding: 10px;
+          margin: 0;
+        }
+      }
+    }
+  }
+  .info{
+    .info2 h5{
+      margin-top: -20px;
+    }
+  }
+  .plans{
+    p{
+      padding: 0;
+    }
+  }
+
+  .question-accordion{
+    .right-arrow{
+      margin-top: -20px;
+      height: 36px!important;
+      width: 36px;
+      padding: 0 6px!important;
+    }
+    .panel{
+      margin: 30px 0 0 0!important;
+    }
+  }
+  .courses{
+    text-align: center;
+    h2{
+      font-size: 1.2em;
+      width: 140%;
+      margin-left: -16%;
+    }
+  }
+}
+
 
 /* page plans */
 .page-plans{
-  margin-top: 80px;
+  margin-top: 70px;
   box-shadow: none;
 }
 
@@ -339,17 +389,20 @@ body{
   }
   .contato-data{
     margin-top: 74px;
-
     .address{
+      margin-bottom: 5px;
       img{
         float: left;
       }
       address{
+        margin-top: -5px;
         float: right;
+        margin-right: 172px;
+        color: #424852;
       }
     }
     .telefone{
-      margin-top: 20px;
+      margin-top: 29px;
       img{
         float: left;
       }
@@ -369,7 +422,7 @@ body{
         margin-top: 3px;
       }
     }
-    .emails{
+    .hour{
       margin-top: 20px;
       ul{
         list-style: none;
@@ -377,10 +430,12 @@ body{
         img{
           float: left;
         }
-        li{
-          float: left;
-          text-align: left;
-        }
+      }
+      p{
+        float: right;
+        margin-right: 113px;
+        margin-top: 1px;
+        color: #424852;
       }
     }
   }

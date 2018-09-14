@@ -10677,6 +10677,12 @@ body {
           transform: scale(1.05);
 }
 
+#accordion > div:nth-child(4) > div.panel-heading > h4 > i,
+#accordion > div:nth-child(9) > div.panel-heading > h4 > i {
+  height: 61px;
+  padding: 7px 6px;
+}
+
 .question-accordion {
   background-color: white;
   padding: 50px;
@@ -10720,12 +10726,6 @@ body {
   font-size: 1.4em;
   color: #142940;
   background-color: rgba(255, 255, 255, 0.1);
-}
-
-#accordion > div:nth-child(4) > div.panel-heading > h4 > i,
-#accordion > div:nth-child(9) > div.panel-heading > h4 > i {
-  height: 61px !important;
-  padding: 7px 6px !important;
 }
 
 .courses {
@@ -10782,10 +10782,61 @@ body {
   color: white;
 }
 
+/* mobile home */
+
+@media (max-width: 768px) {
+  .statistics {
+    padding: 10px;
+  }
+
+  .statistics .statistic {
+    text-align: center;
+  }
+
+  .statistics .statistic .circ {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .statistics .statistic .circ h5 {
+    padding: 10px;
+    margin: 0;
+  }
+
+  .info .info2 h5 {
+    margin-top: -20px;
+  }
+
+  .plans p {
+    padding: 0;
+  }
+
+  .question-accordion .right-arrow {
+    margin-top: -20px;
+    height: 36px !important;
+    width: 36px;
+    padding: 0 6px !important;
+  }
+
+  .question-accordion .panel {
+    margin: 30px 0 0 0 !important;
+  }
+
+  .courses {
+    text-align: center;
+  }
+
+  .courses h2 {
+    font-size: 1.2em;
+    width: 140%;
+    margin-left: -16%;
+  }
+}
+
 /* page plans */
 
 .page-plans {
-  margin-top: 80px;
+  margin-top: 70px;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -10853,16 +10904,23 @@ body {
   margin-top: 74px;
 }
 
+.contato .contato-data .address {
+  margin-bottom: 5px;
+}
+
 .contato .contato-data .address img {
   float: left;
 }
 
 .contato .contato-data .address address {
+  margin-top: -5px;
   float: right;
+  margin-right: 172px;
+  color: #424852;
 }
 
 .contato .contato-data .telefone {
-  margin-top: 20px;
+  margin-top: 29px;
 }
 
 .contato .contato-data .telefone img {
@@ -10888,22 +10946,24 @@ body {
   margin-top: 3px;
 }
 
-.contato .contato-data .emails {
+.contato .contato-data .hour {
   margin-top: 20px;
 }
 
-.contato .contato-data .emails ul {
+.contato .contato-data .hour ul {
   list-style: none;
   margin-top: -23px;
 }
 
-.contato .contato-data .emails ul img {
+.contato .contato-data .hour ul img {
   float: left;
 }
 
-.contato .contato-data .emails ul li {
-  float: left;
-  text-align: left;
+.contato .contato-data .hour p {
+  float: right;
+  margin-right: 113px;
+  margin-top: 1px;
+  color: #424852;
 }
 
 .contato .map {

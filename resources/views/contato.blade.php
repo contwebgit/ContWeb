@@ -19,19 +19,19 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="InputName"><img src="http://www.contweb.com.br/images/icones/mini_icone_01.png" title="Nome" alt="Nome"></label>
+                                        <label for="InputName"><img src="{{asset('img/people.png')}}" title="Nome" alt="Nome"></label>
                                         <input type="text" class="form-control" name="name" id="InputName" maxlength="100" title="Nome" placeholder="Nome" required="" autofocus="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="InputEmail"><img src="http://www.contweb.com.br/images/icones/mini_icone_02.png" title="Email" alt="Email"></label>
+                                        <label for="InputEmail"><img src="{{asset('img/email.png')}}" title="Email" alt="Email"></label>
                                         <input type="email" class="form-control" name="email" id="InputEmail" maxlength="100" title="Email" placeholder="Email" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="InputAssunto"><img src="http://www.contweb.com.br/images/icones/mini_icone_03.png" title="Assunto" alt="Assunto"></label>
+                                        <label for="InputAssunto"><img src="{{asset('img/baloon.png')}}" title="Assunto" alt="Assunto"></label>
                                         <input type="text" class="form-control" name="assunto" id="InputAssunto" maxlength="100" title="Assunto" placeholder="Assunto" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="InputMessage"><img src="http://www.contweb.com.br/images/icones/mini_icone_04.png" title="Mensagem" alt="Mensagem"></label>
+                                        <label for="InputMessage"><img src="{{asset('img/pen.png')}}" title="Mensagem" alt="Mensagem"></label>
                                         <textarea class="form-control" name="message" id="InputMessage" maxlength="700" title="Mensagem" placeholder="Mensagem" required=""></textarea>
                                     </div>
                                 </div>
@@ -40,36 +40,32 @@
                         </form>
                     </div>
                     <div class="col-md-5 contato-data">
-                        <div class="address"><img src="http://www.contweb.com.br/images/icones/local.png" class="pull-left" title="Endereço" alt="Endereço">
+                        <div class="address"><img src="{{asset('img/local.png')}}" class="pull-left" title="Endereço" alt="Endereço">
                             <address>
-                                Rua Tenente Lopes, 1233
-                                Vila Nova - Jaú - SP
-                                CEP 17202-130
+                                Rua Tenente Lopes, 1233 Vila Nova<br>
+                                Jaú - SP - CEP 17202-130
                             </address>
                         </div>
                         <br>
                         <div>
                             <div class="telefone">
-                                <img src="http://www.contweb.com.br/images/icones/phone.png" title="Telefone" alt="Telefone"> <a href="" title="">(14) 3411-1300</a>
+                                <img src="{{asset('img/phone.png')}}" title="Telefone" alt="Telefone"> <a href="" title="">(14) 3411-1300</a>
                             </div>
                         </div>
                         <br>
                         <div>
                             <div class="facebook">
-                                <img src="http://www.contweb.com.br/images/icones/facebook.png" title="Facebook" alt="Facebook"> <a href="" title="">AGRINCO - Escriotório Contábil</a>
+                                <img src="{{asset('img/facebook.png')}}" title="Facebook" alt="Facebook"> <a href="" title="">ContWEB - Escriotório Contábil</a>
                             </div>
                         </div>
                         <br>
                         <div>
-                            <div class="emails">
-                                <img src="http://www.contweb.com.br/images/icones/email.png" class="pull-left" title="E-mail" alt="E-mail">
-                                <ul>
-                                    <li>Recepção: <a href="mailto:atendimento@adrinco.com.br" title="atendimento@adrinco.com.br">atendimento@agrinco.com.br</a></li>
-                                    <li>Depto. Fical: <a href="mailto:dp.fical@agrinco.com.br" title="dp.fical@agrinco.com.br">dp.fical@agrinco.com.br</a></li>
-                                    <li>Depto. Pessoal: <a href="mailto:dp.pessoal@agrinco.com.br" title="dp.pessoal@agrinco.com.br">dp.pessoal@agrinco.com.br</a></li>
-                                    <li>Depto. Contábil: <a href="mailto:dp.contabil@agrinco.com.br" title="dp.contabil@agrinco.com.br">dp.contabil@agrinco.com.br</a></li>
-                                    <li>Administração: <a href="mailto:contato@agrinco.com.br" title="contato@agrinco.com.br">contato@agrinco.com.br</a></li>
-                                </ul>
+                            <div class="hour">
+                                <img src="{{asset('img/clock.png')}}" width="24px" class="pull-left" title="E-mail" alt="E-mail">
+                                <p>
+                                    De Segunda-Feira à Sextas-Feira<br>
+                                    Das 7:30hs às 11:30hs - 13:00hs às 17:45hs
+                                </p>
                             </div>
                         </div>
                     </div>
