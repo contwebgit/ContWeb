@@ -20,7 +20,7 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label for="InputName"><img src="{{asset('img/people.png')}}" title="Nome" alt="Nome"></label>
-                                        <input type="text" class="form-control" name="name" id="InputName" maxlength="100" title="Nome" placeholder="Nome" required="" autofocus="">
+                                        <input type="text" class="form-control" name="name" id="InputName" maxlength="100" title="Nome" placeholder="Nome" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="InputEmail"><img src="{{asset('img/email.png')}}" title="Email" alt="Email"></label>

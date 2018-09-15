@@ -17,8 +17,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/area-do-cliente');
+        var_dump($request); die();
+        if (!Auth::check()) {
+            return redirect('/login');
         }
 
         return $next($request);

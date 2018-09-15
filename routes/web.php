@@ -33,6 +33,10 @@ Route::get('/contato', function () {
 })->name('contato');
 
 
+Route::get('/o-que-e-contabilidade', function () {
+    return view('contabilidade-online');
+})->name('o-que-e-contabilidade');
+
 /** AUTH ROUTES */
 Auth::routes();
 

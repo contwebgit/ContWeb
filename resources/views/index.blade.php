@@ -8,8 +8,10 @@
         <div class="container">
             <div class="row">
                 <div class="question col-md-4 col-xs-12">
-                    <img src="{{asset('img/icone-contabilidade-online.png')}}" alt="contabilidade contweb">
-                    <h5>O que é contabilidade online?</h5>
+                    <a href="{{route('o-que-e-contabilidade')}}">
+                        <img src="{{asset('img/icone-contabilidade-online.png')}}" alt="contabilidade contweb">
+                        <h5>O que é contabilidade online?</h5>
+                    </a>
                 </div>
                 <div class="question col-md-4 col-xs-12">
                     <img src="{{asset('img/icone-como-funciona.png')}}" alt="contabilidade contweb">

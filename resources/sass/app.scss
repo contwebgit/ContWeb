@@ -447,8 +447,59 @@ body{
   }
 }
 
+/* página quem somos */
+.quem-somos{
+  margin-top: 80px;
+  color: #2f426e;
+  .header-quem-somos{
+    padding: 200px;
+    background-image: url('/img/quem-somos.png');
+    background-size: 100%;
+    background-position-y: -60px;
+    background-repeat: no-repeat;
+    margin-bottom: 40px;
+    color: white;
+    font-size: 2em;
+  }
+  .text{
+    text-align: justify;
+  }
+  .empresa{
+    img{
+      width: 100%;
+    }
+  }
+}
+.text-center{
+  margin-top: 20px;
+  background-color: #2f426e;
+  h2 {
+    color: white;
+    padding: 40px;
+  }
+}
 
-
+.contabilidade-online{
+  color: #2f426e;
+  margin-top: 80px;
+  padding: 10px;
+  .banner{
+    background-image: url('/img/que-contabilidade.png');
+    background-position-y: -60px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 170px;
+  }
+  h2{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 2em;
+  }
+  p{
+    text-align: justify;
+    font-size: 1.1em;
+  }
+}
 
 
 
