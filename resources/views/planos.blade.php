@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="plans page-plans">
+        <div class="banner"></div>
         <div class="container">
             <h2>Planos Mensais</h2>
             <p>The gentlemen who rented the room would sometimes take their evening meal at home in the living room that was used by everyone, and so the door to this room was often kept closed in the</p>

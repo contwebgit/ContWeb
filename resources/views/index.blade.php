@@ -14,12 +14,16 @@
                     </a>
                 </div>
                 <div class="question col-md-4 col-xs-12">
-                    <img src="{{asset('img/icone-como-funciona.png')}}" alt="contabilidade contweb">
-                    <h5>Como funciona?</h5>
+                    <a href="{{route('como-funciona')}}">
+                        <img src="{{asset('img/icone-como-funciona.png')}}" alt="contabilidade contweb">
+                        <h5>Como funciona?</h5>
+                    </a>
                 </div>
                 <div class="question col-md-4 col-xs-12">
-                    <img src="{{asset('img/icone-servico-online.png')}}" alt="contabilidade contweb">
-                    <h5>Posso optar pelo serviço online?</h5>
+                    <a href="{{route('servico-online')}}">
+                        <img src="{{asset('img/icone-servico-online.png')}}" alt="contabilidade contweb">
+                        <h5>Posso optar pelo serviço online?</h5>
+                    </a>
                 </div>
             </div>
         </div>

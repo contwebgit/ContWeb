@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
+
+    protected $exceptRoutes = [
+        'login',
+        'register'
+    ];
+
+
     /**
      * Handle an incoming request.
      *
@@ -15,13 +22,15 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        var_dump($request); die();
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
+        $route = $request->route()->getName();
 
+        if(!in_array($route, $this->exceptRoutes)) {
+            if (Auth::check()) {
+                return redirect()->route('dsge');
+            }
+        }
         return $next($request);
     }
 }

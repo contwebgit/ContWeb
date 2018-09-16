@@ -9,7 +9,7 @@
                    <a class="nav-link" href="{{route('quem-somos')}}">QUEM SOMOS</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="{{route('planos')}}">PLANOS</a>
+                   <a class="nav-link" href="#plans">PLANOS</a>
                </li>
                <li class="nav-item">
                    <a class="nav-link" href="{{route('blogs')}}">BLOGS</a>
