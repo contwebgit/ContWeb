@@ -9,7 +9,7 @@
                    <a class="nav-link" href="{{route('quem-somos')}}">QUEM SOMOS</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="#plans">PLANOS</a>
+                   <a class="nav-link" href="/#plans">PLANOS</a>
                </li>
                <li class="nav-item">
                    <a class="nav-link" href="{{route('blogs')}}">BLOGS</a>
@@ -17,8 +17,8 @@
                <li class="nav-item">
                    <a class="nav-link" href="{{route('contato')}}">CONTATO</a>
                </li>
-               <li class="nav-item">
-                   <a class="nav-link" href="{{route('area-do-cliente')}}">
+               <li class="nav-item btn-ac">
+                   <a class="nav-link" href="">
                        <i class="fas fa-sign-in-alt"></i>
                        ÁREA DO CLIENTE
                    </a>

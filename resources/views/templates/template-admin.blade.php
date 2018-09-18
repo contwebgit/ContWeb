@@ -17,7 +17,7 @@
 </head>
 <body>
 <!-- NAVBAR -->
-@component('templates.navbar-area-do-cliente')
+@component('templates.navbar-admin')
 @endcomponent
 <!-- CONTENT -->
 @yield('content')

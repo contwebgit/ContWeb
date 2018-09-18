@@ -6,7 +6,7 @@
             </div>
             <div class="social col-md-6">
                 <div class="terms col-md-12">
-                    <a class="col-md-4" href="">TERMOS</a>
+                    <a class="col-md-4" href="{{route('termos-de-uso')}}">TERMOS DE USO</a>
                     <a class="col-md-4" href="#plans">PLANOS</a>
                     <a class="col-md-4" href="">POLITICA DE PRIVACIDADE</a>
                 </div>

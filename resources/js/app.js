@@ -44,4 +44,14 @@ $(document).ready(function() {
             }
         } // fim do if
     }); // fim scroll
+
+    $("#conteudos").on("click", function(){
+        let n =  parseInt($("#icon-conteudos").css("padding-bottom").split("px")[0]);
+        $("#sub-conteudos").slideToggle("slow");
+        if( n === 15 ){
+            $("#icon-conteudos").css("padding-bottom", "232px");
+        }else{
+            $("#icon-conteudos").css("padding-bottom", "15px");
+        }
+    });
 }); // fim document ready

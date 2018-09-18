@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 /** NAVBAR ROUTES */
 Route::get('/quem-somos', function () {
@@ -44,12 +44,16 @@ Route::get('/posso-optar-servico-online', function () {
     return view('servico-online');
 })->name('servico-online');
 
+Route::get('/termos-de-uso', function(){
+    return view('termos-de-uso');
+})->name('termos-de-uso');
+
+
+
+Route::get('/admin', function () {
+        return view('system.admin');
+})->name('admin');
 
 /** AUTH ROUTES */
-Route::get('/area-do-cliente', function () {
-        return view('system.area-do-cliente');
-})->name('area-do-cliente');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
