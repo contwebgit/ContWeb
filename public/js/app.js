@@ -13689,8 +13689,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-__webpack_require__(36);
-module.exports = __webpack_require__(37);
+module.exports = __webpack_require__(36);
 
 
 /***/ }),
@@ -13745,12 +13744,20 @@ $(document).ready(function () {
     }); // fim scroll
 
     $("#conteudos").on("click", function () {
-        var n = parseInt($("#icon-conteudos").css("padding-bottom").split("px")[0]);
-        $("#sub-conteudos").slideToggle("slow");
-        if (n === 15) {
-            $("#icon-conteudos").css("padding-bottom", "232px");
+        var left = $("#sub-conteudos").css("left").split("px")[0];
+        if (parseInt(left) < 1 || left === "auto") {
+            $("#sub-conteudos").animate({ "left": "+=467px" }, "slow");
         } else {
-            $("#icon-conteudos").css("padding-bottom", "15px");
+            $("#sub-conteudos").animate({ "left": "-=467px" }, "slow");
+        }
+    });
+
+    $("#consultas").on("click", function () {
+        var left = $("#sub-consultas").css("left").split("px")[0];
+        if (parseInt(left) < 1 || left === "auto") {
+            $("#sub-consultas").animate({ "left": "+=467px" }, "slow");
+        } else {
+            $("#sub-consultas").animate({ "left": "-=467px" }, "slow");
         }
     });
 }); // fim document ready
@@ -35987,12 +35994,6 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 37 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

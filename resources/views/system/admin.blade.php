@@ -1,4 +1,4 @@
-@extends('templates.app');
+@extends('templates.app')
 
 @section('content')
     <div class="wrapper">
@@ -10,10 +10,10 @@
                         <i id="icon-conteudos" class="fab fa-wpforms"></i>
                     </div>
                     <a href="#">Conteúdos</a>
-                    <div id="sub-conteudos" class="hide">
+                    <div id="sub-conteudos">
                         <ul>
                             <li>
-                                <a href="">Banners</a>
+                                <a href="{{route('banners')}}">Banners</a>
                             </li>
                             <li>
                                 <a href="">Contador</a>
@@ -30,23 +30,51 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+                <hr>
+                <li id="consultas">
                     <div class="icon">
                         <i class="fas fa-search"></i>
                     </div>
                     <a href="#">Consultas</a>
+                    <div id="sub-consultas">
+                        <ul>
+                            <li>
+                                <a href="{{route('planos-mensais')}}">Planos Mensais</a>
+                            </li>
+                            <li>
+                                <a href="">Serviços Avulsos</a>
+                            </li>
+                            <li>
+                                <a href="">Contrato de Planos Mensais</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+                <hr>
                 <li><div class="icon">
                         <i class="fas fa-sliders-h"></i>
                     </div>
                     <a href="#">Controle</a>
                 </li>
+                <hr>
                 <li>
                     <div class="icon">
                         <i class="fas fa-cog"></i>
                     </div>
                     <a href="#">Configurações</a>
                 </li>
+                <hr>
+                <li>
+                    <div class="icon">
+                        <i class="fab fa-blogger-b"></i>
+                    </div>
+                    <a href="#">Blog</a>
+                </li>
+                <hr>
             </ul>
+        </div>
+        <div id="admin-content">
+            <!-- ADMIN CONTENT -->
+            @yield('admin-content')
         </div>
 @endsection

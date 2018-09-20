@@ -10,6 +10,11 @@
                     <a class="col-md-4" href="#plans">PLANOS</a>
                     <a class="col-md-4" href="">POLITICA DE PRIVACIDADE</a>
                 </div>
+                <div class="col-md-12 contato-data">
+                    De Segunda-Feira à Sexta-Feira<br>
+                    Das 7:30hs às 11:30hs - 13:00hs às 17:45hs<br>
+                    Telefone: (14) 3411-1300
+                </div>
             </div>
         </div>
     </div>

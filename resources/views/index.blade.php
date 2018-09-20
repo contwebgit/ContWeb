@@ -1,9 +1,7 @@
 @extends('templates.template')
 
 @section('content')
-    <div class="banner-home col-md-12">
-        <img src="{{asset('img/banner.png')}}" alt="contweb">
-    </div>
+    <div class="banner-home col-md-12" style="background-image: url('/img/banner.png');"></div>
     <div class="questions">
         <div class="container">
             <div class="row">
@@ -75,8 +73,8 @@
     </div>
     <div class="plans" id="plans">
         <div class="container">
-            <h2>Planos Mensais</h2>
-            <p class="col-xs-10 offset-xs-1">The gentlemen who rented the room would sometimes take their evening meal at home in the living room that was used by everyone, and so the door to this room was often kept closed in the</p>
+            <h2 style="margin-top: 50px;">Planos Mensais</h2>
+            <p class="col-xs-10 offset-xs-1">Confira abaixo nossos planos mensais para manter a contabilidade da sua empresa em dia!<br>Selecione um dos planos e formule já seu orçamento!</p>
             <div class="row">
                 <div class="plan col-md-3 col-xs-12">
                     <div class="pad">

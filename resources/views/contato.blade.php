@@ -3,7 +3,7 @@
 @section('content')
     <div class="contato">
         <div class="call">
-            <img src="{{asset('img/header-contato.png')}}" alt="contweb">
+            <img src="{{asset('img/banner-contato.png')}}" alt="contweb">
         </div>
         <div class="container info">
             <h3>Dúvidas, perguntas, sugestões, valores ou informações técnicas?<br>
@@ -36,6 +36,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="g-recaptcha" data-sitekey="6Lc0y3AUAAAAAC5ReUVft5jlTAEiMeI9stz4UgD9"></div>
                             <button type="submit" class="btn btn-success btn-lg btn-block">Enviar</button>
                         </form>
                     </div>

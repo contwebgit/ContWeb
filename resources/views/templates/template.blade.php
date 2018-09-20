@@ -17,6 +17,9 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
 
+        <!-- RECAPTCHA -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+
     </head>
     <body>
         <!-- NAVBAR -->

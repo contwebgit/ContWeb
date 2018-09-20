@@ -1,37 +1,19 @@
 <?php
-
 namespace App\Http\Middleware;
 
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
-use Illuminate\Support\Facades\Auth;
-use Closure;
-
-class Authenticate
+class Authenticate extends Middleware
 {
-    protected $exceptRoutes = [
-        'login',
-        'logout',
-        'quem-somos',
-        'blogs',
-        'contato',
-        'termos-de-uso'
-    ];
 
-    public function handle($request, Closure $next)
+    /**
+     * Get the path the user should be redirected to when they are not authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string
+     */
+    protected function redirectTo($request)
     {
-        $route = $request->route()->getName();
-
-
-        if (Auth::check() and $route == 'login') {
-            return redirect()->route('admin');
-        }
-
-        if(!in_array($route, $this->exceptRoutes) and $route != null) {
-            if (!Auth::check()) {
-                return redirect()->route('login');
-            }
-        }
-
-        return $next($request);
+        return route('admin');
     }
 }

@@ -24,7 +24,7 @@
                    </p>
                </div>
                <div class="empresa col-md-6">
-                   <img src="{{asset('img/empresa.png')}}" alt="contweb">
+                   <img src="{{asset('img/banner-empresa.png')}}" alt="contweb">
                </div>
            </div>
         </div>

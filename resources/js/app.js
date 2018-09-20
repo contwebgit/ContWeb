@@ -46,12 +46,20 @@ $(document).ready(function() {
     }); // fim scroll
 
     $("#conteudos").on("click", function(){
-        let n =  parseInt($("#icon-conteudos").css("padding-bottom").split("px")[0]);
-        $("#sub-conteudos").slideToggle("slow");
-        if( n === 15 ){
-            $("#icon-conteudos").css("padding-bottom", "232px");
+        let left = $("#sub-conteudos").css("left").split("px")[0];
+        if( parseInt(left) < 1 || left === "auto") {
+            $("#sub-conteudos").animate({"left": "+=467px"}, "slow");
         }else{
-            $("#icon-conteudos").css("padding-bottom", "15px");
+            $("#sub-conteudos").animate({"left": "-=467px"}, "slow");
+        }
+    });
+
+    $("#consultas").on("click", function(){
+        let left = $("#sub-consultas").css("left").split("px")[0];
+        if( parseInt(left) < 1 || left === "auto") {
+            $("#sub-consultas").animate({"left": "+=467px"}, "slow");
+        }else{
+            $("#sub-consultas").animate({"left": "-=467px"}, "slow");
         }
     });
 }); // fim document ready

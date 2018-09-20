@@ -10481,10 +10481,25 @@ body {
 .navbar {
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.36);
           box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.36);
+  width: 100%;
+  top: 0;
+  z-index: 100 !important;
+  position: fixed;
+  background-color: #f8fafc;
+}
+
+#admin-content {
+  z-index: 9;
+  margin-top: 90px;
 }
 
 .navbar-nav {
   margin-right: 0 !important;
+}
+
+.g-recaptcha {
+  margin: 5px 5px 5px 25%;
+  width: 50%;
 }
 
 .btn-ac {
@@ -10502,13 +10517,23 @@ body {
 }
 
 .banner-home {
-  padding: 0 !important;
+  background-image: url("/img/banner.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: 66px;
+  height: 700px !important;
 }
 
-.banner-home img {
-  width: 100%;
-  height: 100%;
-  margin-top: 66px;
+@media (max-height: 799px) {
+  .banner-home {
+    height: 700px !important;
+  }
+}
+
+@media (min-height: 800px) {
+  .banner-home {
+    height: 1000px !important;
+  }
 }
 
 .questions {
@@ -10593,7 +10618,7 @@ body {
 }
 
 .plans h2 {
-  margin-top: 50px;
+  margin-top: 5px;
   font-family: 'Open Sans', sans-serif;
   font-size: 2.6em;
   min-height: 30px;
@@ -10746,7 +10771,7 @@ body {
 
 .courses {
   padding: 100px;
-  background-image: url("/img/bg-cta.jpg");
+  background-image: url("/img/banner-cursos.jpeg");
   background-size: 100%;
   background-position-y: -100px;
 }
@@ -10775,6 +10800,7 @@ body {
 .footer .logo {
   text-align: center;
   color: #142940;
+  margin-top: 23px;
 }
 
 .footer .logo p {
@@ -10787,6 +10813,11 @@ body {
 
 .footer .social .terms {
   text-align: center;
+}
+
+.footer .contato-data {
+  text-align: center;
+  color: #142940;
 }
 
 .credits {
@@ -11025,7 +11056,7 @@ body {
 
 .quem-somos .header-quem-somos {
   padding: 200px;
-  background-image: url("/img/quem-somos.png");
+  background-image: url("/img/banner-quem-somos.png");
   background-size: 100%;
   background-position-y: -60px;
   background-repeat: no-repeat;
@@ -11295,5 +11326,200 @@ body {
 .charge .button-carregar:hover {
   -webkit-transform: scale(1.01);
           transform: scale(1.01);
+}
+
+/* SASS - Admin */
+
+.main-sidebar {
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  -webkit-box-shadow: inset -1px 0 10px rgba(0, 0, 0, 0.4);
+          box-shadow: inset -1px 0 10px rgba(0, 0, 0, 0.4);
+  background: #224069;
+  margin-top: 83px;
+}
+
+.main-sidebar .menu {
+  list-style: none;
+  margin: 1px 1px 2px 1px !important;
+  padding-left: 0;
+}
+
+.main-sidebar .menu li {
+  padding: 11px 16px;
+  width: 100%;
+  height: 50px;
+}
+
+.main-sidebar .menu li a {
+  color: white;
+  font-size: 1.4em;
+  text-decoration: none;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.33);
+  float: left;
+  padding-left: 7px;
+  margin-left: 3px;
+}
+
+.main-sidebar .menu li i {
+  color: white;
+  float: left;
+  width: 40px;
+  height: 50px;
+  margin-top: -12px;
+  margin-left: -15px;
+  font-size: 2em;
+  padding: 11px 7px;
+}
+
+.main-sidebar .menu li:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.main-sidebar .menu hr {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-iconbar {
+  width: 41px;
+  background-color: #f67b30;
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+  margin: 1px 1px 2px 1px !important;
+}
+
+.main {
+  color: #fff;
+  display: block;
+  width: 100%;
+  background: red;
+  min-height: 100vh;
+}
+
+#sub-conteudos,
+#sub-consultas {
+  z-index: -9999999999999999999999999999999;
+  left: -450px;
+  position: absolute;
+  margin-left: 233px;
+  background: rgba(34, 64, 105, 0.9);
+  width: 200px;
+  margin-top: -12px;
+}
+
+#sub-conteudos ul,
+#sub-consultas ul {
+  list-style: none;
+  font-size: .7em;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#sub-conteudos ul li,
+#sub-consultas ul li {
+  padding-left: 23px;
+}
+
+/** page login **/
+
+.login .card {
+  margin-top: 40px;
+}
+
+.login .card .btn-primary {
+  background-color: #f67b30;
+  border: none;
+}
+
+.login .card .btn-primary:hover {
+  background-color: #dc6f2b;
+}
+
+.pad-admin {
+  margin-left: 250px;
+}
+
+.btn-top-fixed {
+  float: right;
+  margin-top: -5px;
+  background-color: #f67b30;
+  border: none;
+  padding: 10px;
+  color: white;
+  position: fixed;
+  width: 15%;
+  margin-left: 65%;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.27);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.27);
+}
+
+/** page banners **/
+
+.banners {
+  text-align: center;
+  color: #1b4b72;
+}
+
+.banners h2 {
+  color: white;
+  background-color: #1b4b72;
+  width: 100%;
+  margin-top: -6px;
+  padding: 10px;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.27);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.27);
+}
+
+.banners label {
+  font-size: 1.3em;
+}
+
+.banners .banner {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #f67b30;
+  border: none;
+  margin-top: 30px;
+}
+
+.btn-primary:hover {
+  background-color: #dc6f2b;
+}
+
+.orcamentos {
+  margin-top: 90px;
+}
+
+.planos-mensais {
+  margin-top: 80px;
+  margin-left: 250px;
+  text-align: center;
+}
+
+.planos-mensais h2 {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #1b4b72;
+  margin-top: -6px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.planos-mensais h3 {
+  text-align: center;
+  color: #1b4b72;
+}
+
+.planos-mensais textarea {
+  margin-top: 20px;
+  height: 170px;
 }
 

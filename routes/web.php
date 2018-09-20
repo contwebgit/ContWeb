@@ -49,11 +49,24 @@ Route::get('/termos-de-uso', function(){
 })->name('termos-de-uso');
 
 
-
+/** ADMIN ROUTES */
 Route::get('/admin', function () {
-        return view('system.admin');
+    return view('system.admin');
 })->name('admin');
+
+Route::group(['prefix'=>'/conteudos'], function () {
+    Route::get('/banners', function () {
+        return view('system.conteudos.banners');
+    })->name('banners');
+    Route::post('/banners', 'ConteudosController@saveBanners')->name('save-banners');
+;});
+
+Route::group(['prefix' => '/consultas'], function () {
+    Route::get('/planos-mensais', 'ConsultasController@listPerguntas')->name('planos-mensais');
+    Route::post('/planos-mensais', 'ConsultasController@addPergunta')->name('add-pergunta');
+});
 
 /** AUTH ROUTES */
 Auth::routes();
+
 
