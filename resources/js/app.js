@@ -62,4 +62,14 @@ $(document).ready(function() {
             $("#sub-consultas").animate({"left": "-=467px"}, "slow");
         }
     });
+
+    $("#select-planos").on("change", function(){
+        if($(this).val() === ''){
+            $(".plano-novo").show();
+        }else{
+            $(".plano-novo").hide();
+        }
+    });
+
+
 }); // fim document ready

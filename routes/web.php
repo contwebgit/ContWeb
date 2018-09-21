@@ -48,6 +48,8 @@ Route::get('/termos-de-uso', function(){
     return view('termos-de-uso');
 })->name('termos-de-uso');
 
+Route::get('/orcamento', 'ConsultasController@orcamentos');
+
 
 /** ADMIN ROUTES */
 Route::get('/admin', function () {
@@ -63,7 +65,10 @@ Route::group(['prefix'=>'/conteudos'], function () {
 
 Route::group(['prefix' => '/consultas'], function () {
     Route::get('/planos-mensais', 'ConsultasController@listPerguntas')->name('planos-mensais');
-    Route::post('/planos-mensais', 'ConsultasController@addPergunta')->name('add-pergunta');
+    Route::post('/add-pergunta', 'ConsultasController@addPergunta')->name('add-pergunta');
+    Route::get('/delete-pergunta/{id}', 'ConsultasController@deletePergunta')->name('delete-pergunta');
+    //Route::get('/update-pergunta/{id}', 'ConsultasController@updatePergunta')->name('update-pergunta');
+
 });
 
 /** AUTH ROUTES */

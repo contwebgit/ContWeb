@@ -8,9 +8,13 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+html{
+  margin-right: -50px!important;
+}
+
 body{
-  margin: 0;
-  padding: 0;
+  margin: 0!important;
+  padding: 0!important;
 }
 
 .navbar{
@@ -892,10 +896,6 @@ body{
   background-color: #dc6f2b;
 }
 
-.orcamentos{
-  margin-top: 90px;
-}
-
 .planos-mensais{
   margin-top: 80px;
   margin-left: 250px;
@@ -917,9 +917,42 @@ body{
     margin-top: 20px;
     height: 170px;
   }
+  .action-icon{
+    font-size: 1.3em;
+    padding: 10px;
+  }
+  .plano, .plano-novo{
+    margin-bottom: 20px;
+  }
+  .plano-novo{
+    display: none;
+  }
 }
 
-
+.orcamentos{
+  margin-top: 50px;
+  padding: 0;
+  .banner{
+    background-image: url("/img/banner-orcamento.png");
+    background-position-y: -30px;
+    background-size: 100%;
+    padding: 200px;
+  }
+  .bg-orcamentos{
+    padding: 75px 50px;
+    .perguntas{
+      padding: 10px;
+      .pergunta{
+        box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+        padding: 10px;
+        label{
+          color: #1b4b72;
+          font-size: 1.3em;
+        }
+      }
+    }
+  }
+}
 
 
 
