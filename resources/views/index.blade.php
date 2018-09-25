@@ -76,74 +76,27 @@
             <h2 style="margin-top: 50px;">Planos Mensais</h2>
             <p class="col-xs-10 offset-xs-1">Confira abaixo nossos planos mensais para manter a contabilidade da sua empresa em dia!<br>Selecione um dos planos e formule já seu orçamento!</p>
             <div class="row">
-                <div class="plan col-md-3 col-xs-12">
-                    <div class="pad">
-                        <h5 class="title">Simples Nacional</h5>
-                        <hr>
-                        <h4>a partir de:</h4>
-                        <h2><span>R$</span>65<span>,00 /mês</span></h2>
-                        <hr>
-                        <ul>
-                            <li>Contrato sem fidelidade</li>
-                            <li>Não cobramos 13º</li>
-                        </ul>
-                        <hr>
-                        <h3 class="states">Exclusivo para<br>SP/ RJ/ MG/ GO/ PR/ SC/ RS</h3>
-                        <hr>
-                        <button>SIMULE UM ORÇAMENTO</button>
+                @foreach($planos as $plano)
+                    <div class="plan col-md-{{12/count($planos)}} col-xs-12">
+                        <div class="pad">
+                            <h5 class="title">{{$plano->plano}}</h5>
+                            <hr>
+                            <h4>a partir de:</h4>
+                            <h2><span>R$</span>{{$plano->preco}}<span>,00 /mês</span></h2>
+                            <hr>
+                            <ul>
+                                <li>Contrato sem fidelidade</li>
+                                <li>Não cobramos 13º</li>
+                            </ul>
+                            <hr>
+                            <h3 class="states">Exclusivo para<br>SP/ RJ/ MG/ GO/ PR/ SC/ RS</h3>
+                            <hr>
+                            <form action="{{route('orcamento', $plano->id)}}">
+                                <button>SIMULE UM ORÇAMENTO</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="plan col-md-3 col-xs-12">
-                    <div class="pad">
-                        <h5 class="title">Lucro Presumido</h5>
-                        <hr>
-                        <h4>a partir de:</h4>
-                        <h2><span>R$</span>100<span>,00 /mês</span></h2>
-                        <hr>
-                        <ul>
-                            <li>Contrato sem fidelidade</li>
-                            <li>Não cobramos 13º</li>
-                        </ul>
-                        <hr>
-                        <h3 class="states">Exclusivo para<br>SP/ RJ/ MG/ GO/ PR/ SC/ RS</h3>
-                        <hr>
-                        <button>SIMULE UM ORÇAMENTO</button>
-                    </div>
-                </div>
-                <div class="plan col-md-3 col-xs-12">
-                    <div class="pad">
-                        <h5 class="title">Lucro Real</h5>
-                        <hr>
-                        <h4>a partir de:</h4>
-                        <h2><span>R$</span>100<span>,00 /mês</span></h2>
-                        <hr>
-                        <ul>
-                            <li>Contrato sem fidelidade</li>
-                            <li>Não cobramos 13º</li>
-                        </ul>
-                        <hr>
-                        <h3 class="states">Exclusivo para<br>SP/ RJ/ MG/ GO/ PR/ SC/ RS</h3>
-                        <hr>
-                        <button>SIMULE UM ORÇAMENTO</button>
-                    </div>
-                </div>
-                <div class="plan col-md-3 col-xs-12">
-                    <div class="pad">
-                        <h5 class="title">MEI</h5>
-                        <hr>
-                        <h4>a partir de:</h4>
-                        <h2><span>R$</span>40<span>,00 /mês</span></h2>
-                        <hr>
-                        <ul>
-                            <li>Contrato sem fidelidade</li>
-                            <li>Não cobramos 13º</li>
-                        </ul>
-                        <hr>
-                        <h3 class="states">Exclusivo para<br>SP/ RJ/ MG/ GO/ PR/ SC/ RS</h3>
-                        <hr>
-                        <button>SIMULE UM ORÇAMENTO</button>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

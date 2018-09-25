@@ -10513,6 +10513,8 @@ body {
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
           box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
   margin-left: 7px;
+  border: none;
+  padding: 7px;
 }
 
 .btn-ac:hover {
@@ -10623,10 +10625,11 @@ body {
 
 .plans h2 {
   margin-top: 5px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 2.6em;
   min-height: 30px;
-  text-shadow: 1px 2px 3px #142940;
+  text-shadow: 1px 2px 3px rgba(20, 41, 64, 0.2);
+  font-weight: bold;
 }
 
 .plans h2 span {
@@ -10656,7 +10659,7 @@ body {
 }
 
 .plans .plan {
-  padding: 30px;
+  padding: 30px 30px 30px 30px;
   border: none;
 }
 
@@ -11406,7 +11409,8 @@ body {
 }
 
 #sub-conteudos,
-#sub-consultas {
+#sub-consultas,
+#sub-blogs {
   z-index: -9999999999999999999999999999999;
   left: -450px;
   position: absolute;
@@ -11417,7 +11421,8 @@ body {
 }
 
 #sub-conteudos ul,
-#sub-consultas ul {
+#sub-consultas ul,
+#sub-blogs ul {
   list-style: none;
   font-size: .7em;
   margin-left: 0;
@@ -11425,7 +11430,8 @@ body {
 }
 
 #sub-conteudos ul li,
-#sub-consultas ul li {
+#sub-consultas ul li,
+#sub-blogs ul li {
   padding-left: 23px;
 }
 
@@ -11537,34 +11543,257 @@ body {
   display: none;
 }
 
+.planos-mensais .preco {
+  margin-left: 7%;
+}
+
 .orcamentos {
   margin-top: 50px;
   padding: 0;
+}
+
+.orcamentos .container {
+  padding-bottom: 10px;
+}
+
+.orcamentos .container .contratar {
+  background-color: #158044;
+  font-size: 1.3em;
+  width: 50%;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.16);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
+}
+
+.orcamentos .container .contratar a {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.orcamentos .container .contratar:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  text-decoration: none;
+}
+
+.orcamentos h2 {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #1b4b72;
+  color: #dc6f2b;
+  padding: 15px;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  font-family: 'Raleway', sans-serif;
 }
 
 .orcamentos .banner {
   background-image: url("/img/banner-orcamento.png");
   background-position-y: -30px;
   background-size: 100%;
-  padding: 200px;
+  padding: 220px;
 }
 
 .orcamentos .bg-orcamentos {
-  padding: 75px 50px;
+  padding: 10px 50px;
+  color: #dc6f2b;
+  background-color: rgba(27, 75, 114, 0.04);
+}
+
+.orcamentos .bg-orcamentos form {
+  width: 50%;
+  float: left;
 }
 
 .orcamentos .bg-orcamentos .perguntas {
-  padding: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  min-height: 300px;
 }
 
 .orcamentos .bg-orcamentos .perguntas .pergunta {
+  text-align: center;
+  color: white;
+  background-color: #dc6f2b;
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
           box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
-  padding: 10px;
+  padding: 16px;
 }
 
 .orcamentos .bg-orcamentos .perguntas .pergunta label {
-  color: #1b4b72;
   font-size: 1.3em;
+}
+
+.orcamentos .bg-orcamentos .perguntas .pergunta select {
+  background-color: #dc6f2b;
+  color: white;
+  font-size: 1.3em;
+}
+
+.orcamentos .bg-orcamentos .perguntas .pergunta .input-line {
+  border-bottom: 2px solid white !important;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  color: white;
+  background-color: #dc6f2b;
+  width: 100%;
+  padding: 5px;
+}
+
+.orcamentos .bg-orcamentos .perguntas .pergunta .input-line:focus {
+  outline: none;
+}
+
+.orcamentos .total {
+  float: right;
+  width: 50%;
+  padding: 16px;
+  font-family: 'Raleway', sans-serif;
+  background-color: #1b4b72;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+  margin-top: 10px;
+}
+
+.orcamentos .total .line {
+  text-align: center;
+  border-bottom: 2px solid #dc6f2b;
+  min-height: 96px;
+}
+
+.orcamentos .total h3 {
+  font-size: 1.5em;
+}
+
+.orcamentos .total .input-line {
+  width: 100%;
+  font-size: 3em;
+  font-weight: 600;
+  border: none;
+}
+
+.orcamentos .total .input-line:focus {
+  outline: none;
+}
+
+.orcamentos .total .menor {
+  font-size: 1.6em;
+}
+
+.orcamentos .economia {
+  width: 50%;
+  float: right;
+  background-color: #1b4b72;
+  padding: 35px;
+  margin-top: 15px;
+}
+
+.orcamentos .economia .atual {
+  width: 100%;
+}
+
+.orcamentos .economia .atual input {
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: #1b4b72;
+  color: white;
+  width: 100%;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.orcamentos .economia .atual input::-webkit-input-placeholder {
+  color: #c7c7c7;
+  font-size: 1em;
+  text-align: center;
+}
+
+.orcamentos .economia .atual input:-ms-input-placeholder {
+  color: #c7c7c7;
+  font-size: 1em;
+  text-align: center;
+}
+
+.orcamentos .economia .atual input::-ms-input-placeholder {
+  color: #c7c7c7;
+  font-size: 1em;
+  text-align: center;
+}
+
+.orcamentos .economia .atual input::placeholder {
+  color: #c7c7c7;
+  font-size: 1em;
+  text-align: center;
+}
+
+.orcamentos .economia .atual input:focus {
+  outline: none;
+}
+
+.orcamentos .economia .economia-total {
+  width: 100%;
+  text-align: center;
+}
+
+.orcamentos .economia .economia-total p {
+  margin-top: 3px;
+  margin-bottom: -7px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 1.2em;
+}
+
+.orcamentos .economia .economia-total span {
+  font-size: 1.3em;
+}
+
+.orcamentos .economia .economia-total .input-line {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.adicionar-post {
+  margin-left: 190px;
+  text-align: center;
+}
+
+.adicionar-post .header {
+  background-color: #1b4b72;
+  color: white;
+  padding: 10px;
+  margin-top: -6px;
+}
+
+.posts {
+  margin-left: 210px;
+  margin-right: 10px;
+}
+
+.adicionar-categorias,
+.listar-categorias,
+.listar-posts {
+  margin-left: 190px;
+  text-align: center;
+}
+
+.adicionar-categorias .header,
+.listar-categorias .header,
+.listar-posts .header {
+  background-color: #1b4b72;
+  color: white;
+  padding: 10px;
+  margin-top: -6px;
+  margin-bottom: 15px;
 }
 

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', 'ConsultasController@listPlanos')->name('home');
 
 /** NAVBAR ROUTES */
 Route::get('/quem-somos', function () {
@@ -48,7 +46,7 @@ Route::get('/termos-de-uso', function(){
     return view('termos-de-uso');
 })->name('termos-de-uso');
 
-Route::get('/orcamento', 'ConsultasController@orcamentos');
+Route::get('/orcamento/{id}', 'ConsultasController@orcamentos')->name('orcamento');
 
 
 /** ADMIN ROUTES */
@@ -68,7 +66,23 @@ Route::group(['prefix' => '/consultas'], function () {
     Route::post('/add-pergunta', 'ConsultasController@addPergunta')->name('add-pergunta');
     Route::get('/delete-pergunta/{id}', 'ConsultasController@deletePergunta')->name('delete-pergunta');
     //Route::get('/update-pergunta/{id}', 'ConsultasController@updatePergunta')->name('update-pergunta');
+});
 
+Route::group(['prefix' => '/blog'], function () {
+    Route::get('/adicionar-post', function () {
+       return view('system.blog.adicionar-post');
+    })->name('adicionar-post');
+    Route::post('/adicionar-post', 'BlogController@addPost')->name('adicionar-post-action');
+
+    Route::get('/listar-posts', 'BlogController@listarPosts')->name('listar-posts');
+
+    Route::post('/adicionar-categoria', 'BlogController@addCategoria')->name('adicionar-categoria-action');
+
+    Route::get('/adicionar-categoria', function () {
+        return view('system.blog.adicionar-categoria');
+    })->name('adicionar-categoria');
+
+    Route::get('/listar-categorias', 'BlogController@listarCategorias')->name('listar-categorias');
 });
 
 /** AUTH ROUTES */

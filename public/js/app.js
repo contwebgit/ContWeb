@@ -13761,11 +13761,29 @@ $(document).ready(function () {
         }
     });
 
+    $("#blogs").on("click", function () {
+        var left = $("#sub-blogs").css("left").split("px")[0];
+        if (parseInt(left) < 1 || left === "auto") {
+            $("#sub-blogs").animate({ "left": "+=467px" }, "slow");
+        } else {
+            $("#sub-blogs").animate({ "left": "-=467px" }, "slow");
+        }
+    });
+
     $("#select-planos").on("change", function () {
         if ($(this).val() === '') {
             $(".plano-novo").show();
         } else {
             $(".plano-novo").hide();
+        }
+    });
+
+    $(window).on("scroll", function () {
+        if ($(this).scrollTop() > 400) {
+            $("fixed-content").addClass("fixed");
+            console.log(11);
+        } else {
+            $("fixed-content").removeClass("fixed");
         }
     });
 }); // fim document ready

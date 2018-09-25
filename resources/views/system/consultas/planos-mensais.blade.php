@@ -19,7 +19,10 @@
                     </select>
                 </div>
                 <div class="plano-novo">
-                    <input type="text" name="plano-novo" class="form-control col-md-6 offset-md-3" placeholder="Novo Plano">
+                    <div class="row offset-md-3">
+                        <input type="text" name="plano-novo" class="form-control col-md-5" placeholder="Novo Plano">
+                        <input type="text" name="preco-plano" class="form-control col-md-2 preco" placeholder="Preço">
+                    </div>
                 </div>
                 <div class="pergunta">
                     <input type="text" name="pergunta" class="form-control col-md-6 offset-md-3" placeholder="Pergunta">

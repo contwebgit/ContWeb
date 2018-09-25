@@ -51,6 +51,29 @@
                     </div>
                 </li>
                 <hr>
+                <li id="blogs">
+                    <div class="icon">
+                        <i class="fab fa-blogger-b"></i>
+                    </div>
+                    <a href="#">Blog</a>
+                    <div id="sub-blogs">
+                        <ul>
+                            <li>
+                                <a href="{{route('adicionar-post')}}">Adicionar Post</a>
+                            </li>
+                            <li>
+                                <a href="{{route('listar-posts')}}">Listar Posts</a>
+                            </li>
+                            <li>
+                                <a href="{{route('adicionar-categoria')}}">Adicionar Categoria</a>
+                            </li>
+                            <li>
+                                <a href="{{route('listar-categorias')}}">Listar Categoria</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <hr>
                 <li><div class="icon">
                         <i class="fas fa-sliders-h"></i>
                     </div>
@@ -62,13 +85,6 @@
                         <i class="fas fa-cog"></i>
                     </div>
                     <a href="#">Configurações</a>
-                </li>
-                <hr>
-                <li>
-                    <div class="icon">
-                        <i class="fab fa-blogger-b"></i>
-                    </div>
-                    <a href="#">Blog</a>
                 </li>
                 <hr>
             </ul>
