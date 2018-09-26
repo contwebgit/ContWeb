@@ -18,9 +18,9 @@ Route::get('/quem-somos', function () {
     return view('quem-somos');
 })->name('quem-somos');
 
-Route::get('blogs', function () {
-   return view('blogs');
-})->name('blogs');
+Route::get('/blog', 'BlogController@listarPostsOnPage')->name('blog');
+
+Route::get('/post/{id}', 'BlogController@mostrarPost')->name('mostrar-post');
 
 Route::get('/planos', function () {
    return view('planos');
@@ -29,6 +29,8 @@ Route::get('/planos', function () {
 Route::get('/contato', function () {
    return view('contato');
 })->name('contato');
+
+Route::post('/enviar-contato', 'HomeController@enviarContato')->name('enviar-contato');
 
 Route::get('/o-que-e-contabilidade', function () {
     return view('contabilidade-online');
@@ -49,6 +51,7 @@ Route::get('/termos-de-uso', function(){
 Route::get('/orcamento/{id}', 'ConsultasController@orcamentos')->name('orcamento');
 
 
+
 /** ADMIN ROUTES */
 Route::get('/admin', function () {
     return view('system.admin');
@@ -66,12 +69,13 @@ Route::group(['prefix' => '/consultas'], function () {
     Route::post('/add-pergunta', 'ConsultasController@addPergunta')->name('add-pergunta');
     Route::get('/delete-pergunta/{id}', 'ConsultasController@deletePergunta')->name('delete-pergunta');
     //Route::get('/update-pergunta/{id}', 'ConsultasController@updatePergunta')->name('update-pergunta');
+
+    Route::get('/listar-planos', 'ConsultasController@listarPlanos')->name('listar-planos');
+    Route::get('/delete-plano/{id}', 'ConsultasController@deletePlano')->name('delete-plano');
 });
 
 Route::group(['prefix' => '/blog'], function () {
-    Route::get('/adicionar-post', function () {
-       return view('system.blog.adicionar-post');
-    })->name('adicionar-post');
+    Route::get('/adicionar-post', 'BlogController@viewAddPost')->name('adicionar-post');
     Route::post('/adicionar-post', 'BlogController@addPost')->name('adicionar-post-action');
 
     Route::get('/listar-posts', 'BlogController@listarPosts')->name('listar-posts');
@@ -87,5 +91,3 @@ Route::group(['prefix' => '/blog'], function () {
 
 /** AUTH ROUTES */
 Auth::routes();
-
-

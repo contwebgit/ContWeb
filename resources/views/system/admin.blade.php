@@ -47,6 +47,9 @@
                             <li>
                                 <a href="">Contrato de Planos Mensais</a>
                             </li>
+                            <li>
+                                <a href="{{route('listar-planos')}}">Listar Planos</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

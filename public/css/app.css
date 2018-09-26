@@ -10492,6 +10492,14 @@ body {
   background-color: #f8fafc;
 }
 
+.navbar .nav-item {
+  margin-top: 3px;
+}
+
+.navbar .btn-ac {
+  margin-top: -5px;
+}
+
 #admin-content {
   z-index: 9;
   margin-top: 90px;
@@ -11184,6 +11192,7 @@ body {
   border-radius: 3px;
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.21);
           box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.21);
+  width: 100%;
 }
 
 .blog .posts .post .title {
@@ -11504,8 +11513,9 @@ body {
 }
 
 .planos-mensais {
-  margin-top: 80px;
-  margin-left: 250px;
+  margin-top: 79px;
+  margin-left: 180px;
+  margin-right: 90px;
   text-align: center;
 }
 
@@ -11514,14 +11524,20 @@ body {
   padding: 10px;
   text-align: center;
   background-color: #1b4b72;
-  margin-top: -6px;
+  margin-top: -7px;
   color: white;
   margin-bottom: 20px;
+  margin-left: 40px;
 }
 
 .planos-mensais h3 {
   text-align: center;
   color: #1b4b72;
+}
+
+.planos-mensais .table {
+  margin-top: -80px;
+  margin-left: 55px;
 }
 
 .planos-mensais textarea {
@@ -11776,24 +11792,71 @@ body {
 }
 
 .posts {
-  margin-left: 210px;
+  margin-left: -10px;
   margin-right: 10px;
 }
 
 .adicionar-categorias,
 .listar-categorias,
-.listar-posts {
-  margin-left: 190px;
+.listar-posts,
+.listar-planos {
+  margin-left: 220px;
   text-align: center;
 }
 
 .adicionar-categorias .header,
 .listar-categorias .header,
-.listar-posts .header {
+.listar-posts .header,
+.listar-planos .header {
   background-color: #1b4b72;
   color: white;
   padding: 10px;
   margin-top: -6px;
   margin-bottom: 15px;
+}
+
+.adicionar-categorias h2,
+.listar-categorias h2,
+.listar-posts h2,
+.listar-planos h2 {
+  margin-left: 30px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #1b4b72;
+  margin-top: -6px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.adicionar-categorias .container .table,
+.listar-categorias .container .table,
+.listar-posts .container .table,
+.listar-planos .container .table {
+  margin-top: -20px;
+}
+
+.post-single .header {
+  margin-top: 90px;
+  margin-left: 50px;
+}
+
+.post-single .info-post {
+  color: rgba(27, 30, 33, 0.46);
+  font-style: italic;
+}
+
+.post-single .info-post .author,
+.post-single .info-post .date,
+.post-single .info-post .category {
+  margin-left: 50px;
+  font-size: .7em;
+}
+
+.post-single .info-post .author i,
+.post-single .info-post .date i,
+.post-single .info-post .category i {
+  margin-top: 5px;
+  padding-right: 3px;
 }
 

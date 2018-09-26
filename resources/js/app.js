@@ -72,6 +72,8 @@ $(document).ready(function() {
         }
     });
 
+
+
     $("#select-planos").on("change", function(){
         if($(this).val() === ''){
             $(".plano-novo").show();

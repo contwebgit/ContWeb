@@ -8,6 +8,7 @@ use App\Perguntas;
 
 class ConsultasController extends Controller
 {
+
     /**
      * Function that list all plans.
      *
@@ -16,6 +17,11 @@ class ConsultasController extends Controller
     public function listPlanos(){
         $planos = Planos::All();
         return view('index', compact('planos'));
+    }
+
+    public function listarPlanos(){
+        $planos = Planos::All();
+        return view('system.consultas.listar-planos', compact('planos'));
     }
 
     /**
@@ -92,5 +98,12 @@ class ConsultasController extends Controller
         $perguntas = Perguntas::where('plano', $id)->get();
         $plano = Planos::find($id)->first()->plano;
         return view('orcamento', compact('perguntas', 'plano'));
+    }
+
+    public function deletePlano($id){
+        $plano = Planos::find($id);
+        $plano->delete();
+
+        return redirect()->route('listar-planos');
     }
 }

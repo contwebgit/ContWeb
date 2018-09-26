@@ -17,6 +17,7 @@
                    <th scope="col">Conteúdo</th>
                    <th scope="col">Autor</th>
                    <th scope="col">Publicado</th>
+                   <th></th>
                </tr>
                </thead>
                <tbody>

@@ -12,7 +12,7 @@
                    <a class="nav-link" href="/#plans">PLANOS</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="{{route('blogs')}}">BLOGS</a>
+                   <a class="nav-link" href="{{route('blog')}}">BLOGS</a>
                </li>
                <li class="nav-item">
                    <a class="nav-link" href="{{route('contato')}}">CONTATO</a>

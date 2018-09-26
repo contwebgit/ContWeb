@@ -9,6 +9,11 @@ use App\Categoria;
 
 class BlogController extends Controller
 {
+    public function viewAddPost(){
+        $categorias = Categoria::all();
+        return view('system.blog.adicionar-post', compact('categorias'));
+    }
+
     public function addPost(Request $request){
         $post = new Post();
         $post->setAttribute('titulo', $request->input('titulo'));
@@ -17,12 +22,21 @@ class BlogController extends Controller
         $post->setAttribute('categoria', 1);
         $post->save();
 
-        return redirect()->route('listar-posts');
+        $img = $request->file('imagem');
+        $ext = $img->extension();
+        $img->storeAs('post/', $post->getAttribute('id') . '.' . $ext);
+
+        return redirect()->route('blog');
     }
 
     public function listarPosts(){
         $posts = Post::All();
         return view('system.blog.listar-posts', compact('posts'));
+    }
+
+    public function listarPostsOnPage(){
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        return view('blogs', compact('posts'));
     }
 
     public function addCategoria(Request $request){
@@ -36,5 +50,10 @@ class BlogController extends Controller
     public function listarCategorias(){
         $categorias = Categoria::all();;
         return view('system.blog.listar-categorias', compact('categorias'));
+    }
+
+    public function mostrarPost($id){
+        $post = Post::find($id);
+        return view('post', compact('post'));
     }
 }
