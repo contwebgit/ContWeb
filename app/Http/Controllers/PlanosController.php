@@ -6,7 +6,7 @@ use App\Planos;
 use Illuminate\Http\Request;
 use App\Perguntas;
 
-class ConsultasController extends Controller
+class PlanosController extends Controller
 {
 
     /**
@@ -80,13 +80,42 @@ class ConsultasController extends Controller
         return redirect()->route('planos-mensais');
     }
 
+    public function viewEditarPergunta($id){
+        $pergunta = Perguntas::find($id);
+        $planos = Planos::all();
+        return view('system.consultas.editar-pergunta', compact('pergunta', 'planos'));
+    }
+
     /**
      * Function that update a question.
      *
-     * @param $id
      */
-    public function updatePergunta($id){
-        //Perguntas::find($id)->update();
+    public function editarPergunta($id, Request $request){
+        $pergunta = Perguntas::find($id);
+
+        $pergunta->setAttribute('pergunta', $request->input('pergunta'));
+        $pergunta->setAttribute('respostas', $request->input('respostas'));
+
+        $novoPlano = $request->input('plano-novo');
+
+        if(!empty($novoPlano)){
+            if(Planos::where('plano', $novoPlano."-")->first() != null){
+                return view('planos-mensais');
+            }
+
+            $plano = new Planos();
+            $plano->setAttribute('plano', $novoPlano);
+            $plano->setAttribute('preco', $request->input('preco-plano'));
+            $plano->save();
+
+            $pergunta->setAttribute('plano', $plano->getAttributeValue('id'));
+        }else{
+            $pergunta->setAttribute('plano', $request->input('plano'));
+        }
+
+        $pergunta->save();
+
+        return redirect()->route('planos-mensais');
     }
 
     /**

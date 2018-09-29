@@ -2,12 +2,12 @@
 
 @section('admin-content')
     <div class="listar-categorias">
-        <div class="header">
-            <h2>
-                Lista de Categorias
-            </h2>
-        </div>
         <div class="container">
+            <div class="header">
+                <h2>
+                    Lista de Categorias
+                </h2>
+            </div>
             <table class="table table-striped">
                 <thead>
                 <tr>

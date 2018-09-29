@@ -2,8 +2,8 @@
 
 @section('admin-content')
     <div class="listar-planos">
-        <h2>Planos</h2>
         <div class="container">
+            <h2>Planos</h2>
             <table class="table table-striped">
                 <thead>
                 <tr>

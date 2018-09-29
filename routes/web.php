@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'ConsultasController@listPlanos')->name('home');
+Route::get('/', 'PlanosController@listPlanos')->name('home');
 
 /** NAVBAR ROUTES */
 Route::get('/quem-somos', function () {
@@ -48,7 +48,7 @@ Route::get('/termos-de-uso', function(){
     return view('termos-de-uso');
 })->name('termos-de-uso');
 
-Route::get('/orcamento/{id}', 'ConsultasController@orcamentos')->name('orcamento');
+Route::get('/orcamento/{id}', 'PlanosController@orcamentos')->name('orcamento');
 
 
 
@@ -62,16 +62,20 @@ Route::group(['prefix'=>'/conteudos'], function () {
         return view('system.conteudos.banners');
     })->name('banners');
     Route::post('/banners', 'ConteudosController@saveBanners')->name('save-banners');
-;});
+});
 
 Route::group(['prefix' => '/consultas'], function () {
-    Route::get('/planos-mensais', 'ConsultasController@listPerguntas')->name('planos-mensais');
-    Route::post('/add-pergunta', 'ConsultasController@addPergunta')->name('add-pergunta');
-    Route::get('/delete-pergunta/{id}', 'ConsultasController@deletePergunta')->name('delete-pergunta');
-    //Route::get('/update-pergunta/{id}', 'ConsultasController@updatePergunta')->name('update-pergunta');
-
-    Route::get('/listar-planos', 'ConsultasController@listarPlanos')->name('listar-planos');
-    Route::get('/delete-plano/{id}', 'ConsultasController@deletePlano')->name('delete-plano');
+    Route::get('/planos-mensais', 'PlanosController@listPerguntas')->name('planos-mensais');
+    Route::post('/add-pergunta', 'PlanosController@addPergunta')->name('add-pergunta');
+    Route::get('/delete-pergunta/{id}', 'PlanosController@deletePergunta')->name('delete-pergunta');
+    Route::get('/editar-pergunta/{id}', 'PlanosController@viewEditarPergunta')->name('editar-pergunta');
+    Route::post('/editar-pergunta', 'PlanosController@editarPergunta')->name('editar-pergunta-action');
+    Route::get('/listar-planos', 'PlanosController@listarPlanos')->name('listar-planos');
+    Route::get('/delete-plano/{id}', 'PlanosController@deletePlano')->name('delete-plano');
+    Route::get('adicionar-plano', function(){
+        return view('system.consultas.adicionar-plano');
+    })->name("adicionar-plano");
+    Route::post('/adicionar-plano', 'PlanosController@');
 });
 
 Route::group(['prefix' => '/blog'], function () {

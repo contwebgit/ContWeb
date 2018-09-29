@@ -2,9 +2,8 @@
 
 @section('admin-content')
     <div class="planos-mensais">
-        <h2>Planos</h2>
         <div id="modal-planos" class="modal" role="dialog">
-            <h2>Perguntas para Orçamento</h2>
+            <h4>Perguntas para Orçamento<button type="submit" class="btn btn-secundary close" data-dismiss="modal">x</button></h2>
             <div class="container">
                 <form action="{{route('add-pergunta')}}" method="POST">
                     @csrf
@@ -38,6 +37,10 @@
         </div>
     </div>
     <div class=" planos-mensais perguntas container">
+        <h2>Perguntas</h2>
+        <button id="adicionar-pergunta" class="btn-ac">
+            Nova Pergunta
+        </button>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -56,10 +59,10 @@
                     <td>{{$pergunta->pergunta}}</td>
                     <td>{{$pergunta->respostas}}</td>
                     <td>
-                        <a class="action-icon" href="">
+                        <a class="action-icon" href="{{route('editar-pergunta', [ 'id' => $pergunta->id ])}}">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a class="action-icon" href="{{route('delete-pergunta', ['id' => $pergunta->id ])}}">
+                        <a class="action-icon" href="{{route('delete-pergunta', [ 'id' => $pergunta->id ])}}">
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>

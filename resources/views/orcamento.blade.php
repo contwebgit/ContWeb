@@ -18,7 +18,7 @@
                                         @endforeach
                                     </select>
                                 @else
-                                    <input type="text" name="resposta-{{$pergunta->id}}" id="{{$pergunta->id}}" class="input-line">
+                                    <input type="text" name="resposta-{{$pergunta->id}}" id="{{$pergunta->id}}" class="input-line" placeholder="0">
                                 @endif
                             </div>
                         @endforeach
@@ -43,7 +43,7 @@
                         <h3>Seu orçamento é de:</h3>
                         <div class="line">
                             <span class="menor">R$ </span>
-                            <span class="input-line">176</span>
+                            <span class="input-line totalAtual">0</span>
                             <span class="menor">,00</span>
                         </div>
                     </div>

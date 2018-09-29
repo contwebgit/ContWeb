@@ -72,7 +72,9 @@ $(document).ready(function() {
         }
     });
 
-
+    $("#adicionar-pergunta").on("click", function(){
+        $("#modal-planos").modal();
+    });
 
     $("#select-planos").on("change", function(){
         if($(this).val() === ''){
@@ -89,5 +91,15 @@ $(document).ready(function() {
         }else{
             $("fixed-content").removeClass("fixed");
         }
+    });
+
+    $(".input-line").keyup(function(){
+        let resposta = 0;
+        for(var i=0; i<$(".input-line").left-2; i++){
+           resposta += parseInt($(this)[0].value);
+        }
+        var total = (10 * resposta);
+        $(".totalAtual").val(total);
+        $(".totalAtual").text(total);
     });
 }); // fim document ready

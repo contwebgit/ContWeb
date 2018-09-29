@@ -35,11 +35,14 @@
                     <div class="icon">
                         <i class="fas fa-search"></i>
                     </div>
-                    <a href="#">Consultas</a>
+                    <a href="#">Planos</a>
                     <div id="sub-consultas">
                         <ul>
                             <li>
                                 <a href="{{route('planos-mensais')}}">Planos Mensais</a>
+                            </li>
+                            <li>
+                                <a href="{{route('adicionar-plano')}}">Adicionar Plano</a>
                             </li>
                             <li>
                                 <a href="">Serviços Avulsos</a>
