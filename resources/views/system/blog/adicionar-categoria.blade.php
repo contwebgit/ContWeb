@@ -1,16 +1,15 @@
 @extends('system.admin')
 
 @section('admin-content')
-    <div class="adicionar-categorias">
+    <div class="adicionar-categorias box">
         <div class="container">
-            <div class="header">
-                <h2>Adicionar Categoria</h2>
-            </div>
+            <h2 class="blue">Adicionar Categoria</h2>
+            <br>
             <form action="{{route('adicionar-categoria')}}" method="POST">
                 @csrf
-                <input type="text" name="categoria" placeholder="Categoria"  class="form-control col-md-6">
+                <input type="text" name="categoria" placeholder="Categoria"  class="form-control">
                 <br>
-                <button type="submit" class="btn-ac col-md-4 offset-md-4">Adicionar</button>
+                <button type="submit" class="btn btn-primary">Adicionar</button>
             </form>
         </div>
     </div>

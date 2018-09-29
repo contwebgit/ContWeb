@@ -4,6 +4,12 @@
     <div class="listar-planos">
         <div class="container">
             <h2>Planos</h2>
+            <div class="mensagem">
+                @if(@$s)
+                    <span class="badge badge-success col-md-12">Seu Plano Foi adicionado com sucesso!</span>
+                @endif
+            </div>
+            <br>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -20,10 +26,10 @@
                         <td>{{$plano->plano}}</td>
                         <td>{{$plano->created_at}}</td>
                         <td>
-                            <a class="action-icon" href="">
+                            <a class="action-icon" href="{{route('editar-plano', ['id' => $plano->id])}}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a class="action-icon" href="{{route('delete-plano', ['id' => $plano->id ])}}">
+                            <a class="action-icon" href="{{route('delete-plano', ['id' => $plano->id])}}">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </td>

@@ -31,15 +31,15 @@
                     </div>
                 </li>
                 <hr>
-                <li id="consultas">
+                <li id="planos">
                     <div class="icon">
                         <i class="fas fa-search"></i>
                     </div>
                     <a href="#">Planos</a>
-                    <div id="sub-consultas">
+                    <div id="sub-planos">
                         <ul>
                             <li>
-                                <a href="{{route('planos-mensais')}}">Planos Mensais</a>
+                                <a href="{{route('perguntas')}}">Perguntas</a>
                             </li>
                             <li>
                                 <a href="{{route('adicionar-plano')}}">Adicionar Plano</a>

@@ -5,7 +5,7 @@
         <div id="modal-planos" class="modal" role="dialog">
             <h4>Perguntas para Orçamento<button type="submit" class="btn btn-secundary close" data-dismiss="modal">x</button></h2>
             <div class="container">
-                <form action="{{route('add-pergunta')}}" method="POST">
+                <form action="" method="POST">
                     @csrf
                     <h3>Nova Pergunta: </h3>
                     <div class="plano">

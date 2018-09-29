@@ -64,19 +64,32 @@ Route::group(['prefix'=>'/conteudos'], function () {
     Route::post('/banners', 'ConteudosController@saveBanners')->name('save-banners');
 });
 
-Route::group(['prefix' => '/consultas'], function () {
-    Route::get('/planos-mensais', 'PlanosController@listPerguntas')->name('planos-mensais');
-    Route::post('/add-pergunta', 'PlanosController@addPergunta')->name('add-pergunta');
+Route::group(['prefix' => '/planos'], function () {
+
+    Route::get('/perguntas', 'PlanosController@listPerguntas')->name('perguntas');
+
+    /** PERGUNTAS */
+    Route::get('/adicionar-pergunta', 'PlanosController@adicionarPerguntaView')->name('adicionar-pergunta');
+    Route::post('/adicionar-pergunta', 'PlanosController@adicionarPergunta')->name('adicionar-pergunta-action');
+
     Route::get('/delete-pergunta/{id}', 'PlanosController@deletePergunta')->name('delete-pergunta');
+
     Route::get('/editar-pergunta/{id}', 'PlanosController@viewEditarPergunta')->name('editar-pergunta');
     Route::post('/editar-pergunta', 'PlanosController@editarPergunta')->name('editar-pergunta-action');
+
+    /** PLANOS */
+    Route::get('adicionar-plano', function(){
+        return view('system.planos.adicionar-plano');
+    })->name("adicionar-plano");
+    Route::post('/adicionar-plano', 'PlanosController@adicionarPlano')->name('adicionar-plano-action');
+
+    Route::get('/editar-plano/{id}', 'PlanosController@editarPlanoView')->name('editar-plano');
+    Route::post('/editar-plano', 'PlanosController@editarPlano')->name('editar-plano-action');
+
     Route::get('/listar-planos', 'PlanosController@listarPlanos')->name('listar-planos');
     Route::get('/delete-plano/{id}', 'PlanosController@deletePlano')->name('delete-plano');
-    Route::get('adicionar-plano', function(){
-        return view('system.consultas.adicionar-plano');
-    })->name("adicionar-plano");
-    Route::post('/adicionar-plano', 'PlanosController@');
 });
+
 
 Route::group(['prefix' => '/blog'], function () {
     Route::get('/adicionar-post', 'BlogController@viewAddPost')->name('adicionar-post');

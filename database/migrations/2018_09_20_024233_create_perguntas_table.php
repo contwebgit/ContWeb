@@ -17,6 +17,7 @@ class CreatePerguntasTable extends Migration
             $table->increments('id');
             $table->integer('plano');
             $table->string('pergunta');
+            $table->string('estados');
             $table->string('respostas')->nullable();
             $table->timestamps();
         });

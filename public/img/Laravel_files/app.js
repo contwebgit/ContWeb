@@ -13752,12 +13752,12 @@ $(document).ready(function () {
         }
     });
 
-    $("#consultas").on("click", function () {
-        var left = $("#sub-consultas").css("left").split("px")[0];
+    $("#planos").on("click", function () {
+        var left = $("#sub-planos").css("left").split("px")[0];
         if (parseInt(left) < 1 || left === "auto") {
-            $("#sub-consultas").animate({ "left": "+=467px" }, "slow");
+            $("#sub-planos").animate({ "left": "+=467px" }, "slow");
         } else {
-            $("#sub-consultas").animate({ "left": "-=467px" }, "slow");
+            $("#sub-planos").animate({ "left": "-=467px" }, "slow");
         }
     });
 

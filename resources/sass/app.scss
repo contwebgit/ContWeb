@@ -825,7 +825,7 @@ body{
 }
 
 
-#sub-conteudos, #sub-consultas, #sub-blogs{
+#sub-conteudos, #sub-planos, #sub-blogs{
   z-index: -9999999999999999999999999999999;
   left: -450px;
   position: absolute;
@@ -1203,77 +1203,12 @@ body > div.modal-backdrop.show{
   margin-left: 15px!important;
 }
 
-.listar-categorias, .listar-posts{
-  .container{
-    float:left;
-    width: 100%;
-    margin-left: 235px;
-    .header{
-      width: 100%;
-      color: white;
-      background-color: #1b4b72;
-      text-align: center;
-      padding: 5px;
-      margin-top: -6px;
-    }
-  }
-}
-
-.adicionar-categorias, .adicionar-post{
-  .container{
-    float:left;
-    width: 100%;
-    margin-left: 230px;
-    .header{
-      background-color: #1b4b72;
-      color: white;
-      text-align: center;
-      padding: 5px;
-      margin-top: -6px;
-    }
-    form{
-      margin-top: 20px;
-      text-align: center;
-      input, select, textarea{
-        margin-left: 20%;
-      }
-      .btn-ac{
-        width: 20%;
-        margin-left: 5%;
-      }
-    }
-  }
-}
-
 .editar-pergunta{
-  .container{
-    float:left;
-    width: 100%;
-    margin-left: 230px;
-    h3{
-      padding: 5px 50px 5px 50px;
-    }
-    h2{
-      background-color: #1b4b72;
-      color: white;
-      padding: 5px 50px 5px 50px;
-      margin-top: -6px;
-    }
-    .form-control{
-      margin-left: 30px;
-      margin-bottom: 20px;
-    }
-    button{
-      margin-left: 200px;
-    }
-    .pad{
-      margin-left: 67px;
-    }
-  }
+  margin-top: 100px;
 }
 
-.adicionar-plano{
-  margin-top: 180px;
+.adicionar-plano, .box{
+  margin-top: 100px;
   h2{
     text-align: center;
   }
@@ -1281,4 +1216,19 @@ body > div.modal-backdrop.show{
 
 .blue{
   color: #1b4b72;
+  text-align: center;
+}
+
+.mensagem{
+  padding: 10px;
+  font-size: 1.4em;
+}
+
+.form-check{
+  float: left;
+  margin-right: 20px;
+}
+
+.login, .register, .verify{
+  margin-top: 110px;
 }

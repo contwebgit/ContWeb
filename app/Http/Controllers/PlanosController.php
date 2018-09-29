@@ -8,7 +8,6 @@ use App\Perguntas;
 
 class PlanosController extends Controller
 {
-
     /**
      * Function that list all plans.
      *
@@ -19,9 +18,14 @@ class PlanosController extends Controller
         return view('index', compact('planos'));
     }
 
+    /**
+     * Function that list plans.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function listarPlanos(){
         $planos = Planos::All();
-        return view('system.consultas.listar-planos', compact('planos'));
+        return view('system.planos.listar-planos', compact('planos'));
     }
 
     /**
@@ -33,7 +37,79 @@ class PlanosController extends Controller
         $perguntas = Perguntas::all();
         $planos = Planos::all();
 
-        return view('system.consultas.planos-mensais', compact('perguntas', 'planos'));
+        return view('system.planos.perguntas', compact('perguntas', 'planos'));
+    }
+
+    /**
+     * Function that add a plan.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function adicionarPlano(Request $request){
+        $plano = new Planos();
+        $plano->setAttribute('plano', $request->input('plano'));
+        $plano->setAttribute('preco', $request->input('preco'));
+
+        if(!empty($plano->getAttribute('plano')) && !empty($plano->getAttribute('preco'))) {
+            $plano->save();
+            return redirect()->route('listar-planos', ['s' => true]);
+        }
+
+        return redirect()->route('adicionar-plano', ['s' => false]);
+    }
+
+    /**
+     * Function that return a view to edit a plan.
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
+    public function editarPlanoView($id){
+        $plano = Planos::find($id);
+        $perguntas = Perguntas::where('plano', $id)->get();
+
+        if(!empty($plano)){
+            return view('system.planos.editar-plano', compact('plano', 'perguntas'));
+        }
+
+        return redirect(404);
+    }
+
+    /**
+     * Function to edit plan.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function editarPlano(Request $request){
+        $id = $request->get('id');
+        $plano = Planos::find($id);
+
+        $plano->setAttribute('plano', $request->input('plano'));
+        $plano->setAttribute('preco', $request->input('preco'));
+        $plano->save();
+
+        return redirect()->route('listar-planos');
+
+    }
+
+    /**
+     * Function to delete a plan.
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function deletePlano($id){
+        $plano = Planos::find($id);
+        $plano->delete();
+
+        return view('system.planos.listar-planos');
+    }
+
+    public function adicionarPerguntaView(Request $request){
+        $plano = $request->get('id');
+        return view('system.planos.adicionar-pergunta', compact('plano'));
     }
 
     /**
@@ -42,31 +118,16 @@ class PlanosController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function addPergunta(Request $request){
+    public function adicionarPergunta(Request $request){
         $pergunta = new Perguntas();
         $pergunta->setAttribute('pergunta', $request->input('pergunta'));
         $pergunta->setAttribute('respostas', $request->input('respostas'));
-
-        $novoPlano = $request->input('plano-novo');
-
-        if(!empty($novoPlano)){
-            if(Planos::where('plano', $novoPlano."-")->first() != null){
-                return view('planos-mensais');
-            }
-
-            $plano = new Planos();
-            $plano->setAttribute('plano', $novoPlano);
-            $plano->setAttribute('preco', $request->input('preco-plano'));
-            $plano->save();
-
-            $pergunta->setAttribute('plano', $plano->getAttributeValue('id'));
-        }else{
-            $pergunta->setAttribute('plano', $request->input('plano'));
-        }
+        $pergunta->setAttribute('estados', implode(",", $request->input('estados')));
+        $pergunta->setAttribute('plano', $request->get('id'));
 
         $pergunta->save();
 
-        return redirect()->route('planos-mensais');
+        return redirect()->route('editar-plano', ['id' => $request->get('id')]);
     }
 
     /**
@@ -76,46 +137,42 @@ class PlanosController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function deletePergunta($id){
-        Perguntas::find($id)->delete();
-        return redirect()->route('planos-mensais');
-    }
-
-    public function viewEditarPergunta($id){
         $pergunta = Perguntas::find($id);
-        $planos = Planos::all();
-        return view('system.consultas.editar-pergunta', compact('pergunta', 'planos'));
+        $plano = $pergunta->plano;
+        $pergunta->delete();
+        return redirect()->route('editar-plano', ['id' => $plano]);
     }
 
     /**
-     * Function that update a question.
+     * Function return a view to edit a question.
      *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function editarPergunta($id, Request $request){
+    public function viewEditarPergunta($id){
         $pergunta = Perguntas::find($id);
+        $plano = Planos::find($pergunta->plano);
+        return view('system.planos.editar-pergunta', compact('pergunta', 'plano'));
+    }
+
+    /**
+     * Function to edit a question.
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function editarPergunta(Request $request){
+        $id = $request->get('id');
+        $pergunta = Perguntas::find($id);
+        $plano = $pergunta->plano;
 
         $pergunta->setAttribute('pergunta', $request->input('pergunta'));
         $pergunta->setAttribute('respostas', $request->input('respostas'));
-
-        $novoPlano = $request->input('plano-novo');
-
-        if(!empty($novoPlano)){
-            if(Planos::where('plano', $novoPlano."-")->first() != null){
-                return view('planos-mensais');
-            }
-
-            $plano = new Planos();
-            $plano->setAttribute('plano', $novoPlano);
-            $plano->setAttribute('preco', $request->input('preco-plano'));
-            $plano->save();
-
-            $pergunta->setAttribute('plano', $plano->getAttributeValue('id'));
-        }else{
-            $pergunta->setAttribute('plano', $request->input('plano'));
-        }
+        $pergunta->setAttribute('estados', implode(",", $request->input('estados')));
 
         $pergunta->save();
 
-        return redirect()->route('planos-mensais');
+        return redirect()->route('editar-plano', ['id' => $plano]);
     }
 
     /**
@@ -129,10 +186,4 @@ class PlanosController extends Controller
         return view('orcamento', compact('perguntas', 'plano'));
     }
 
-    public function deletePlano($id){
-        $plano = Planos::find($id);
-        $plano->delete();
-
-        return redirect()->route('listar-planos');
-    }
 }

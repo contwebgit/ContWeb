@@ -11419,7 +11419,7 @@ body {
 }
 
 #sub-conteudos,
-#sub-consultas,
+#sub-planos,
 #sub-blogs {
   z-index: -9999999999999999999999999999999;
   left: -450px;
@@ -11431,7 +11431,7 @@ body {
 }
 
 #sub-conteudos ul,
-#sub-consultas ul,
+#sub-planos ul,
 #sub-blogs ul {
   list-style: none;
   font-size: .7em;
@@ -11440,7 +11440,7 @@ body {
 }
 
 #sub-conteudos ul li,
-#sub-consultas ul li,
+#sub-planos ul li,
 #sub-blogs ul li {
   padding-left: 23px;
 }
@@ -11883,99 +11883,38 @@ body > div.modal-backdrop.show {
   margin-left: 15px !important;
 }
 
-.listar-categorias .container,
-.listar-posts .container {
-  float: left;
-  width: 100%;
-  margin-left: 235px;
+.editar-pergunta {
+  margin-top: 100px;
 }
 
-.listar-categorias .container .header,
-.listar-posts .container .header {
-  width: 100%;
-  color: white;
-  background-color: #1b4b72;
-  text-align: center;
-  padding: 5px;
-  margin-top: -6px;
+.adicionar-plano,
+.box {
+  margin-top: 100px;
 }
 
-.adicionar-categorias .container,
-.adicionar-post .container {
-  float: left;
-  width: 100%;
-  margin-left: 230px;
-}
-
-.adicionar-categorias .container .header,
-.adicionar-post .container .header {
-  background-color: #1b4b72;
-  color: white;
-  text-align: center;
-  padding: 5px;
-  margin-top: -6px;
-}
-
-.adicionar-categorias .container form,
-.adicionar-post .container form {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.adicionar-categorias .container form input,
-.adicionar-categorias .container form select,
-.adicionar-categorias .container form textarea,
-.adicionar-post .container form input,
-.adicionar-post .container form select,
-.adicionar-post .container form textarea {
-  margin-left: 20%;
-}
-
-.adicionar-categorias .container form .btn-ac,
-.adicionar-post .container form .btn-ac {
-  width: 20%;
-  margin-left: 5%;
-}
-
-.editar-pergunta .container {
-  float: left;
-  width: 100%;
-  margin-left: 230px;
-}
-
-.editar-pergunta .container h3 {
-  padding: 5px 50px 5px 50px;
-}
-
-.editar-pergunta .container h2 {
-  background-color: #1b4b72;
-  color: white;
-  padding: 5px 50px 5px 50px;
-  margin-top: -6px;
-}
-
-.editar-pergunta .container .form-control {
-  margin-left: 30px;
-  margin-bottom: 20px;
-}
-
-.editar-pergunta .container button {
-  margin-left: 200px;
-}
-
-.editar-pergunta .container .pad {
-  margin-left: 67px;
-}
-
-.adicionar-plano {
-  margin-top: 180px;
-}
-
-.adicionar-plano h2 {
+.adicionar-plano h2,
+.box h2 {
   text-align: center;
 }
 
 .blue {
   color: #1b4b72;
+  text-align: center;
+}
+
+.mensagem {
+  padding: 10px;
+  font-size: 1.4em;
+}
+
+.form-check {
+  float: left;
+  margin-right: 20px;
+}
+
+.login,
+.register,
+.verify {
+  margin-top: 110px;
 }
 
