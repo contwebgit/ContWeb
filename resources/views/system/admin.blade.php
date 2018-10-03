@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="wrapper">
+        <button id="show" class="btn"><i class="fas fa-arrow-circle-right"></i></button>
         <div class="main-sidebar">
             <div class="bg-iconbar"></div>
             <ul class="menu">
@@ -45,7 +46,10 @@
                                 <a href="{{route('adicionar-plano')}}">Adicionar Plano</a>
                             </li>
                             <li>
-                                <a href="">Serviços Avulsos</a>
+                                <a href="{{route('adicionar-servico')}}">Adicionar Serviços Avulsos</a>
+                            </li>
+                            <li>
+                                <a href="{{route('listar-servicos')}}">Listar Serviços Avulsos</a>
                             </li>
                             <li>
                                 <a href="">Contrato de Planos Mensais</a>

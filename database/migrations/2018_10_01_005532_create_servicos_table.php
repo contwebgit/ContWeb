@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePerguntasTable extends Migration
+class CreateServicosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreatePerguntasTable extends Migration
      */
     public function up()
     {
-        Schema::create('perguntas', function (Blueprint $table) {
+        Schema::create('servicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('plano')->nullable();
-            $table->integer('servico')->nullable();
-            $table->string('pergunta');
+            $table->string('servico');
+            $table->float('preco');
             $table->string('estados');
-            $table->string('respostas')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreatePerguntasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perguntas');
+        Schema::dropIfExists('servicos');
     }
 }

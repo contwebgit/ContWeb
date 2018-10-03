@@ -6,15 +6,17 @@
         <div class="row">
             <div class="bg-orcamentos container">
                 <h2>{{$plano}}</h2>
-                <form action="">
+                <form action="" autocomplete="off">
+                    @csrf
                     <div class="perguntas">
                         @foreach($perguntas as $pergunta)
                             <div class="pergunta">
                                 <label for="{{$pergunta->id}}">{{$pergunta->pergunta}}</label>
                                 @if(!empty($pergunta->respostas))
                                     <select name="resposta-{{$pergunta->id}}" id="{{$pergunta->id}}" class="form-control">
+                                        <option value="0">0</option>
                                         @foreach(explode("\n", $pergunta->respostas) as $resposta)
-                                            <option value="{{explode("|", $resposta)[1]}}">{{explode("|", $resposta)[0]}}</option>
+                                            <option value="{{intval(explode("|", $resposta)[1])}}">{{explode("|", $resposta)[0]}}</option>
                                         @endforeach
                                     </select>
                                 @else
@@ -27,24 +29,20 @@
                 <div class="container">
                     <div class="economia" id="fixed-content">
                         <div class="atual">
-                            <input type="text" name="atualmente" id="atualmente" placeholder="Quanto você gasta atualmente?">
+                            <h3>R$ </h3>
+                            <input type="number" name="atualmente" id="atualmente" autocomplete="off"  placeholder="Quanto você gasta atualmente?">
                         </div>
                         <div class="economia-total">
                             <p>Você irá economizar:</p>
-                            <span class="menor">R$ </span>
-                            <span class="input-line">146</span>
-                            <span class="menor">,00 /mês</span><br>
-                            <span class="menor">ou<br> R$ </span>
-                            <span class="input-line">146</span>
-                            <span class="menor">,00 /mês</span>
+                            <input id="economia-mes" type="text" class="input-line totalAtual" value="R$ 0,00"><br>
+                            <span class="menor">ou</span><br>
+                            <input id="economia-ano" type="text" class="input-line totalAtual" value="R$ 0,00">
                         </div>
                     </div>
                     <div class="total">
                         <h3>Seu orçamento é de:</h3>
                         <div class="line">
-                            <span class="menor">R$ </span>
-                            <span class="input-line totalAtual">0</span>
-                            <span class="menor">,00</span>
+                            <input id="total" class="input-line totalAtual" value="R$ 0,00"/>
                         </div>
                     </div>
                 </div>

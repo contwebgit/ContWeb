@@ -7,6 +7,11 @@
                 <h2 class="blue">Adicionar Pergunta</h2>
                 <form action="{{route('adicionar-pergunta-action', ['id' => app('request')->get('id')])}}" method="POST">
                     @csrf
+                    @if($role == 'servico')
+                        <input type="hidden" name="servico" value="{{app('request')->get('id')}}">
+                    @else
+                        <input type="hidden" name="plano" value="{{app('request')->get('id')}}">
+                    @endif
                     <div class="pergunta">
                         <input type="text" name="pergunta" class="form-control" placeholder="Pergunta" required>
                     </div>

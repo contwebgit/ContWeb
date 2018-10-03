@@ -78,7 +78,7 @@ Route::group(['prefix' => '/planos'], function () {
     Route::post('/editar-pergunta', 'PlanosController@editarPergunta')->name('editar-pergunta-action');
 
     /** PLANOS */
-    Route::get('adicionar-plano', function(){
+    Route::get('/adicionar-plano', function(){
         return view('system.planos.adicionar-plano');
     })->name("adicionar-plano");
     Route::post('/adicionar-plano', 'PlanosController@adicionarPlano')->name('adicionar-plano-action');
@@ -88,6 +88,15 @@ Route::group(['prefix' => '/planos'], function () {
 
     Route::get('/listar-planos', 'PlanosController@listarPlanos')->name('listar-planos');
     Route::get('/delete-plano/{id}', 'PlanosController@deletePlano')->name('delete-plano');
+
+    /** SERVIÇOS */
+    Route::get('/adicionar-servico', function(){
+        return view('system.planos.adicionar-servico');
+    })->name('adicionar-servico');
+    Route::post('/adicionar-servico', 'PlanosController@adicionarServico')->name('adicionar-servico-action');
+    Route::get('/listar-servicos', 'PlanosController@listarServicos')->name('listar-servicos');
+    Route::get('/delete-servico/{id}', 'PlanosController@deleteServico')->name('delete-servico');
+    Route::get('/editar-servico/{id}', 'PlanosController@editarServicoView')->name('editar-servico');
 });
 
 

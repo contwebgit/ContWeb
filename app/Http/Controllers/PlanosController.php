@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Planos;
+use App\Servico;
 use Illuminate\Http\Request;
 use App\Perguntas;
 
@@ -15,7 +16,8 @@ class PlanosController extends Controller
      */
     public function listPlanos(){
         $planos = Planos::All();
-        return view('index', compact('planos'));
+        $servicos = Servico::all();
+        return view('index', compact('planos', 'servicos'));
     }
 
     /**
@@ -91,7 +93,6 @@ class PlanosController extends Controller
         $plano->save();
 
         return redirect()->route('listar-planos');
-
     }
 
     /**
@@ -107,9 +108,42 @@ class PlanosController extends Controller
         return view('system.planos.listar-planos');
     }
 
+    public function adicionarServico(Request $request){
+        $servico = new Servico();
+        $servico->setAttribute('servico', $request->input('servico'));
+        $servico->setAttribute('preco', $request->input('preco'));
+        $servico->setAttribute('estados', implode(",", $request->input('estados')));
+        $servico->save();
+
+        return redirect()->route('listar-servicos');
+    }
+
+    public function listarServicos(){
+        $servicos = Servico::all();
+        return view('system.planos.listar-servicos', ['servicos' => $servicos ]);
+    }
+
+    public function deleteServico($id){
+        Servico::find($id)->delete();
+        return redirect()->route('listar-servicos');
+    }
+
+    public function editarServicoView($id){
+        $servico = Servico::find($id);
+        $perguntas = Perguntas::where('servico', $id)->get();
+        return view('system.planos.editar-servico', compact('servico', 'perguntas'));
+    }
+
+    /**
+     * Function that return the view to add question.
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function adicionarPerguntaView(Request $request){
-        $plano = $request->get('id');
-        return view('system.planos.adicionar-pergunta', compact('plano'));
+        $obj = $request->get('id');
+        $role = $request->get('role');
+        return view('system.planos.adicionar-pergunta', compact('obj', 'role'));
     }
 
     /**
@@ -123,11 +157,16 @@ class PlanosController extends Controller
         $pergunta->setAttribute('pergunta', $request->input('pergunta'));
         $pergunta->setAttribute('respostas', $request->input('respostas'));
         $pergunta->setAttribute('estados', implode(",", $request->input('estados')));
-        $pergunta->setAttribute('plano', $request->get('id'));
 
-        $pergunta->save();
-
-        return redirect()->route('editar-plano', ['id' => $request->get('id')]);
+        if(@!empty($request->input('plano'))) {
+            $pergunta->setAttribute('plano', $request->get('id'));
+            $pergunta->save();
+            return redirect()->route('editar-plano', ['id' => $request->get('id')]);
+        }else {
+            $pergunta->setAttribute('servico', $request->get('id'));
+            $pergunta->save();
+            return redirect()->route('editar-servico', ['id' => $request->get('id')]);
+        }
     }
 
     /**

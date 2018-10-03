@@ -6,16 +6,19 @@
        <div class="collapse navbar-collapse col-md-7" id="navbar">
            <ul class="navbar-nav">
                <li class="nav-item">
-                   <a class="nav-link" href="{{route('quem-somos')}}">QUEM SOMOS</a>
+                   <a class="nav-link" href="{{route('quem-somos')}}">QUEM SOMOS </a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/#plans">PLANOS</a>
+                   <a class="nav-link" href="/#plans">PLANOS </a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="{{route('blog')}}">BLOGS</a>
+                   <a class="nav-link" href="">LINKS </a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="{{route('contato')}}">CONTATO</a>
+                   <a class="nav-link" href="{{route('blog')}}">BLOGS </a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="{{route('contato')}}">CONTATO </a>
                </li>
                <li class="nav-item btn-ac">
                    <a class="nav-link" href="">

@@ -104,30 +104,16 @@
         <div class="container">
             <h2>Serviços Avulsos</h2>
             <div class="row">
-                <div class="col-md-4 service col-xs-12">
-                    <div class="pad">
-                        <h4>ABRIR EMPRESA</h4>
-                        <span class="line"></span>
-                        <h5 class="description">Exclusivo para São Paulo</h5>
-                        <button>SIMULE UM ORÇAMENTO</button>
+                @foreach($servicos as $servico)
+                    <div class="col-md-{{12/count($servicos)}} service col-xs-12">
+                        <div class="pad">
+                            <h4>{{$servico->servico}}</h4>
+                            <span class="line"></span>
+                            <h5 class="description">Exclusivo para {{$servico->estados}}</h5>
+                            <button>SIMULE UM ORÇAMENTO</button>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 service col-xs-12">
-                    <div class="pad">
-                        <h4>ALTERAR EMPRESA</h4>
-                        <span class="line"></span>
-                        <h5 class="description">Exclusivo para São Paulo</h5>
-                        <button>SIMULE UM ORÇAMENTO</button>
-                    </div>
-                </div>
-                <div class="col-md-4 service col-xs-12">
-                    <div class="pad">
-                        <h4>BAIXA DE EMPRESA</h4>
-                        <span class="line"></span>
-                        <h5 class="description">Exclusivo para São Paulo</h5>
-                        <button>SIMULE UM ORÇAMENTO</button>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

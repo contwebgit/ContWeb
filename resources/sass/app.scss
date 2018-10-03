@@ -760,6 +760,7 @@ body{
 /* SASS - Admin */
 
 .main-sidebar {
+  margin-left: -260px;
   min-height:100vh;
   position:fixed;
   top:0;
@@ -876,25 +877,7 @@ body{
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.27);
 }
 
-/** page banners **/
-.banners {
-  text-align: center;
-  color:  #1b4b72;
-  h2{
-    color: white;
-    background-color: #1b4b72;
-    width: 100%;
-    margin-top: -6px;
-    padding: 10px;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.27);
-  }
-  label{
-    font-size: 1.3em;
-  }
-  .banner{
-    margin-top: 20px;
-  }
-}
+
 
 .btn-primary{
   background-color: #f67b30;
@@ -1073,6 +1056,10 @@ body{
     margin-top: 15px;
     .atual{
       width: 100%;
+      h3{
+        position: absolute;
+        margin-left: 10px;
+      }
       input{
         border: none;
         border-bottom: 2px solid white;
@@ -1098,7 +1085,7 @@ body{
         margin-top: 3px;
         margin-bottom: -7px;
         text-align: left;
-        padding-left: 10px;
+        padding-left: 11px;
         font-size: 1.2em;
       }
       span{
@@ -1231,4 +1218,29 @@ body > div.modal-backdrop.show{
 
 .login, .register, .verify{
   margin-top: 110px;
+}
+
+#total, .totalAtual{
+  text-align: center;
+  background-color: #1b4b72;
+  border: none;
+  color:  #dc6f2b;
+}
+
+#atualmente{
+  margin-left: 2.5%;
+  width: 97.5%;
+}
+
+#show{
+  background-color: #00357db0;
+  position: absolute;
+  border-radius: 17px;
+  padding: 15px;
+  color: white;
+  border: none;
+  box-shadow: 1px 2px 3px #00000040;
+}
+#show::selection{
+  border: none;
 }

@@ -103,4 +103,38 @@ $(document).ready(function() {
         $(".totalAtual").val(total);
         $(".totalAtual").text(total);
     });
+
+    $(".pergunta > select").on("change", function(){
+        var pergunta = $(".pergunta > select");
+        var total = 0;
+
+        pergunta.each(function(key, value){
+            total = total + parseFloat(value.value);
+        });
+
+        var text = "R$ " + total.toFixed(2).toString().replace(".", ",");
+        $("#total").val(text);
+    });
+
+
+    $("#atualmente").on("change", function(){
+            var atual = $(this).val();
+
+            console.log(parseFloat($("#total").val()));
+
+            var total =  parseFloat(atual) - parseFloat($("#total").val().split("R$ ")[1]);
+            $("#economia-mes").val("R$ " + total + ",00 /mês");
+            $("#economia-ano").val("R$ " + total*12 + ",00 /ano");
+    });
+
+    $("#show").on("click", function(){
+        let left = $(".main-sidebar").css("left").split("px")[0];
+        if( parseInt(left) < 1 || left === "auto") {
+            $(".main-sidebar").animate({"left": "+=260px"}, "slow");
+            $(this).animate({"left": "+=250px"}, "slow");
+        }else{
+            $(".main-sidebar").animate({"left": "-=260px"}, "slow");
+            $(this).animate({"left": "-=250px"}, "slow");
+        }
+    });
 }); // fim document ready
