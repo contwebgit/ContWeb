@@ -11423,7 +11423,7 @@ body {
 #sub-planos,
 #sub-blogs {
   z-index: -9999999999999999999999999999999;
-  left: -450px;
+  display: none;
   position: absolute;
   margin-left: 233px;
   background: rgba(34, 64, 105, 0.9);
@@ -11768,43 +11768,6 @@ body {
   position: fixed;
 }
 
-.posts {
-  margin-left: -10px;
-  margin-right: 10px;
-}
-
-.listar-planos {
-  margin-left: 220px;
-  text-align: center;
-}
-
-.listar-planos .header {
-  background-color: #1b4b72;
-  color: white;
-  padding: 10px;
-  margin-top: -6px;
-  margin-bottom: 15px;
-}
-
-.listar-planos h2 {
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-  background-color: #1b4b72;
-  margin-top: -6px;
-  color: white;
-  margin-bottom: 20px;
-}
-
-.listar-planos .container {
-  float: left;
-  margin-left: 55px;
-}
-
-.listar-planos .container .table {
-  margin-top: -20px;
-}
-
 .post-single .header {
   margin-top: 90px;
   margin-left: 50px;
@@ -11857,11 +11820,6 @@ body > div.modal-backdrop.show {
 #modal-planos .close {
   color: white;
   margin-right: 30px;
-}
-
-.listar-planos .container {
-  float: left;
-  margin-left: 15px !important;
 }
 
 .editar-pergunta {
@@ -11929,5 +11887,9 @@ body > div.modal-backdrop.show {
 
 #show::selection {
   border: none;
+}
+
+.form-check {
+  z-index: -1;
 }
 

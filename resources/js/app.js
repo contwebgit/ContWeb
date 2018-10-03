@@ -45,31 +45,16 @@ $(document).ready(function() {
         } // fim do if
     }); // fim scroll
 
-    $("#conteudos").on("click", function(){
-        let left = $("#sub-conteudos").css("left").split("px")[0];
-        if( parseInt(left) < 1 || left === "auto") {
-            $("#sub-conteudos").animate({"left": "+=467px"}, "slow");
-        }else{
-            $("#sub-conteudos").animate({"left": "-=467px"}, "slow");
-        }
+    $("#conteudos").hover(function(){
+        $("#sub-conteudos").toggle();
     });
 
-    $("#planos").on("click", function(){
-        let left = $("#sub-planos").css("left").split("px")[0];
-        if( parseInt(left) < 1 || left === "auto") {
-            $("#sub-planos").animate({"left": "+=467px"}, "slow");
-        }else{
-            $("#sub-planos").animate({"left": "-=467px"}, "slow");
-        }
+    $("#planos").hover(function(){
+        $("#sub-planos").toggle();
     });
 
-    $("#blogs").on("click", function(){
-        let left = $("#sub-blogs").css("left").split("px")[0];
-        if( parseInt(left) < 1 || left === "auto") {
-            $("#sub-blogs").animate({"left": "+=467px"}, "slow");
-        }else{
-            $("#sub-blogs").animate({"left": "-=467px"}, "slow");
-        }
+    $("#blogs").hover(function(){
+        $("#sub-blogs").toggle();
     });
 
     $("#adicionar-pergunta").on("click", function(){
@@ -128,6 +113,16 @@ $(document).ready(function() {
     });
 
     $("#show").on("click", function(){
+        $(this).attr("disabled", "disabled");
+
+        if($(this).find('i').hasClass("arrow-circle-right")){
+            $(this).find('i').removeClass("arrow-circle-right");
+            $(this).find('i').addClass("arrow-circle-left");
+        }else{
+            $(this).find('i').removeClass("arrow-circle-left");
+            $(this).find('i').addClass("arrow-circle-right");
+        }
+
         let left = $(".main-sidebar").css("left").split("px")[0];
         if( parseInt(left) < 1 || left === "auto") {
             $(".main-sidebar").animate({"left": "+=260px"}, "slow");
@@ -136,5 +131,6 @@ $(document).ready(function() {
             $(".main-sidebar").animate({"left": "-=260px"}, "slow");
             $(this).animate({"left": "-=250px"}, "slow");
         }
+        $(this).removeAttr("disabled");
     });
 }); // fim document ready

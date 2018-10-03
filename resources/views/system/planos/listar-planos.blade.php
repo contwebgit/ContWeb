@@ -3,10 +3,10 @@
 @section('admin-content')
     <div class="listar-planos">
         <div class="container">
-            <h2>Planos</h2>
+            <h2 class="blue">Planos</h2>
             <div class="mensagem">
                 @if(@$s)
-                    <span class="badge badge-success col-md-12">Seu Plano Foi adicionado com sucesso!</span>
+                    <span class="badge badge-success">Seu Plano Foi adicionado com sucesso!</span>
                 @endif
             </div>
             <br>
