@@ -828,7 +828,7 @@ body{
 
 #sub-conteudos, #sub-planos, #sub-blogs{
   z-index: -9999999999999999999999999999999;
-  left: -450px;
+  display: none;
   position: absolute;
   margin-left: 233px;
   background: rgba(34, 64, 105, 0.9);
