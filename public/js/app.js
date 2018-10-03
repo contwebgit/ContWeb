@@ -13809,6 +13809,16 @@ $(document).ready(function () {
     });
 
     $("#show").on("click", function () {
+        $(this).attr("disabled", "disabled");
+
+        if ($(this).find('i').hasClass("arrow-circle-right")) {
+            $(this).find('i').removeClass("arrow-circle-right");
+            $(this).find('i').addClass("arrow-circle-left");
+        } else {
+            $(this).find('i').removeClass("arrow-circle-left");
+            $(this).find('i').addClass("arrow-circle-right");
+        }
+
         var left = $(".main-sidebar").css("left").split("px")[0];
         if (parseInt(left) < 1 || left === "auto") {
             $(".main-sidebar").animate({ "left": "+=260px" }, "slow");
@@ -13817,6 +13827,7 @@ $(document).ready(function () {
             $(".main-sidebar").animate({ "left": "-=260px" }, "slow");
             $(this).animate({ "left": "-=250px" }, "slow");
         }
+        $(this).removeAttr("disabled");
     });
 }); // fim document ready
 

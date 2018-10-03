@@ -1105,38 +1105,6 @@ body{
 }
 
 
-.posts{
-  margin-left: -10px;
-  margin-right: 10px;
-}
-.listar-planos{
-  margin-left: 220px;
-  text-align: center;
-  .header{
-    background-color:#1b4b72;
-    color: white;
-    padding: 10px;
-    margin-top: -6px;
-    margin-bottom: 15px;
-  }
-  h2{
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    background-color: #1b4b72;
-    margin-top: -6px;
-    color: white;
-    margin-bottom: 20px;
-  }
-  .container{
-    float: left;
-    margin-left: 55px;
-    .table{
-      margin-top: -20px;
-
-    }
-  }
-}
 
 .post-single{
   .header{
@@ -1183,11 +1151,6 @@ body > div.modal-backdrop.show{
     color: white;
     margin-right: 30px;
   }
-}
-
-.listar-planos .container {
-  float: left;
-  margin-left: 15px!important;
 }
 
 .editar-pergunta{
@@ -1243,4 +1206,8 @@ body > div.modal-backdrop.show{
 }
 #show::selection{
   border: none;
+}
+
+.form-check{
+  z-index: -1;
 }
