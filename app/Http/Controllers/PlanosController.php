@@ -221,8 +221,13 @@ class PlanosController extends Controller
      */
     public function orcamentos($id){
         $perguntas = Perguntas::where('plano', $id)->get();
-        $plano = Planos::find($id)->first()->plano;
-        return view('orcamento', compact('perguntas', 'plano'));
+        $obj = Planos::find($id)->first()->plano;
+
+        if(empty($obj)){
+            $obj = Servico::find($id)->first()->plano;
+        }
+
+        return view('orcamento', compact('perguntas', 'obj'));
     }
 
 }

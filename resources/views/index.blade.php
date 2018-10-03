@@ -110,7 +110,9 @@
                             <h4>{{$servico->servico}}</h4>
                             <span class="line"></span>
                             <h5 class="description">Exclusivo para {{$servico->estados}}</h5>
-                            <button>SIMULE UM ORÇAMENTO</button>
+                            <form action="{{route('orcamento', $servico->id)}}">
+                                <button>SIMULE UM ORÇAMENTO</button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
