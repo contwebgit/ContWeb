@@ -10501,7 +10501,6 @@ body {
 }
 
 #admin-content {
-  z-index: 9;
   margin-top: 90px;
 }
 
@@ -11347,6 +11346,7 @@ body {
 /* SASS - Admin */
 
 .main-sidebar {
+  z-index: 99999999999999999999999999999;
   margin-left: -260px;
   min-height: 100vh;
   position: fixed;
@@ -11422,7 +11422,6 @@ body {
 #sub-conteudos,
 #sub-planos,
 #sub-blogs {
-  z-index: -9999999999999999999999999999999;
   display: none;
   position: absolute;
   margin-left: 233px;
@@ -11890,6 +11889,6 @@ body > div.modal-backdrop.show {
 }
 
 .form-check {
-  z-index: -1;
+  z-index: 9;
 }
 
