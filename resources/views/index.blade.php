@@ -91,7 +91,7 @@
                             <hr>
                             <h3 class="states">Exclusivo para<br>SP/ RJ/ MG/ GO/ PR/ SC/ RS</h3>
                             <hr>
-                            <form action="{{route('orcamento', $plano->id)}}">
+                            <form action="{{route('orcamento-plano', $plano->id, 'plano')}}">
                                 <button>SIMULE UM ORÇAMENTO</button>
                             </form>
                         </div>
@@ -110,7 +110,7 @@
                             <h4>{{$servico->servico}}</h4>
                             <span class="line"></span>
                             <h5 class="description">Exclusivo para {{$servico->estados}}</h5>
-                            <form action="{{route('orcamento', $servico->id)}}">
+                            <form action="{{route('orcamento-servico', $servico->id, 'servico')}}">
                                 <button>SIMULE UM ORÇAMENTO</button>
                             </form>
                         </div>

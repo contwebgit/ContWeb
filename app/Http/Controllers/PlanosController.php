@@ -219,15 +219,24 @@ class PlanosController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function orcamentos($id){
+    public function orcamentoPlano($id){
         $perguntas = Perguntas::where('plano', $id)->get();
-        $obj = Planos::find($id)->first()->plano;
 
-        if(empty($obj)){
-            $obj = Servico::find($id)->first()->plano;
-        }
+        $obj = Planos::find($id)->first()->plano;
 
         return view('orcamento', compact('perguntas', 'obj'));
     }
 
+    /**
+     * Function that list question and plans for form budget.
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function orcamentoServico($id){
+        $perguntas = Perguntas::where('servico', $id)->get();
+
+        $obj = Servico::find($id)->first()->servico;
+
+        return view('orcamento', compact('perguntas', 'obj'));
+    }
 }

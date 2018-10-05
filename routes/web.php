@@ -48,7 +48,9 @@ Route::get('/termos-de-uso', function(){
     return view('termos-de-uso');
 })->name('termos-de-uso');
 
-Route::get('/orcamento/{id}', 'PlanosController@orcamentos')->name('orcamento');
+Route::get('/orcamento/servico/{id}/', 'PlanosController@orcamentoServico')->name('orcamento-servico');
+
+Route::get('/orcamento/plano/{id}/', 'PlanosController@orcamentoPlano')->name('orcamento-plano');
 
 
 

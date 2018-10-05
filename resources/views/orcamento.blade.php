@@ -27,7 +27,7 @@
                     </div>
                 </form>
                 <div class="container">
-                    @if(!empty($perguntas->plano))
+                    @if(@!empty($perguntas[0]->plano))
                         <div class="economia" id="fixed-content">
                             <div class="atual">
                                 <h3>R$ </h3>
