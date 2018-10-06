@@ -58,7 +58,6 @@ body{
 }
 
 .banner-home{
-  background-image: url("/img/banner.png");
   background-repeat: no-repeat;
   background-size: 100%;
   margin-top: 66px;
@@ -68,6 +67,12 @@ body{
 @media (max-height: 799px) {
   .banner-home {
     height: 700px!important;
+  }
+}
+
+@media (max-width: 446px) {
+  .banner-home {
+    height: 226px!important;
   }
 }
 
@@ -82,7 +87,7 @@ body{
   padding: 30px 60px 30px 60px;
   .question{
     img{
-      width: 35%;
+      width: 25%;
     }
     h5{
       text-align: center;

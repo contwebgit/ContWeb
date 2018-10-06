@@ -1,15 +1,15 @@
 @extends('system.admin')
 
 @section('admin-content')
-    <div class="planos-mensais">
+    <div class="">
         <div id="modal-planos" class="modal" role="dialog">
-            <h4>Perguntas para Orçamento<button type="submit" class="btn btn-secundary close" data-dismiss="modal">x</button></h2>
+            <h4>Perguntas para Orçamento<button type="submit" class="btn btn-secundary close" data-dismiss="modal">x</button></h4>
             <div class="container">
                 <form action="" method="POST">
                     @csrf
                     <h3>Nova Pergunta: </h3>
                     <div class="plano">
-                        <select name="plano" id="select-planos" class="form-control col-md-6 offset-md-3">
+                        <select name="plano" id="select-planos" class="form-control">
                             <option value="">Escolha um Plano</option>
                             <option value="">Novo Plano</option>
                             @if(!empty($planos))
@@ -20,24 +20,24 @@
                         </select>
                     </div>
                     <div class="plano-novo">
-                        <div class="row offset-md-3">
-                            <input type="text" name="plano-novo" class="form-control col-md-5" placeholder="Novo Plano">
-                            <input type="text" name="preco-plano" class="form-control col-md-2 preco" placeholder="Preço">
+                        <div class="row">
+                            <input type="text" name="plano-novo" class="form-control" placeholder="Novo Plano">
+                            <input type="text" name="preco-plano" class="form-control preco" placeholder="Preço">
                         </div>
                     </div>
                     <div class="pergunta">
-                        <input type="text" name="pergunta" class="form-control col-md-6 offset-md-3" placeholder="Pergunta">
+                        <input type="text" name="pergunta" class="form-control" placeholder="Pergunta">
                     </div>
                     <div class="respostas">
-                        <textarea name="respostas" id="respostas" class="form-control col-md-6 offset-md-3" placeholder="Respostas...(resposta|valor)"></textarea>
+                        <textarea name="respostas" id="respostas" class="form-control" placeholder="Respostas...(resposta|valor)"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Adicionar</button>
                 </form>
             </div>
         </div>
     </div>
-    <div class=" planos-mensais perguntas container">
-        <h2>Perguntas</h2>
+    <div class="container">
+        <h2 class="blue">Perguntas</h2>
         <button id="adicionar-pergunta" class="btn-ac">
             Nova Pergunta
         </button>

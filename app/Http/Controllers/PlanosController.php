@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\HomePergunta;
 use App\Planos;
 use App\Servico;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class PlanosController extends Controller
     public function listPlanos(){
         $planos = Planos::All();
         $servicos = Servico::all();
-        return view('index', compact('planos', 'servicos'));
+        $perguntas = HomePergunta::all();
+        return view('index', ['planos'=>$planos, 'servicos'=>$servicos, 'perguntas'=>$perguntas]);
     }
 
     /**

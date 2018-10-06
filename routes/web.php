@@ -64,6 +64,12 @@ Route::group(['prefix'=>'/conteudos'], function () {
         return view('system.conteudos.banners');
     })->name('banners');
     Route::post('/banners', 'ConteudosController@saveBanners')->name('save-banners');
+
+    Route::get('/list-perguntas', 'ConteudosController@listarPerguntas')->name('home-perguntas');
+    Route::get('/adicionar-pergunta', function(){
+        return view('system.conteudos.adicionar-pergunta');
+    })->name('adicionar-pergunta-home-view');
+    Route::post('/adicionar-pergunta', 'ConteudosController@adicionarPergunta')->name('adicionar-pergunta-home-action');
 });
 
 Route::group(['prefix' => '/planos'], function () {

@@ -20,7 +20,7 @@
                                 <a href="">Contador</a>
                             </li>
                             <li>
-                                <a href="">Perguntas</a>
+                                <a href="{{route('home-perguntas')}}">Perguntas</a>
                             </li>
                             <li>
                                 <a href="">Links</a>
