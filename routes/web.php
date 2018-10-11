@@ -59,6 +59,7 @@ Route::get('/admin', function () {
     return view('system.admin');
 })->name('admin');
 
+/** CONTEUDOS */
 Route::group(['prefix'=>'/conteudos'], function () {
     Route::get('/banners', function () {
         return view('system.conteudos.banners');
@@ -72,8 +73,8 @@ Route::group(['prefix'=>'/conteudos'], function () {
     Route::post('/adicionar-pergunta', 'ConteudosController@adicionarPergunta')->name('adicionar-pergunta-home-action');
 });
 
+/** PLANOS */
 Route::group(['prefix' => '/planos'], function () {
-
     Route::get('/perguntas', 'PlanosController@listPerguntas')->name('perguntas');
 
     /** PERGUNTAS */
@@ -105,9 +106,18 @@ Route::group(['prefix' => '/planos'], function () {
     Route::get('/listar-servicos', 'PlanosController@listarServicos')->name('listar-servicos');
     Route::get('/delete-servico/{id}', 'PlanosController@deleteServico')->name('delete-servico');
     Route::get('/editar-servico/{id}', 'PlanosController@editarServicoView')->name('editar-servico');
+
 });
 
+/** CONFIGURAÇÕES */
+Route::group(['prefix' => 'configuracoes'],function(){
+    Route::get('/template-contrato', function(){
+        return view('system.configuracoes.upload-contrato');
+    })->name('upload-contrato');
+    Route::post('/template-contrato', 'ConfiguracoesController@uploadTemplateContrato')->name('upload-contrato-action');
+});
 
+/** BLOGS */
 Route::group(['prefix' => '/blog'], function () {
     Route::get('/adicionar-post', 'BlogController@viewAddPost')->name('adicionar-post');
     Route::post('/adicionar-post', 'BlogController@addPost')->name('adicionar-post-action');
@@ -122,6 +132,13 @@ Route::group(['prefix' => '/blog'], function () {
 
     Route::get('/listar-categorias', 'BlogController@listarCategorias')->name('listar-categorias');
 });
+
+/** CONTRATAR */
+Route::post('/contratar-plano', 'ContratacaoController@contratarView')->name('contratar-view');
+Route::post('/contratar', 'ContratacaoController@contratar')->name('contratar-action');
+
+/** MAIL */
+Route::get('/send/email', 'MailController@emailConfirmacao')->name('send-email-confirmation');
 
 /** AUTH ROUTES */
 Auth::routes();

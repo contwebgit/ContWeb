@@ -224,7 +224,7 @@ class PlanosController extends Controller
     public function orcamentoPlano($id){
         $perguntas = Perguntas::where('plano', $id)->get();
 
-        $obj = Planos::find($id)->first()->plano;
+        $obj = Planos::find($id)->first();
 
         return view('orcamento', compact('perguntas', 'obj'));
     }
@@ -237,7 +237,7 @@ class PlanosController extends Controller
     public function orcamentoServico($id){
         $perguntas = Perguntas::where('servico', $id)->get();
 
-        $obj = Servico::find($id)->first()->servico;
+        $obj = Servico::find($id)->first();
 
         return view('orcamento', compact('perguntas', 'obj'));
     }

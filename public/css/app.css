@@ -11426,7 +11426,8 @@ body {
 
 #sub-conteudos,
 #sub-planos,
-#sub-blogs {
+#sub-blogs,
+#sub-configuracoes {
   display: none;
   position: absolute;
   margin-left: 233px;
@@ -11437,7 +11438,8 @@ body {
 
 #sub-conteudos ul,
 #sub-planos ul,
-#sub-blogs ul {
+#sub-blogs ul,
+#sub-configuracoes ul {
   list-style: none;
   font-size: .7em;
   margin-left: 0;
@@ -11446,7 +11448,8 @@ body {
 
 #sub-conteudos ul li,
 #sub-planos ul li,
-#sub-blogs ul li {
+#sub-blogs ul li,
+#sub-configuracoes ul li {
   padding-left: 23px;
 }
 
@@ -11895,5 +11898,41 @@ body > div.modal-backdrop.show {
 
 .form-check {
   z-index: 9;
+}
+
+.contratar {
+  width: 100%;
+  margin-top: 100px;
+}
+
+.contratar h2 {
+  padding: 20px;
+  color: white;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.contratar .head {
+  text-align: center;
+}
+
+.contratar .head h3 {
+  padding: 20px;
+}
+
+#termos-contrato {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 446px) {
+  .autopreencher {
+    width: 40%;
+    margin-left: 30%;
+  }
+}
+
+.agradecimento {
+  margin-top: 150px;
 }
 

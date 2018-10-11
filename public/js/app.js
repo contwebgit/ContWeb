@@ -13755,6 +13755,14 @@ $(document).ready(function () {
         $("#sub-blogs").toggle();
     });
 
+    $("#configuracoes").hover(function () {
+        $("#sub-configuracoes").toggle();
+    });
+
+    $("#contratar").on("click", function () {
+        $("#form-contratar").submit();
+    });
+
     $("#adicionar-pergunta").on("click", function () {
         $("#modal-planos").modal();
     });
@@ -13828,6 +13836,63 @@ $(document).ready(function () {
             $(this).animate({ "left": "-=250px" }, "slow");
         }
         $(this).removeAttr("disabled");
+    });
+
+    $('#autopreencher').on('click', function (e) {
+
+        e.preventDefault();
+
+        var cpf_cnpj = $('#cpf-cnpj').val().replace(/[^0-9]/g, '');
+
+        var url = '';
+
+        if (cpf_cnpj.length === 14) {
+            url = 'https://www.receitaws.com.br/v1/cnpj/' + cpf_cnpj;
+        } else {
+            return false;
+        }
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            dataType: 'jsonp',
+            complete: function complete(xhr) {
+
+                response = xhr.responseJSON;
+
+                if (response.status === 'OK') {
+                    console.log(response);
+                    $("#InputCNPJ").val(response.cnpj);
+                    $("#InputCompany").val(response.nome);
+                    $("#InputDate").val(response.abertura);
+                    $("#InputNameFantasy").val(response.fantasia);
+                    $("#InputCnaeMain").val(response.atividade_principal[0].code);
+
+                    response.atividades_secundarias.forEach(function (value) {
+                        $("#InputCnaeSecondary").val($("#InputCnaeSecondary").val() + " / " + value.code);
+                    });
+
+                    $("#InputLegal").val(response.natureza_juridica);
+                    $("#InputAddress").val(response.logradouro);
+                    $("#InputCEP").val(response.cep);
+                    $("#InputDistrict").val(response.bairro);
+                    $("#InputCounty").val(response.municipio);
+                    $("#InputNumber").val(response.numero);
+                    $("#InputUF").val(response.uf);
+                    $("#InputPhone").val(response.telefone);
+                    $("#InputStatus").val(response.situacao);
+                    $("#InputStatusDate").val(response.data_situacao);
+                    $("#InputStatusReason").val(response.motivo_situacao);
+                    $("#InputSpecial").val(response.situacao_especial);
+                    $("#InputSpecialDate").val(response.data_situacao_especial);
+                    $("#InputShareCapital").val(response.capital_social);
+
+                    $("#InputEmail").focus();
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
     });
 }); // fim document ready
 

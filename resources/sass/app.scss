@@ -831,7 +831,7 @@ body{
 }
 
 
-#sub-conteudos, #sub-planos, #sub-blogs{
+#sub-conteudos, #sub-planos, #sub-blogs, #sub-configuracoes{
   display: none;
   position: absolute;
   margin-left: 233px;
@@ -1214,4 +1214,37 @@ body > div.modal-backdrop.show{
 
 .form-check{
   z-index: 9;
+}
+
+.contratar{
+  width: 100%;
+  margin-top: 100px;
+  h2{
+    padding: 20px;
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+  .head{
+    text-align: center;
+    h3{
+      padding: 20px;
+    }
+  }
+}
+
+#termos-contrato{
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 446px) {
+  .autopreencher {
+    width: 40%;
+    margin-left: 30%;
+  }
+}
+
+.agradecimento{
+  margin-top: 150px;
 }
