@@ -11,15 +11,17 @@ class ContratacaoController extends Controller
     public function contratarView(Request $request){
         $total = str_replace( "R$ ", "", $request->input('total'));
         $plano = $request->input('plano');
+        $cnpj = $request->input('cnpj');
 
         if( empty($total) || empty($plano) ){
             return redirect(404);
         }
 
-        return view('formulario-contratar', compact('total', 'plano'));
+        return view('formulario-contratar', ['total' => $total, 'plano' => $plano, 'cnpj' => $cnpj]);
     }
 
     public function contratar(Request $request){
+        $this->substituirDadosContrato();
         $fields = [
             'date',
             "name_fantasy" ,
@@ -68,6 +70,8 @@ class ContratacaoController extends Controller
     }
 
     public function substituirDadosContrato(){
+        $source = public_path('/contrato/contrato.docx');
+
 
     }
 }

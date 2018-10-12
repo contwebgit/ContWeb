@@ -11902,7 +11902,7 @@ body > div.modal-backdrop.show {
 
 .contratar {
   width: 100%;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .contratar h2 {
@@ -11934,5 +11934,13 @@ body > div.modal-backdrop.show {
 
 .agradecimento {
   margin-top: 150px;
+}
+
+#modal-cnpj {
+  margin-top: 60px;
+}
+
+#autopreencher {
+  margin-top: 0;
 }
 

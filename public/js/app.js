@@ -13760,6 +13760,12 @@ $(document).ready(function () {
     });
 
     $("#contratar").on("click", function () {
+        $("#modal-cnpj").modal();
+    });
+
+    $("#autopreencher").on("click", function () {
+        var cnpj = $("#cnpj-aux").val();
+        $("#cnpj").val(cnpj);
         $("#form-contratar").submit();
     });
 
@@ -13838,62 +13844,55 @@ $(document).ready(function () {
         $(this).removeAttr("disabled");
     });
 
-    $('#autopreencher').on('click', function (e) {
+    if ($('#cnpj').length > 0) {
+        var cnpj = $('#cnpj').val().replace(/[^0-9]/g, '');
 
-        e.preventDefault();
+        if (cnpj.length === 14) {
 
-        var cpf_cnpj = $('#cpf-cnpj').val().replace(/[^0-9]/g, '');
+            var url = 'https://www.receitaws.com.br/v1/cnpj/' + cnpj;
 
-        var url = '';
+            $.ajax({
+                url: url,
+                method: 'GET',
+                dataType: 'jsonp',
+                complete: function complete(xhr) {
 
-        if (cpf_cnpj.length === 14) {
-            url = 'https://www.receitaws.com.br/v1/cnpj/' + cpf_cnpj;
-        } else {
-            return false;
-        }
+                    response = xhr.responseJSON;
 
-        $.ajax({
-            url: url,
-            method: 'GET',
-            dataType: 'jsonp',
-            complete: function complete(xhr) {
+                    if (response.status === 'OK') {
+                        $("#InputCNPJ").val(response.cnpj);
+                        $("#InputCompany").val(response.nome);
+                        $("#InputDate").val(response.abertura);
+                        $("#InputNameFantasy").val(response.fantasia);
+                        $("#InputCnaeMain").val(response.atividade_principal[0].code);
 
-                response = xhr.responseJSON;
+                        response.atividades_secundarias.forEach(function (value) {
+                            $("#InputCnaeSecondary").val($("#InputCnaeSecondary").val() + " / " + value.code);
+                        });
 
-                if (response.status === 'OK') {
-                    console.log(response);
-                    $("#InputCNPJ").val(response.cnpj);
-                    $("#InputCompany").val(response.nome);
-                    $("#InputDate").val(response.abertura);
-                    $("#InputNameFantasy").val(response.fantasia);
-                    $("#InputCnaeMain").val(response.atividade_principal[0].code);
+                        $("#InputLegal").val(response.natureza_juridica);
+                        $("#InputAddress").val(response.logradouro);
+                        $("#InputCEP").val(response.cep);
+                        $("#InputDistrict").val(response.bairro);
+                        $("#InputCounty").val(response.municipio);
+                        $("#InputNumber").val(response.numero);
+                        $("#InputUF").val(response.uf);
+                        $("#InputPhone").val(response.telefone);
+                        $("#InputStatus").val(response.situacao);
+                        $("#InputStatusDate").val(response.data_situacao);
+                        $("#InputStatusReason").val(response.motivo_situacao);
+                        $("#InputSpecial").val(response.situacao_especial);
+                        $("#InputSpecialDate").val(response.data_situacao_especial);
+                        $("#InputShareCapital").val(response.capital_social);
 
-                    response.atividades_secundarias.forEach(function (value) {
-                        $("#InputCnaeSecondary").val($("#InputCnaeSecondary").val() + " / " + value.code);
-                    });
-
-                    $("#InputLegal").val(response.natureza_juridica);
-                    $("#InputAddress").val(response.logradouro);
-                    $("#InputCEP").val(response.cep);
-                    $("#InputDistrict").val(response.bairro);
-                    $("#InputCounty").val(response.municipio);
-                    $("#InputNumber").val(response.numero);
-                    $("#InputUF").val(response.uf);
-                    $("#InputPhone").val(response.telefone);
-                    $("#InputStatus").val(response.situacao);
-                    $("#InputStatusDate").val(response.data_situacao);
-                    $("#InputStatusReason").val(response.motivo_situacao);
-                    $("#InputSpecial").val(response.situacao_especial);
-                    $("#InputSpecialDate").val(response.data_situacao_especial);
-                    $("#InputShareCapital").val(response.capital_social);
-
-                    $("#InputEmail").focus();
-                } else {
-                    alert(response.message);
+                        $("#InputEmail").focus();
+                    } else {
+                        alert(response.message);
+                    }
                 }
-            }
-        });
-    });
+            });
+        }
+    }
 }); // fim document ready
 
 /***/ }),

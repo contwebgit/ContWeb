@@ -7,15 +7,12 @@
                 <img src="{{asset('/img/logo.png')}}" alt="contweb">
                 <br><br>
                 <h1 class="blue">FORMULÁRIO DE CONTRATAÇÃO</h1>
-                <div class="autopreencher">
-                    <input type="text" name="cpf-cnpj" id="cpf-cnpj" class="form-control" placeholder="Autoprencher pelo CNPJ" required>
-                    <button id="autopreencher" class="btn btn-primary">Autopreencher</button>
-                </div>
             </div>
             <form action="{{route('contratar-action')}}" method="post">
                 @csrf
                 <input type="hidden" name="plano" value="{{$plano}}">
                 <input type="hidden" name="total" value="{{$total}}">
+                <input type="hidden" id="cnpj" value="{{$cnpj}}">
                 <div class="wrapper-budget margin_top_40">
                     <div class="container">
                         <div class="wrapper-title">
@@ -231,4 +228,5 @@
             </form>
         </div>
     </div>
+
 @endsection

@@ -52,6 +52,7 @@
                                 @csrf
                                 <input id="total" class="input-line totalAtual" name="total" value="R$ 0,00">
                                 <input id="plano" type="hidden" name="plano" value="{{$obj->id}}">
+                                <input type="hidden" id="cnpj" name="cnpj" value="">
                             </form>
                         </div>
                     </div>
@@ -60,8 +61,27 @@
         </div>
        <div class="container">
            <div class="contratar col-md-6 offset-md-3">
-               <a id="contratar" class="contratar col-md-12">Contratar Plano</a>
+               <a href="" id="contratar" class="contratar" data-toggle="modal" data-target="#modal">Contratar</a>
            </div>
        </div>
+    </div>
+
+    <div class="modal" id="modal-cnpj" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Preencha seu CNPJ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="cnpj-aux" class="form-control" placeholder="CNPJ" required>
+                </div>
+                <div class="modal-footer">
+                    <button id="autopreencher" class="btn btn-primary">Ir</button>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
