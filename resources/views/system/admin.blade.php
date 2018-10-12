@@ -20,7 +20,7 @@
                                 <a href="">Contador</a>
                             </li>
                             <li>
-                                <a href="">Perguntas</a>
+                                <a href="{{route('home-perguntas')}}">Perguntas</a>
                             </li>
                             <li>
                                 <a href="">Links</a>
@@ -90,11 +90,18 @@
                     <a href="#">Controle</a>
                 </li>
                 <hr>
-                <li>
+                <li id="configuracoes">
                     <div class="icon">
                         <i class="fas fa-cog"></i>
                     </div>
                     <a href="#">Configurações</a>
+                    <div id="sub-configuracoes">
+                        <ul>
+                            <li>
+                                <a href="{{route('upload-contrato')}}">Template do Contrato</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <hr>
             </ul>

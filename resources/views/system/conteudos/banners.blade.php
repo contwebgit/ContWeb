@@ -2,10 +2,13 @@
 
 @section('admin-content')
     <div class="banners">
-        <form class="form-group" method="POST" enctype="multipart/form-data" action="{{route('save-banners')}}">
+        <form class="form-group" method="POST" enctype="multipart/form-data" action="{{route('save-banners')}}?sucesso=true">
             @csrf
             <h2 class="title blue">Configuração de banners do Site</h2>
             <br>
+            @if(app('request')->get('id') == true)
+                <span class="badge badge-success">Banner alterado com sucesso!</span>
+            @endif
             <div class="container">
             <label for="banners">Banner:</label>
             <select name="opt" class="form-control">
