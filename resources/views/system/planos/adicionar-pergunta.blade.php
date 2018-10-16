@@ -5,6 +5,7 @@
         <div role="dialog">
             <div class="container">
                 <h2 class="blue">Adicionar Pergunta</h2>
+                <?php echo $_GET['id'];?>
                 <form action="{{route('adicionar-pergunta-action', ['id' => app('request')->get('id')])}}" method="POST">
                     @csrf
                     @if($role == 'servico')

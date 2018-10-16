@@ -11,7 +11,11 @@ class MailController
 
     public function emailConfirmacao(Request $request)
     {
-        Mail::to($request->post($request->input('mail')))->send(new SendMailable());
+        $email = $request->post($request->input('mail'))["email"];
+        Mail::to($email)
+            ->send(new SendMailable($email));
+
+        unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
 
         return view('agradecimentos');
     }

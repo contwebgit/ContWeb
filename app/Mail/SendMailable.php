@@ -10,14 +10,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class SendMailable extends Mailable
 {
     use Queueable, SerializesModels;
-    public $name;
+    public $email;
 
     /**
      * Create a new message instance.
      *
+     * @param $email
      * @return void
      */
-    public function __construct(){}
+    public function __construct($email){
+        $this->email = $email;
+    }
 
     /**
      * Build the message.
@@ -26,6 +29,6 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.confirmacao');
+        return $this->attach(public_path('/tmp/contrato-' . $this->email . '.pdf'))->view('emails.confirmacao');
     }
 }

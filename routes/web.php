@@ -52,12 +52,8 @@ Route::get('/orcamento/servico/{id}/', 'PlanosController@orcamentoServico')->nam
 
 Route::get('/orcamento/plano/{id}/', 'PlanosController@orcamentoPlano')->name('orcamento-plano');
 
-
-
 /** ADMIN ROUTES */
-Route::get('/admin', function () {
-    return view('system.admin');
-})->name('admin');
+Route::get('/admin', 'ContratacaoController@listarContratantes')->name('admin');
 
 /** CONTEUDOS */
 Route::group(['prefix'=>'/conteudos'], function () {
