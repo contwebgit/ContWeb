@@ -13,13 +13,23 @@ use \Mpdf\Mpdf as Mpdf;
 
 class ContratacaoController extends Controller
 {
-
+    /**
+     * Function to list Contratantes model.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function listarContratantes(){
         $contratantes = Contratante::all();
 
         return view('system.dashboard', compact('contratantes'));
     }
 
+    /**
+     * Function to return contract view.
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function contratarView(Request $request){
         $total = str_replace( "R$ ", "", $request->input('total'));
         $plano = $request->input('plan');
@@ -51,6 +61,12 @@ class ContratacaoController extends Controller
         ]);
     }
 
+    /**
+     * Function to contract a plan.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function contratar(Request $request){
         $fields = [
             'date',
@@ -103,6 +119,12 @@ class ContratacaoController extends Controller
         return redirect()->route('send-email-confirmation', compact('email'));
     }
 
+    /**
+     * Function to generate contract.
+     *
+     * @param $email
+     * @param $id
+     */
     public function gerarContrato($email, $id){
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');

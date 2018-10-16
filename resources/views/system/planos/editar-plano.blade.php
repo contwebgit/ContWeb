@@ -44,7 +44,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <a href="{{route('adicionar-pergunta', ['id' => $plano->id])}}" class="btn btn-primary">Adicionar</a>
+            <a href="{{route('adicionar-pergunta-plano', ['id' => $plano->id])}}" class="btn btn-primary">Adicionar</a>
         </div>
     </div>
 @endsection
