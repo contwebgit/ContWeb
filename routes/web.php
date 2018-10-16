@@ -52,12 +52,8 @@ Route::get('/orcamento/servico/{id}/', 'PlanosController@orcamentoServico')->nam
 
 Route::get('/orcamento/plano/{id}/', 'PlanosController@orcamentoPlano')->name('orcamento-plano');
 
-
-
 /** ADMIN ROUTES */
-Route::get('/admin', function () {
-    return view('system.admin');
-})->name('admin');
+Route::get('/admin', 'ContratacaoController@listarContratantes')->name('admin');
 
 /** CONTEUDOS */
 Route::group(['prefix'=>'/conteudos'], function () {
@@ -78,8 +74,11 @@ Route::group(['prefix' => '/planos'], function () {
     Route::get('/perguntas', 'PlanosController@listPerguntas')->name('perguntas');
 
     /** PERGUNTAS */
-    Route::get('/adicionar-pergunta', 'PlanosController@adicionarPerguntaView')->name('adicionar-pergunta');
-    Route::post('/adicionar-pergunta', 'PlanosController@adicionarPergunta')->name('adicionar-pergunta-action');
+    Route::get('/adicionar-pergunta/plano/{id}', 'PlanosController@adicionarPerguntaView')->name('adicionar-pergunta-plano');
+    Route::post('/adicionar-pergunta/plano/', 'PlanosController@adicionarPerguntaPlano')->name('adicionar-pergunta-plano-action');
+
+    Route::get('/adicionar-pergunta/servico/{id}', 'PlanosController@adicionarPerguntaView')->name('adicionar-pergunta-servico');
+    Route::post('/adicionar-pergunta/servico/', 'PlanosController@adicionarPerguntaServico')->name('adicionar-pergunta-servico-action');
 
     Route::get('/delete-pergunta/{id}', 'PlanosController@deletePergunta')->name('delete-pergunta');
 
@@ -103,9 +102,13 @@ Route::group(['prefix' => '/planos'], function () {
         return view('system.planos.adicionar-servico');
     })->name('adicionar-servico');
     Route::post('/adicionar-servico', 'PlanosController@adicionarServico')->name('adicionar-servico-action');
+
     Route::get('/listar-servicos', 'PlanosController@listarServicos')->name('listar-servicos');
+
     Route::get('/delete-servico/{id}', 'PlanosController@deleteServico')->name('delete-servico');
+
     Route::get('/editar-servico/{id}', 'PlanosController@editarServicoView')->name('editar-servico');
+    Route::post('/editar-servico', 'PlanosController@editarServicoView')->name('editar-servico-action');
 
 });
 

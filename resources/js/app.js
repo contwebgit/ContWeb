@@ -68,7 +68,7 @@ $(document).ready(function() {
     $("#autopreencher").on("click", function () {
         let cnpj = $("#cnpj-aux").val();
         $("#cnpj").val(cnpj);
-        $("#form-contratar").submit();
+        $("#form-orcamento").submit();
     });
 
     $("#adicionar-pergunta").on("click", function() {
@@ -86,7 +86,6 @@ $(document).ready(function() {
     $(window).on("scroll", function(){
         if($(this).scrollTop() > 400){
             $("fixed-content").addClass("fixed");
-            console.log(11);
         }else{
             $("fixed-content").removeClass("fixed");
         }
@@ -108,7 +107,7 @@ $(document).ready(function() {
         var total = 0;
 
         pergunta.each(function(key, value){
-            total = total + parseFloat(value.value);
+            total = total + parseFloat(value.value.split(':')[1]);
         });
 
         var text = "R$ " + total.toFixed(2).toString().replace(".", ",");
@@ -149,7 +148,6 @@ $(document).ready(function() {
     });
 
 
-
     if($('#cnpj').length > 0){
         var cnpj = $('#cnpj').val().replace(/[^0-9]/g, '');
 
@@ -164,6 +162,7 @@ $(document).ready(function() {
                 complete: function (xhr) {
 
                     response = xhr.responseJSON;
+                    console.log(response);
 
                     if (response.status === 'OK') {
                         $("#InputCNPJ").val(response.cnpj);
@@ -171,6 +170,7 @@ $(document).ready(function() {
                         $("#InputDate").val(response.abertura);
                         $("#InputNameFantasy").val(response.fantasia);
                         $("#InputCnaeMain").val(response.atividade_principal[0].code);
+                        $("#activity").val(response.atividade_principal[0].text);
 
                         response.atividades_secundarias.forEach(function (value) {
                             $("#InputCnaeSecondary").val($("#InputCnaeSecondary").val() + " / " + value.code);
@@ -192,7 +192,6 @@ $(document).ready(function() {
                         $("#InputShareCapital").val(response.capital_social);
 
                         $("#InputEmail").focus();
-
                     } else {
                         alert(response.message);
                     }

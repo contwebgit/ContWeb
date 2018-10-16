@@ -10,9 +10,10 @@
             </div>
             <form action="{{route('contratar-action')}}" method="post">
                 @csrf
-                <input type="hidden" name="plano" value="{{$plano}}">
+                <input type="hidden" name="plan" value="{{$plano}}">
                 <input type="hidden" name="total" value="{{$total}}">
                 <input type="hidden" id="cnpj" value="{{$cnpj}}">
+                <input type="hidden" name="orcamento" value="{{$orcamento}}">
                 <div class="wrapper-budget margin_top_40">
                     <div class="container">
                         <div class="wrapper-title">

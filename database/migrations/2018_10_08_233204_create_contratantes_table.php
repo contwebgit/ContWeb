@@ -15,12 +15,13 @@ class CreateContratantesTable extends Migration
     {
         Schema::create('contratantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("plano");
+            $table->integer('orcamento');
             $table->double("total");
             $table->string("cnpj");
             $table->date("date")->nullable();
             $table->string("company");
             $table->string("name_fantasy")->nullable();
+            $table->string("activity")->nullable();
             $table->string("cnae_main")->nullable();
             $table->string("cnae_secondary")->nullable();
             $table->string("legal")->nullable();
@@ -44,6 +45,7 @@ class CreateContratantesTable extends Migration
             $table->string("qualification")->nullable();
             $table->string("service_start_month");
             $table->string("code");
+            $table->integer('plan');
             $table->string("payment_day");
             $table->timestamps();
         });

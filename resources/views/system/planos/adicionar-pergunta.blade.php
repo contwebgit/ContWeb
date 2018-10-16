@@ -5,12 +5,12 @@
         <div role="dialog">
             <div class="container">
                 <h2 class="blue">Adicionar Pergunta</h2>
-                <form action="{{route('adicionar-pergunta-action', ['id' => app('request')->get('id')])}}" method="POST">
+                <form action="{{route('adicionar-pergunta-' . $role . '-action',  $obj)}}" method="POST">
                     @csrf
                     @if($role == 'servico')
-                        <input type="hidden" name="servico" value="{{app('request')->get('id')}}">
+                        <input type="hidden" name="servico" value="{{$obj}}">
                     @else
-                        <input type="hidden" name="plano" value="{{app('request')->get('id')}}">
+                        <input type="hidden" name="plano" value="{{$obj}}">
                     @endif
                     <div class="pergunta">
                         <input type="text" name="pergunta" class="form-control" placeholder="Pergunta" required>

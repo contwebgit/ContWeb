@@ -142,9 +142,9 @@ class PlanosController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function adicionarPerguntaView(Request $request){
-        $obj = $request->get('id');
-        $role = $request->get('role');
+    public function adicionarPerguntaView(Request $request, $id){
+        $obj = $id;
+        $role = explode("/", $request->path())[2];
         return view('system.planos.adicionar-pergunta', compact('obj', 'role'));
     }
 
@@ -154,21 +154,33 @@ class PlanosController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function adicionarPergunta(Request $request){
+    public function adicionarPerguntaPlano(Request $request){
         $pergunta = new Perguntas();
         $pergunta->setAttribute('pergunta', $request->input('pergunta'));
         $pergunta->setAttribute('respostas', $request->input('respostas'));
         $pergunta->setAttribute('estados', implode(",", $request->input('estados')));
 
-        if(@!empty($request->input('plano'))) {
-            $pergunta->setAttribute('plano', $request->get('id'));
-            $pergunta->save();
-            return redirect()->route('editar-plano', ['id' => $request->get('id')]);
-        }else {
-            $pergunta->setAttribute('servico', $request->get('id'));
-            $pergunta->save();
-            return redirect()->route('editar-servico', ['id' => $request->get('id')]);
-        }
+        $pergunta->setAttribute('plano', $request->get('plano'));
+        $pergunta->save();
+        return redirect()->route('editar-plano', ['id' => $request->get('plano')]);
+    }
+
+
+    /**
+     * Function that add a question and plan.
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function adicionarPerguntaServico(Request $request){
+        $pergunta = new Perguntas();
+        $pergunta->setAttribute('pergunta', $request->input('pergunta'));
+        $pergunta->setAttribute('respostas', $request->input('respostas'));
+        $pergunta->setAttribute('estados', implode(",", $request->input('estados')));
+
+        $pergunta->setAttribute('servico', $request->get('servico'));
+        $pergunta->save();
+        return redirect()->route('editar-servico', ['id' => $request->get('servico')]);
     }
 
     /**
