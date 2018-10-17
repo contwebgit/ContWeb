@@ -13894,7 +13894,19 @@ $(document).ready(function () {
             });
         }
     }
+
+    $("#estado-orcamento").on("change", function () {
+        var plano = $("#plano").val();
+        var estado = $(this).val();
+        window.location = '/orcamento/plano/' + plano + '/' + estado;
+    });
 }); // fim document ready
+
+if ($("#estado-orcamento").length > 0) {
+    var estado = "#" + window.location.href.split('/')[6];
+    console.log(estado);
+    $(estado).attr('selected', 'selected');
+}
 
 /***/ }),
 /* 12 */

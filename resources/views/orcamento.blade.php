@@ -13,6 +13,18 @@
                 <form id="form-orcamento" action="{{route('contratar-view')}}" autocomplete="off" method="POST">
                     @csrf
                     <div class="perguntas">
+                        <div class="pergunta">
+                            <label for="estado">Estado:</label>
+                            <select name="estado" id="estado-orcamento" class="form-control" required>
+                                <option id="SP" value="SP">SP</option>
+                                <option id="RJ" value="RJ">RJ</option>
+                                <option id="MG" value="MG">MG</option>
+                                <option id="GO" value="GO">GO</option>
+                                <option id="PR" value="PR">PR</option>
+                                <option id="SC" value="SC">SC</option>
+                                <option id="RS" value="RS">RS</option>
+                            </select>
+                        </div>
                         @foreach($perguntas as $pergunta)
                             <div class="pergunta">
                                 <label for="{{$pergunta->id}}">{{$pergunta->pergunta}}</label>
