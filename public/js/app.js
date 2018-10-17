@@ -13804,7 +13804,9 @@ $(document).ready(function () {
         var total = 0;
 
         pergunta.each(function (key, value) {
-            total = total + parseFloat(value.value.split(':')[1]);
+            if (key !== 0) {
+                total = total + parseFloat(value.value.split(':')[1]);
+            }
         });
 
         var text = "R$ " + total.toFixed(2).toString().replace(".", ",");
