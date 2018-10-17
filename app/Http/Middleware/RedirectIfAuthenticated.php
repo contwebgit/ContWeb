@@ -4,16 +4,20 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class RedirectIfAuthenticated
 {
 
     protected $excludeRoutes = [
+            '',
             'login',
             'logout',
             'home',
-            'quem-comos',
-            'contato'
+            'quem-somos',
+            'contato',
+            'blog',
+            'register' //remover
         ];
 
     /**
@@ -32,6 +36,10 @@ class RedirectIfAuthenticated
             if($route == 'login') {
                 return redirect('/admin');
             }
+        }
+
+        if (!Auth::guard($guard)->check() && !in_array($route, $this->excludeRoutes)) {
+            return redirect('/login');
         }
 
         return $next($request);

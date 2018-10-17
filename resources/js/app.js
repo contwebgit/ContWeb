@@ -200,5 +200,16 @@ $(document).ready(function() {
         }
     }
 
+    $("#estado-orcamento").on("change", function(){
+        let plano = $("#plano").val();
+        let estado = $(this).val();
+        window.location = '/orcamento/plano/' + plano + '/' + estado;
+    });
 
 }); // fim document ready
+
+if($("#estado-orcamento").length > 0){
+    let estado = "#" + window.location.href.split('/')[6];
+    console.log(estado);
+    $(estado).attr('selected', 'selected');
+}

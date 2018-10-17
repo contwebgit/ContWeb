@@ -233,8 +233,8 @@ class PlanosController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function orcamentoPlano($id){
-        $perguntas = Perguntas::where('plano', $id)->get();
+    public function orcamentoPlano($id, $estado){
+        $perguntas = Perguntas::where('plano', $id)->where('estados', 'like', '%'.$estado.'%')->get();
 
         $obj = Planos::find($id)->first();
 

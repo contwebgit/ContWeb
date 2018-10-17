@@ -40,22 +40,10 @@
                     <div id="sub-planos">
                         <ul>
                             <li>
-                                <a href="{{route('perguntas')}}">Perguntas</a>
+                                <a href="{{route('listar-servicos')}}">Serviços Avulsos</a>
                             </li>
                             <li>
-                                <a href="{{route('adicionar-plano')}}">Adicionar Plano</a>
-                            </li>
-                            <li>
-                                <a href="{{route('adicionar-servico')}}">Adicionar Serviços Avulsos</a>
-                            </li>
-                            <li>
-                                <a href="{{route('listar-servicos')}}">Listar Serviços Avulsos</a>
-                            </li>
-                            <li>
-                                <a href="">Contrato de Planos Mensais</a>
-                            </li>
-                            <li>
-                                <a href="{{route('listar-planos')}}">Listar Planos</a>
+                                <a href="{{route('listar-planos')}}">Planos</a>
                             </li>
                         </ul>
                     </div>

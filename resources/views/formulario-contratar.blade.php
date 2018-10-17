@@ -1,6 +1,7 @@
 @extends('templates.template')
 
 @section('content')
+    <style>label{margin-left: 5px; color: #1b4b72;}</style>
     <div class="contratar">
         <div class="container">
             <div class="head">
@@ -24,123 +25,146 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
+                                            <label for="cnpj">CNPJ</label>
                                             <input type="text" class="form-control" name="cnpj" id="InputCNPJ" value="" title="Número de inscrição (CNPJ)" placeholder="Número de inscrição (CNPJ)" required="" autofocus="">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                        <label for="Data de criação">Data da Publicação</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="date" id="InputDate" value="" title="Data de Abertura" placeholder="Data de Abertura">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
+                                        <label for="company">Nome da Empresa</label>
+                                        <label for="text"></label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="company" id="InputCompany" maxlength="100" value="" title="Nome da Empresa" placeholder="Nome da Empresa" required="">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
+                                        <label for="name_fantasy">Nome Fantasia</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="name_fantasy" id="InputNameFantasy" maxlength="100" value="" title="Nome Fantasia" placeholder="Nome Fantasia">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
+                                        <label for="cnae_main">CNAE Principal</label>
                                         <div class="form-group">
                                             <textarea class="form-control" name="cnae_main" id="InputCnaeMain" maxlength="1000" title="CNAE Principal" placeholder="CNAE Principal"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
+                                        <label for="cnae_secondary">CNAE Secundário</label>
                                         <div class="form-group">
                                             <textarea class="form-control" name="cnae_secondary" id="InputCnaeSecondary" maxlength="1000" title="CNAE Secundário" placeholder="CNAE Secundário"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
+                                        <label for="legal">Natureza Jurídica</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="legal" id="InputLegal" maxlength="100" value="" title="Natureza Jurídica" placeholder="Natureza Jurídica">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
+                                        <label for="address">Logradouro</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="address" id="InputAddress" maxlength="100" value="" title="Logradouro" placeholder="Logradouro" required="">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
+                                        <label for="number">Numero</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="number" id="InputNumber" maxlength="5" value="" title="Número" placeholder="Número" required="">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                        <label for="complement">Complemento</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="complement" id="InputComplement" maxlength="100" value="" title="Complemento" placeholder="Complemento">
                                         </div>
                                     </div>
 
                                     <div class="col-md-2">
+                                        <label for="cep">CEP</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="cep" id="InputCEP" value="" title="CEP" placeholder="CEP" required="">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                        <label for="district">Bairro</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="district" id="InputDistrict" maxlength="100" value="" title="Bairro" placeholder="Bairro" required="">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
+                                        <label for="county">Municipio</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="county" id="InputCounty" maxlength="100" value="" title="Municipio" placeholder="Municipio" required="">
                                         </div>
                                     </div>
 
                                     <div class="col-md-2">
+                                        <label for="uf">UF</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="uf" id="InputUF" maxlength="100" value="" title="UF" placeholder="UF" required="">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
+                                        <label for="email">Email</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="email" id="InputEmail" maxlength="100" title="Email" placeholder="Email" required="">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
+                                        <label for="phone">Telefone</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="phone" id="InputPhone" maxlength="100" title="Telefone" placeholder="Telefone" required="">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
+                                        <label for="ente_federative">Ente Federativo Responsável</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="ente_federative" id="InputEnteFederative" maxlength="100" value="" title="Ente Federativo Responsável" placeholder="Ente Federativo Responsável">
                                         </div>
                                     </div>
 
                                     <div class="col-md-8">
+                                        <label for="status">Situação Cadastral</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="status" id="InputStatus" maxlength="100" value="" title="Situação Cadastral" placeholder="Situação Cadastral">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                        <label for="status_date">Data da Situação Cadastral</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="status_date" id="InputStatusDate" maxlength="100" value="" title="Data da Situação Cadastral" placeholder="Data da Situação Cadastral">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
+                                        <label for="status_reason">Motivo da Situação Cadastral</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="status_reason" id="InputStatusReason" maxlength="100" value="" title="Motivo de Situação Cadastral" placeholder="Motivo de Situação Cadastral">
                                         </div>
                                     </div>
 
                                     <div class="col-md-8">
+                                        <label for="special">Situação Especial</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="special" id="InputSpecial" maxlength="100" value="" title="Situação Especial" placeholder="Situação Especial">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                        <label for="special_date">Data da Stuação Especial</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="special_date" id="InputSpecialDate" maxlength="100" value="" title="Data da Situação Especial" placeholder="Data da Situação Especial">
                                         </div>
@@ -157,6 +181,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <label for="share_capital">Capital Social</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="share_capital" id="InputShareCapital" maxlength="100" value="" title="Capital Social" placeholder="Capiral Social">
                                         </div>
@@ -164,8 +189,10 @@
                                     <br>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="partner" id="InputPartner" maxlength="1000" title="Sócio" placeholder="Sócio"></textarea>
+                                            <label for="partner">Sócios</label>
+                                            <textarea class="form-control" name="partner" id="InputPartner" maxlength="1000" title="Sócio" placeholder="Sócios"></textarea>
                                             <br>
+                                            <label for="qualification">Qualificação</label>
                                             <textarea class="form-control" name="qualification" id="InputQualification" maxlength="1000" title="Qualificação" placeholder="Qualificação (De acordo com a ordem dos sócios a cima.)"></textarea>
                                         </div>
                                     </div>

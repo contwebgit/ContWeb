@@ -8,10 +8,10 @@ use App\Mail\SendMailable;
 
 class MailController
 {
-
     public function emailConfirmacao(Request $request)
     {
-        $email = $request->post($request->input('mail'))["email"];
+
+        $email = $request->input('email');
         Mail::to($email)
             ->send(new SendMailable($email));
 

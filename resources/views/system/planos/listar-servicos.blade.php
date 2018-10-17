@@ -4,6 +4,8 @@
     <div class="listar-servicos">
         <div class="container">
             <h2 class="blue">Servicos</h2>
+            <a href="{{route('adicionar-servico')}}" class="btn-adicionar">Adicionar Plano</a>
+
             <div class="mensagem">
                 @if(@$s)
                     <span class="badge badge-success col-md-12">Seu Serviço foi adicionado com sucesso!</span>
