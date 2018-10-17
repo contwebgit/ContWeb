@@ -19,6 +19,9 @@ class RedirectIfAuthenticated
             'blog',
             'orcamento-plano',
             'orcamento-servico',
+            'contratar-view',
+            'contratar-action',
+            'send-email-confirmation',
             'register' //remover
         ];
 
