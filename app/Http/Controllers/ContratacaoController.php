@@ -9,6 +9,8 @@ use App\Resposta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use \Mpdf\Mpdf as Mpdf;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 
 class ContratacaoController extends Controller
@@ -116,7 +118,12 @@ class ContratacaoController extends Controller
 
         $this->gerarContrato($email, $request->input('orcamento'));
 
-        return redirect()->route('send-email-confirmation', compact('email'));
+        Mail::to($email)
+            ->send(new SendMailable($email));
+
+        unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
+
+        return view('agradecimentos');
     }
 
     /**

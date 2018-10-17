@@ -30,7 +30,7 @@
                                 <label for="{{$pergunta->id}}">{{$pergunta->pergunta}}</label>
                                 @if(!empty($pergunta->respostas))
                                     <select name="{{$pergunta->id}}" id="{{$pergunta->id}}" class="form-control" required>
-                                        <option value="0">0</option>
+                                        <option value="0:0">0</option>
                                         @foreach(explode("\n", $pergunta->respostas) as $resposta)
                                             <option value="{{explode("|", $resposta)[0]}}:{{intval(explode("|", $resposta)[1])}}">{{explode("|", $resposta)[0]}}</option>
                                         @endforeach
