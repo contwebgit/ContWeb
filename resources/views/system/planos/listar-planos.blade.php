@@ -4,6 +4,7 @@
     <div class="listar-planos">
         <div class="container">
             <h2 class="blue">Planos</h2>
+            <a href="{{route('adicionar-plano')}}" class="btn-adicionar">Adicionar Plano</a>
             <div class="mensagem">
                 @if(@$s)
                     <span class="badge badge-success">Seu Plano Foi adicionado com sucesso!</span>

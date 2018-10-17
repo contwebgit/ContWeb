@@ -974,6 +974,7 @@ body{
     background-image: url("/img/banner-orcamento.png");
     background-position-y: -30px;
     background-size: 100%;
+    background-repeat: no-repeat;
     padding: 220px;
   }
   .bg-orcamentos{
@@ -986,7 +987,7 @@ body{
     }
     .perguntas{
       margin-top: 10px;
-      padding: 5px;
+      padding-top: 5px;
       width: 100%;
       min-height: 300px;
       .pergunta{
@@ -1268,4 +1269,12 @@ body > div.modal-backdrop.show{
     float: right;
     width: 100%;
   }
+}
+
+.btn-adicionar{
+  color:white;
+  background-color: #f67b30;
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
 }

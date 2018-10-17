@@ -24,16 +24,19 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
+                                            <label for="cnpj">CNPJ</label>
                                             <input type="text" class="form-control" name="cnpj" id="InputCNPJ" value="" title="Número de inscrição (CNPJ)" placeholder="Número de inscrição (CNPJ)" required="" autofocus="">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                        <label for="Data de criação">Data da Publicação</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="date" id="InputDate" value="" title="Data de Abertura" placeholder="Data de Abertura">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
+                                        <label for="text"></label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="company" id="InputCompany" maxlength="100" value="" title="Nome da Empresa" placeholder="Nome da Empresa" required="">
                                         </div>
