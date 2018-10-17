@@ -17,6 +17,8 @@ class RedirectIfAuthenticated
             'quem-somos',
             'contato',
             'blog',
+            'orcamento-plano',
+            'orcamento-servico',
             'register' //remover
         ];
 
