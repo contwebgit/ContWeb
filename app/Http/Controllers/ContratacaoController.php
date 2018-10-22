@@ -27,6 +27,81 @@ class ContratacaoController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
+    public function contratarServicoView(Request $request){
+        $total   = str_replace( "R$ ", "", $request->input('total'));
+        $servico = $request->input('servico');
+        $cpf     = $request->input('cpf');
+
+        if( empty($total) || empty($servico) ){
+            return redirect(404);
+        }
+
+        $orcamento = new Orcamento();
+        $orcamento->save();
+
+        foreach($request->request as $key => $value){
+            if(gettype($key) == 'integer') {
+                $resposta = new Resposta();
+                $resposta->setAttribute('orcamento', $orcamento->getAttribute('id'));
+                $resposta->setAttribute('pergunta', $key);
+                $resposta->setAttribute('resposta', $value);
+                $resposta->save();
+                unset($resposta);
+            }
+        }
+
+        $respostas = Resposta::where('orcamento', $orcamento->getAttribute('id'))->get();
+        $perguntas = [];
+
+        foreach ($respostas as $key => $value){
+            $pergunta = Perguntas::find($value->pergunta);
+            $perguntas[$key] = $pergunta->getAttribute('pergunta');
+        }
+
+
+        return view('formulario-contratar-servico', [
+            'total'     => $total,
+            'servico'   => $servico,
+            'cpf'       => $cpf,
+            'orcamento' => $orcamento->getAttribute('id'),
+            'perguntas' => $perguntas,
+            'respostas' => $respostas
+        ]);
+    }
+
+    /**
+     * Function to contract a service.
+     * @param Request $request
+     */
+    public function contratarServico(Request $request){
+
+        $contratante = new Contratante();
+        $contratante->setAttribute('orcamento', $request->input('orcamento'));
+
+        foreach ($request->input() as $key => $field){
+
+            if($key != '_token') {
+                $contratante->setAttribute($key, $field);
+            }
+
+            if($key == 'total'){
+                $contratante->setAttribute($key, str_replace(",", ".", str_replace("R$ ", "", $field)));
+            }
+
+            if($key == 'date'){
+                $arrDate = explode('/', $field);
+                $date = $arrDate[2] . "-" . $arrDate[1] . "-" . $arrDate[0] . " 00:00:00";
+                $contratante->setAttribute($key, $date);
+            }
+        }
+
+        $contratante->save();
+    }
+
+    /**
      * Function to return contract view.
      *
      * @param Request $request
