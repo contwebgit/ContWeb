@@ -251,6 +251,6 @@ class PlanosController extends Controller
 
         $obj = Servico::find($id)->first();
 
-        return view('orcamento', compact('perguntas', 'obj'));
+        return view('orcamento-servico', compact('perguntas', 'obj'));
     }
 }

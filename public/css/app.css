@@ -11563,12 +11563,11 @@ body {
   background-color: #158044;
   font-size: 1.3em;
   width: 50%;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
   color: white;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.16);
-          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.16);
   border-radius: 3px;
+  border: none;
 }
 
 .orcamentos .container .contratar a {
@@ -11944,9 +11943,9 @@ body > div.modal-backdrop.show {
 #total-calc {
   display: block;
   float: right;
-  margin-right: -100%;
-  margin-left: 101%;
-  margin-top: -63.9%;
+  width: 100%;
+  margin-top: -309px;
+  padding-right: 15px;
 }
 
 #total-calc .economia {

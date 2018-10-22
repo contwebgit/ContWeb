@@ -21,6 +21,8 @@ class RedirectIfAuthenticated
             'orcamento-servico',
             'contratar-view',
             'contratar-action',
+            'contratar-servico-view',
+            'contratar-servico-action',
             'send-email-confirmation',
             'register' //remover
         ];
