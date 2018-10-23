@@ -41,8 +41,8 @@ class CreateContratantesTable extends Migration
             $table->string("special")->nullable();
             $table->string("special_date")->nullable();
             $table->string("share_capital")->nullable();
-            $table->string("partner")->nullable();
-            $table->string("qualification")->nullable();
+            $table->text("partner")->nullable();
+            $table->text("qualification")->nullable();
             $table->string("service_start_month");
             $table->string("code");
             $table->integer('plan');

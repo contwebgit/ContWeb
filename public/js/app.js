@@ -13866,11 +13866,16 @@ $(document).ready(function () {
                         $("#InputCompany").val(response.nome);
                         $("#InputDate").val(response.abertura);
                         $("#InputNameFantasy").val(response.fantasia);
-                        $("#InputCnaeMain").val(response.atividade_principal[0].code);
+                        $("#InputCnaeMain").val(response.atividade_principal[0].code + " - " + response.atividade_principal[0].text);
                         $("#activity").val(response.atividade_principal[0].text);
 
                         response.atividades_secundarias.forEach(function (value) {
-                            $("#InputCnaeSecondary").val($("#InputCnaeSecondary").val() + " / " + value.code);
+                            $("#InputCnaeSecondary").val($("#InputCnaeSecondary").val() + value.code + " - " + value.text + "\n");
+                        });
+
+                        response.qsa.forEach(function (data) {
+                            $("#InputPartner").val($("#InputPartner").val() + data.nome + "\n");
+                            $("#InputQualification").val($("#InputQualification").val() + data.qual + "\n");
                         });
 
                         $("#InputLegal").val(response.natureza_juridica);
