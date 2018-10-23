@@ -52,7 +52,7 @@
             </div>
             <div class="container">
                 <div class="contratar col-md-6 offset-md-3">
-                    <button type="submit" id="contratar-servico" class="contratar" data-toggle="modal" data-target="#modal">Contratar</button>
+                    <button type="submit" id="contratar-servico" class="btn btn-contratar" data-toggle="modal" data-target="#modal">Contratar</button>
                 </div>
             </div>
         </form>

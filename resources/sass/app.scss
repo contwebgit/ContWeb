@@ -942,26 +942,6 @@ body{
   padding: 0;
   .container {
     padding-bottom: 10px;
-    .contratar {
-      background-color: #158044;
-      font-size: 1.3em;
-      width: 50%;
-      text-align: center;
-      color: white;
-      border-radius: 3px;
-      border: none;
-      a{
-        box-shadow: none;
-      }
-      a:hover{
-        color: white;
-      }
-    }
-    .contratar:hover{
-      transform: scale(1.01);
-      text-decoration: none;
-      color: white;
-    }
   }
   h2{
     margin-top: 30px;
@@ -1287,6 +1267,18 @@ body > div.modal-backdrop.show{
   background-color: #16803d;
   color: white;
   font-size: 1.5em;
-  padding: 10px;
+  padding: 10px 10px 13px 10px;
   margin-bottom: 10px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.btn-contratar:hover{
+  transform: scale(1.01);
+}
+
+.contratar{
+  a:hover{
+    color: white;
+  }
 }

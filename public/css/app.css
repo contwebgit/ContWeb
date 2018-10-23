@@ -11559,32 +11559,6 @@ body {
   padding-bottom: 10px;
 }
 
-.orcamentos .container .contratar {
-  background-color: #158044;
-  font-size: 1.3em;
-  width: 50%;
-  text-align: center;
-  color: white;
-  border-radius: 3px;
-  border: none;
-}
-
-.orcamentos .container .contratar a {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.orcamentos .container .contratar a:hover {
-  color: white;
-}
-
-.orcamentos .container .contratar:hover {
-  -webkit-transform: scale(1.01);
-          transform: scale(1.01);
-  text-decoration: none;
-  color: white;
-}
-
 .orcamentos h2 {
   margin-top: 30px;
   text-align: center;
@@ -11976,7 +11950,18 @@ body > div.modal-backdrop.show {
   background-color: #16803d;
   color: white;
   font-size: 1.5em;
-  padding: 10px;
+  padding: 10px 10px 13px 10px;
   margin-bottom: 10px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.btn-contratar:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.contratar a:hover {
+  color: white;
 }
 
