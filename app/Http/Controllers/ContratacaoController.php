@@ -88,6 +88,10 @@ class ContratacaoController extends Controller
                 $contratante->setAttribute($key, $field);
             }
 
+            if($key == 'estado'){
+                $contratante->setAttribute($key, explode( ":", $field)[1]);
+            }
+
             if($key == 'date'){
                 $arrDate = explode('/', $field);
                 $date = $arrDate[2] . "-" . $arrDate[1] . "-" . $arrDate[0] . " 00:00:00";
