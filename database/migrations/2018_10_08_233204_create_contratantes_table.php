@@ -23,7 +23,7 @@ class CreateContratantesTable extends Migration
             $table->string("name_fantasy")->nullable();
             $table->string("activity")->nullable();
             $table->string("cnae_main")->nullable();
-            $table->string("cnae_secondary")->nullable();
+            $table->text("cnae_secondary")->nullable();
             $table->string("legal")->nullable();
             $table->string("address");
             $table->integer("number");
