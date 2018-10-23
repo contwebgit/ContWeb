@@ -16,6 +16,7 @@ class CreateOrcamentosTable extends Migration
         Schema::create('orcamentos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('contratante')->nullable();
+            $table->double('total');
             $table->timestamps();
         });
     }

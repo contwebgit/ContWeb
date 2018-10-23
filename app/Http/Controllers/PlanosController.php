@@ -231,6 +231,7 @@ class PlanosController extends Controller
     /**
      * Function that list question and plans for form budget.
      * @param $id
+     * @param $estado
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function orcamentoPlano($id, $estado){
@@ -244,13 +245,14 @@ class PlanosController extends Controller
     /**
      * Function that list question and plans for form budget.
      * @param $id
+     * @param $estado
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function orcamentoServico($id){
-        $perguntas = Perguntas::where('servico', $id)->get();
+    public function orcamentoServico($id, $estado){
+        $perguntas = Perguntas::where('servico', $id)->where('estados', 'like', '%'.$estado.'%')->get();
 
         $obj = Servico::find($id)->first();
 
-        return view('orcamento', compact('perguntas', 'obj'));
+        return view('orcamento-servico', compact('perguntas', 'obj'));
     }
 }

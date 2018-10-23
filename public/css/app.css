@@ -11559,29 +11559,6 @@ body {
   padding-bottom: 10px;
 }
 
-.orcamentos .container .contratar {
-  background-color: #158044;
-  font-size: 1.3em;
-  width: 50%;
-  padding: 15px;
-  text-align: center;
-  color: white;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.16);
-          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.16);
-  border-radius: 3px;
-}
-
-.orcamentos .container .contratar a {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.orcamentos .container .contratar:hover {
-  -webkit-transform: scale(1.01);
-          transform: scale(1.01);
-  text-decoration: none;
-}
-
 .orcamentos h2 {
   margin-top: 30px;
   text-align: center;
@@ -11944,9 +11921,10 @@ body > div.modal-backdrop.show {
 #total-calc {
   display: block;
   float: right;
-  margin-right: -100%;
-  margin-left: 101%;
-  margin-top: -63.9%;
+  width: 100%;
+  margin-top: -309px;
+  padding-right: 15px;
+  margin-right: -534px;
 }
 
 #total-calc .economia {
@@ -11966,5 +11944,28 @@ body > div.modal-backdrop.show {
   border: none;
   border-radius: 5px;
   padding: 7px;
+}
+
+.btn-contratar {
+  background-color: #16803d;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px 10px 13px 10px;
+  margin-bottom: 10px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.btn-contratar:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.contratar a:hover {
+  color: white;
+}
+
+.planos-list {
+  padding-right: 15px;
 }
 
