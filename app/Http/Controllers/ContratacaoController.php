@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contratante;
+use App\ContratanteServico;
 use App\Orcamento;
 use App\Perguntas;
 use App\Resposta;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use \Mpdf\Mpdf as Mpdf;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
+use App\Mail\SendMailableServico;
 
 
 class ContratacaoController extends Controller
@@ -40,6 +42,7 @@ class ContratacaoController extends Controller
         }
 
         $orcamento = new Orcamento();
+        $orcamento->setAttribute('total', str_replace(",", ".", $total));
         $orcamento->save();
 
         foreach($request->request as $key => $value){
@@ -72,23 +75,16 @@ class ContratacaoController extends Controller
         ]);
     }
 
-    /**
-     * Function to contract a service.
-     * @param Request $request
-     */
+
     public function contratarServico(Request $request){
 
-        $contratante = new Contratante();
+        $contratante = new ContratanteServico();
         $contratante->setAttribute('orcamento', $request->input('orcamento'));
 
         foreach ($request->input() as $key => $field){
 
-            if($key != '_token') {
+            if($key != '_token' and $key != 'total') {
                 $contratante->setAttribute($key, $field);
-            }
-
-            if($key == 'total'){
-                $contratante->setAttribute($key, str_replace(",", ".", str_replace("R$ ", "", $field)));
             }
 
             if($key == 'date'){
@@ -99,6 +95,18 @@ class ContratacaoController extends Controller
         }
 
         $contratante->save();
+
+        $email = $request->input('email');
+
+        $this->gerarContrato($email, $request->input('orcamento'));
+
+        Mail::to($email)
+            ->send(new SendMailableServico());
+
+        unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
+
+        return view('agradecimentos');
+
     }
 
     /**
@@ -117,6 +125,7 @@ class ContratacaoController extends Controller
         }
 
         $orcamento = new Orcamento();
+        $orcamento->setAttribute('total', str_replace(",", ".", $total));
         $orcamento->save();
 
         foreach($request->request as $key => $value){

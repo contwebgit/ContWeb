@@ -70,7 +70,7 @@
         </div>
        <div class="container">
            <div class="contratar col-md-6 offset-md-3">
-               <a href="" id="contratar" class="contratar" data-toggle="modal" data-target="#modal">Contratar</a>
+               <a href="" id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal">Contratar</a>
            </div>
        </div>
     </div>

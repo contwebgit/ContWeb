@@ -13898,9 +13898,17 @@ $(document).ready(function () {
     }
 
     $("#estado-orcamento").on("change", function () {
-        var plano = $("#plano").val();
-        var estado = $(this).val();
-        window.location = '/orcamento/plano/' + plano + '/' + estado;
+        if (window.location.href.indexOf('plano') !== -1) {
+            var plano = $("#plano").val();
+            var estado = $(this).val();
+
+            window.location = '/orcamento/plano/' + plano + '/' + estado;
+        } else {
+            var servico = $("#servico").val();
+            var _estado = $(this).val();
+
+            window.location = '/orcamento/servico/' + servico + '/' + _estado;
+        }
     });
 }); // fim document ready
 

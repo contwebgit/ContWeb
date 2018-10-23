@@ -11563,7 +11563,6 @@ body {
   background-color: #158044;
   font-size: 1.3em;
   width: 50%;
-  padding: 10px;
   text-align: center;
   color: white;
   border-radius: 3px;
@@ -11575,10 +11574,15 @@ body {
           box-shadow: none;
 }
 
+.orcamentos .container .contratar a:hover {
+  color: white;
+}
+
 .orcamentos .container .contratar:hover {
   -webkit-transform: scale(1.01);
           transform: scale(1.01);
   text-decoration: none;
+  color: white;
 }
 
 .orcamentos h2 {
@@ -11946,6 +11950,7 @@ body > div.modal-backdrop.show {
   width: 100%;
   margin-top: -309px;
   padding-right: 15px;
+  margin-right: -534px;
 }
 
 #total-calc .economia {
@@ -11965,5 +11970,13 @@ body > div.modal-backdrop.show {
   border: none;
   border-radius: 5px;
   padding: 7px;
+}
+
+.btn-contratar {
+  background-color: #16803d;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 

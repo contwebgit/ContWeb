@@ -203,9 +203,17 @@ $(document).ready(function() {
     }
 
     $("#estado-orcamento").on("change", function(){
-        let plano = $("#plano").val();
-        let estado = $(this).val();
-        window.location = '/orcamento/plano/' + plano + '/' + estado;
+        if(window.location.href.indexOf('plano') !== -1) {
+            let plano = $("#plano").val();
+            let estado = $(this).val();
+
+            window.location = '/orcamento/plano/' + plano + '/' + estado;
+        }else{
+            let servico = $("#servico").val();
+            let estado = $(this).val();
+
+            window.location = '/orcamento/servico/' + servico + '/' + estado;
+        }
     });
 
 }); // fim document ready

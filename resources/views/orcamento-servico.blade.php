@@ -1,6 +1,7 @@
 @extends('templates.template')
 
 @section('content')
+    <style>#total-calc{margin-right: 0!important;}</style>
     <div class="orcamentos">
         <div class="banner"></div>
         <form id="form-orcamento-servico" action="{{route('contratar-servico-view')}}" autocomplete="off" method="POST">

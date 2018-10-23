@@ -946,7 +946,6 @@ body{
       background-color: #158044;
       font-size: 1.3em;
       width: 50%;
-      padding: 10px;
       text-align: center;
       color: white;
       border-radius: 3px;
@@ -954,10 +953,14 @@ body{
       a{
         box-shadow: none;
       }
+      a:hover{
+        color: white;
+      }
     }
     .contratar:hover{
       transform: scale(1.01);
       text-decoration: none;
+      color: white;
     }
   }
   h2{
@@ -1260,6 +1263,7 @@ body > div.modal-backdrop.show{
   width: 100%;
   margin-top: -309px;
   padding-right: 15px;
+  margin-right: -534px;
   .economia{
     float: right;
     width: 100%;
@@ -1277,4 +1281,12 @@ body > div.modal-backdrop.show{
   border: none;
   border-radius: 5px;
   padding: 7px;
+}
+
+.btn-contratar{
+  background-color: #16803d;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px;
+  margin-bottom: 10px;
 }
