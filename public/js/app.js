@@ -13926,6 +13926,8 @@ if ($("#InputEstado").length > 0) {
     });
 
     $("#InputEstado").on("change", function () {
+        $("#InputCidade").removeAttr('disabled');
+        $("#InputCidade > option").remove();
         var estado = $(this).val().split(":")[0];
         $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + estado + "/municipios", function (data) {
             data.forEach(function (value) {

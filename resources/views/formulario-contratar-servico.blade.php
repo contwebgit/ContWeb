@@ -58,7 +58,7 @@
                             <div class="col-md-12">
                                 <label for="cidade">Cidade</label>
                                 <div class="form-group">
-                                    <select class="form-control" name="cidade" id="InputCidade" title="Cidade" ></select>
+                                    <select class="form-control" name="cidade" id="InputCidade" title="Cidade" disabled></select>
                                 </div>
                             </div>
                             <div class="col-md-12">
