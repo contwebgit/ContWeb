@@ -130,13 +130,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
-                                        <label for="ente_federative">Ente Federativo Responsável</label>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="ente_federative" id="InputEnteFederative" maxlength="100" value="" title="Ente Federativo Responsável" placeholder="Ente Federativo Responsável">
-                                        </div>
-                                    </div>
-
                                     <div class="col-md-8">
                                         <label for="status">Situação Cadastral</label>
                                         <div class="form-group">
@@ -147,26 +140,6 @@
                                         <label for="status_date">Data da Situação Cadastral</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="status_date" id="InputStatusDate" maxlength="100" value="" title="Data da Situação Cadastral" placeholder="Data da Situação Cadastral">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <label for="status_reason">Motivo da Situação Cadastral</label>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="status_reason" id="InputStatusReason" maxlength="100" value="" title="Motivo de Situação Cadastral" placeholder="Motivo de Situação Cadastral">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-8">
-                                        <label for="special">Situação Especial</label>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="special" id="InputSpecial" maxlength="100" value="" title="Situação Especial" placeholder="Situação Especial">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="special_date">Data da Stuação Especial</label>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="special_date" id="InputSpecialDate" maxlength="100" value="" title="Data da Situação Especial" placeholder="Data da Situação Especial">
                                         </div>
                                     </div>
                                 </div><!-- row / -->

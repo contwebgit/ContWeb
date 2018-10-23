@@ -3,8 +3,8 @@
 @section('admin-content')
     <div class="listar-servicos">
         <div class="container">
-            <h2 class="blue">Servicos</h2>
-            <a href="{{route('adicionar-servico')}}" class="btn-adicionar">Adicionar Plano</a>
+            <h2 class="blue">Serviços</h2>
+            <a href="{{route('adicionar-servico')}}" class="btn-adicionar">Adicionar Serviço</a>
 
             <div class="mensagem">
                 @if(@$s)
