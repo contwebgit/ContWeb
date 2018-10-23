@@ -22,8 +22,8 @@ class CreateContratanteServicosTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('cep');
-            $table->string('estado')->nullable();
-            $table->string('cidade')->nullable();
+            $table->string('estado');
+            $table->string('cidade');
             $table->string('logradouro');
             $table->integer('numero');
             $table->string('complemento');
