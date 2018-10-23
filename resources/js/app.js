@@ -223,3 +223,23 @@ if($("#estado-orcamento").length > 0){
     console.log(estado);
     $(estado).attr('selected', 'selected');
 }
+
+if($("#InputEstado").length > 0){
+    $.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados', function(data){
+       data.forEach(function(value){
+          $("#InputEstado").append('<option value="'+ value.id + ":" + value.name +'">' + value.nome + '</option>' );
+       });
+    });
+
+    $("#InputEstado").on("change", function(){
+        $("#InputCidade").removeAttr('disabled');
+        $("#InputCidade > option").remove();
+        let estado = $(this).val().split(":")[0];
+        $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + estado + "/municipios", function(data){
+            data.forEach(function (value) {
+                $("#InputCidade").append('<option value="'+ value.nome +'">' + value.nome + '</option>' );
+
+            });
+        });
+    });
+}
