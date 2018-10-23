@@ -24,8 +24,9 @@ class ContratacaoController extends Controller
      */
     public function listarContratantes(){
         $contratantes = Contratante::all();
+        $contratantesServico = ContratanteServico::all();
 
-        return view('system.dashboard', compact('contratantes'));
+        return view('system.dashboard', compact('contratantes', 'contratantesServico'));
     }
 
     /**

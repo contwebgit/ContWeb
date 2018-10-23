@@ -11965,3 +11965,7 @@ body > div.modal-backdrop.show {
   color: white;
 }
 
+.planos-list {
+  padding-right: 15px;
+}
+
