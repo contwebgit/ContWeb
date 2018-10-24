@@ -205,7 +205,7 @@ class PlanosController extends Controller
     public function viewEditarPergunta($id){
         $pergunta = Perguntas::find($id);
         $plano = Planos::find($pergunta->plano);
-        return view('system.planos.editar-pergunta', compact('pergunta', 'plano'));
+        return view('system.planos.editar-pergunta', [ 'pergunta' => $pergunta, 'plano' => $plano ]);
     }
 
     /**

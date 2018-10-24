@@ -13885,7 +13885,6 @@ $(document).ready(function () {
                         $("#InputCounty").val(response.municipio);
                         $("#InputNumber").val(response.numero);
                         $("#InputUF").val(response.uf);
-                        $("#InputPhone").val(response.telefone);
                         $("#InputStatus").val(response.situacao);
                         $("#InputStatusDate").val(response.data_situacao);
                         $("#InputStatusReason").val(response.motivo_situacao);
@@ -13941,6 +13940,19 @@ if ($("#InputEstado").length > 0) {
         });
     });
 }
+
+$("#checkbox-termos").on("click", function () {
+    $("#buttonContrate").removeAttr('disabled');
+});
+
+$("#service_start_month").on("change", function () {
+    $("#month-message > p").remove();
+    if ($(this).val() === 'Mês atual') {
+        $("#month-message").append("<p>O fechamento fiscal/contábil deste mês corrente já ficará por nossa conta. Haverá uma cobrança no ato desta contratação, para efetivação do contrato. </strong>ATENÇÃO</strong> Nossos serviços são cobrados na sistemática pré-pago.</p>");
+    } else {
+        $("#month-message").append("<p>O fechamento fiscal/contábil deste mês corrente, que será efetuado no início do próximo mês, deverá ser executado, ainda, pelo seu antigo Contador. Haverá uma cobrança no ato desta contratação, para efetivação do contrato, porém, você receberá o valor integral em crédito no próximo mês. </strong>ATENÇÃO</strong> Nossos serviços são cobrados na sistemática pré-pago.</p>");
+    }
+});
 
 /***/ }),
 /* 12 */
