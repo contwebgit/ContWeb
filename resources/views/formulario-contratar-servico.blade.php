@@ -51,7 +51,6 @@
                                 <div class="form-group">
                                     <select class="form-control" name="estado" id="InputEstado" title="Estado/UF" >
                                         <option value="">Selecione</option>
-
                                     </select>
                                 </div>
                             </div>
@@ -90,11 +89,9 @@
                                 @foreach($perguntas as $key => $pergunta)
                                     <h5>{{$pergunta}} R:{{explode(":",$respostas[$key]->resposta)[0]}}</h5><br>
                                 @endforeach
+                                <h4>Total: R$ {{$total}}</h4>
                             </div>
                             <button type="submit" class="btn btn-contratar col-md-6 offset-md-3">Contratar</button>
-                            <div id="termos-contrato" class="col-md-6 offset-md-3">
-                                <label for="checkbox"><input type="checkbox" id="checkbox" required> Ao prosseguir você concorda com os <a href="http://www.contweb.com.br/uploads/pdf/budget/43575a4dd326c21f9c6665b5f4fe0901.pdf" target="_blank" title="termos contratuais">termos contratuais</a></label>
-                            </div>
                         </div><!-- row / -->
                     </div><!-- panel-body / -->
                 </div><!-- panel / -->
