@@ -84,7 +84,10 @@
                                     <input type="text" class="form-control" name="bairro" id="InputBairro" title="Bairro" placeholder="Bairro" required="">
                                 </div>
                             </div>
-                            <div class="form-perguntas col-md-12 col-xs-12">
+                            <div class="wrapper-title margin_top_40">
+                                <h2 class="text-center title">ORÇAMENTO</h2>
+                            </div>
+                            <div class="form-perguntas col-md-12 col-xs-12" style="color: #1b4b72;">
                                 <h4>Respostas</h4>
                                 @foreach($perguntas as $key => $pergunta)
                                     <h5>{{$pergunta}} R:{{explode(":",$respostas[$key]->resposta)[0]}}</h5><br>

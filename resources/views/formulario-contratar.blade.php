@@ -212,11 +212,20 @@
                                     </div><!-- Field / -->
                                     <br>
                                     <span class="text-center text-primary" id="messageAboutPayment"></span>
-
                                 </div><!-- row / -->
                             </div><!-- panel-body / -->
                         </div><!-- panel / novos campos -->
                     </div>
+                </div>
+                <div class="wrapper-title margin_top_40">
+                    <h2 class="text-center title">ORÇAMENTO</h2>
+                </div>
+                <div class="form-perguntas col-md-12 col-xs-12" style="color: #1b4b72;">
+                    <h4>Respostas</h4>
+                    @foreach($perguntas as $key => $pergunta)
+                        <h5>{{$pergunta}} R:{{explode(":",$respostas[$key]->resposta)[0]}}</h5><br>
+                    @endforeach
+                    <h4>Total: R$ {{$total}}</h4>
                 </div>
                 <div id="termos-contrato" class="wrapper-budget margin_top_50 padding_top_50 padding_bottom_50 text-center background_arm">
                     <div class="container">

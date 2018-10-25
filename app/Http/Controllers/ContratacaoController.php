@@ -144,11 +144,21 @@ class ContratacaoController extends Controller
             }
         }
 
+        $respostas = Resposta::where('orcamento', $orcamento->getAttribute('id'))->get();
+        $perguntas = [];
+
+        foreach ($respostas as $key => $value){
+            $pergunta = Perguntas::find($value->pergunta);
+            $perguntas[$key] = $pergunta->getAttribute('pergunta');
+        }
+
         return view('formulario-contratar', [
             'total' => $total,
             'plano' => $plano,
             'cnpj' => $cnpj,
-            'orcamento' => $orcamento->getAttribute('id')
+            'orcamento' => $orcamento->getAttribute('id'),
+            'respostas' => $respostas,
+            'perguntas' =>$perguntas
         ]);
     }
 
