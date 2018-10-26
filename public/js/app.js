@@ -13763,6 +13763,12 @@ $(document).ready(function () {
         $("#modal-cnpj").modal();
     });
 
+    $("#preencher").on("click", function () {
+        var a = $("#preencher").is(":checked");
+        $("#cpreencher").val(a);
+        console.log($("#cpreencher").val());
+    });
+
     $("#autopreencher").on("click", function () {
         var cnpj = $("#cnpj-aux").val();
         $("#cnpj").val(cnpj);
