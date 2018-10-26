@@ -11985,3 +11985,8 @@ body > div.modal-backdrop.show {
   padding-bottom: 15px;
 }
 
+.modal-body,
+.modal-header {
+  color: #1b4b72;
+}
+

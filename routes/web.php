@@ -83,7 +83,7 @@ Route::group(['prefix' => '/planos'], function () {
     Route::get('/delete-pergunta/{id}', 'PlanosController@deletePergunta')->name('delete-pergunta');
 
     Route::get('/editar-pergunta/{id}', 'PlanosController@viewEditarPergunta')->name('editar-pergunta');
-    Route::post('/editar-pergunta', 'PlanosController@editarPergunta')->name('editar-pergunta-action');
+    Route::post('/editar-pergunta/{id}', 'PlanosController@editarPergunta')->name('editar-pergunta-action');
 
     /** PLANOS */
     Route::get('/adicionar-plano', function(){

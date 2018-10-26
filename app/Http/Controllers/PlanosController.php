@@ -212,10 +212,10 @@ class PlanosController extends Controller
      * Function to edit a question.
      *
      * @param Request $request
+     * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function editarPergunta(Request $request){
-        $id = $request->get('id');
+    public function editarPergunta(Request $request, $id){
         $pergunta = Perguntas::find($id);
         $plano = $pergunta->plano;
 

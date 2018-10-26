@@ -65,6 +65,12 @@ $(document).ready(function() {
         $("#modal-cnpj").modal();
     });
 
+    $("#preencher").on("click", function(){
+        var a = $("#preencher").is(":checked");
+        $("#cpreencher").val(a);
+        console.log( $("#cpreencher").val());
+    });
+
     $("#autopreencher").on("click", function () {
         let cnpj = $("#cnpj-aux").val();
         $("#cnpj").val(cnpj);
@@ -148,7 +154,6 @@ $(document).ready(function() {
         }
         $(this).removeAttr("disabled");
     });
-
 
     if($('#cnpj').length > 0){
         var cnpj = $('#cnpj').val().replace(/[^0-9]/g, '');
