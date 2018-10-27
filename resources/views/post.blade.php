@@ -29,6 +29,7 @@
                </div>
            </div>
            <div class="content">
+
                <p>{{$post->conteudo }}</p>
            </div>
        </div>

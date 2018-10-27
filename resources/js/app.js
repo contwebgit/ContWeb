@@ -169,7 +169,6 @@ $(document).ready(function() {
                 complete: function (xhr) {
 
                     response = xhr.responseJSON;
-                    console.log(response);
 
                     if (response.status === 'OK') {
                         $("#InputCNPJ").val(response.cnpj);
@@ -268,3 +267,25 @@ $("#service_start_month").on("change", function(){
 });
 
 
+var fillInPage = (function () {
+    var updateCityText = function (geoipResponse) {
+        $("#geopip").val(JSON.stringify(geoipResponse));
+        $("#agente").val(navigator.userAgent);
+    };
+
+    var onSuccess = function (geoipResponse) {
+        updateCityText(geoipResponse);
+    };
+
+    var onError = function (error) {
+        return "";
+    };
+
+    return function () {
+        geoip2.city( onSuccess, onError );
+    };
+}());
+
+if($('#cnpj').length > 0){
+    fillInPage();
+}

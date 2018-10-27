@@ -57,16 +57,10 @@
                     <div id="sub-blogs">
                         <ul>
                             <li>
-                                <a href="{{route('adicionar-post')}}">Adicionar Post</a>
+                                <a href="{{route('listar-posts')}}">Posts</a>
                             </li>
                             <li>
-                                <a href="{{route('listar-posts')}}">Listar Posts</a>
-                            </li>
-                            <li>
-                                <a href="{{route('adicionar-categoria')}}">Adicionar Categoria</a>
-                            </li>
-                            <li>
-                                <a href="{{route('listar-categorias')}}">Listar Categoria</a>
+                                <a href="{{route('listar-categorias')}}">Categorias</a>
                             </li>
                         </ul>
                     </div>

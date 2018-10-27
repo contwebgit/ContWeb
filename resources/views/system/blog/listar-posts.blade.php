@@ -4,6 +4,8 @@
     <div class="listar-posts box">
        <div class="container">
            <h2 class="blue">Lista de Posts</h2>
+           <a href="{{route('adicionar-post')}}" class="btn btn-primary">Adicionar Post</a>
+           <br>
            <table class="table table-striped">
                <thead>
                <tr>

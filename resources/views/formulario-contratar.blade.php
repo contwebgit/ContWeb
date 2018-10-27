@@ -1,6 +1,7 @@
 @extends('templates.template')
 
 @section('content')
+    <script src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js" type="text/javascript" async></script>
     <style>label{margin-left: 5px; color: #1b4b72;}</style>
     <div class="contratar">
         <div class="container">
@@ -15,6 +16,8 @@
                 <input type="hidden" name="total" value="{{$total}}">
                 <input type="hidden" id="cnpj" value="{{$cnpj}}">
                 <input type="hidden" name="orcamento" value="{{$orcamento}}">
+                <input type="hidden" id="geopip" name="geoip" value="">
+                <input type="hidden" id="agente" name="agente" value="">
                 <div class="wrapper-budget margin_top_40">
                     <div class="container">
                         <div class="wrapper-title">

@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->text("conteudo");
             $table->integer("author");
             $table->string("categoria");
+            $table->string('path');
             $table->timestamps();
         });
     }
