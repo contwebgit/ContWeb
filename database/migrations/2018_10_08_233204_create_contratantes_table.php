@@ -47,6 +47,7 @@ class CreateContratantesTable extends Migration
             $table->string("code");
             $table->integer('plan');
             $table->string("payment_day");
+            $table->text("geoip");
             $table->timestamps();
         });
     }

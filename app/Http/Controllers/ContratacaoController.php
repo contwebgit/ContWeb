@@ -13,6 +13,8 @@ use \Mpdf\Mpdf as Mpdf;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use App\Mail\SendMailableServico;
+use GeoIp2\WebService\Client;
+
 
 
 class ContratacaoController extends Controller
@@ -191,6 +193,13 @@ class ContratacaoController extends Controller
             "partner" ,
             "qualification"
         ];
+        $geoip = $request->input('geoip');
+        $agente = $request->input('agente');
+        $email = $request->input('email');
+        $name = $request->input('name_fantasy');
+        $company = $request->input('company');
+
+        $content_geoip = $this->get_geoip($geoip, $name, $company, $email, $agente);
 
         $contratante = new Contratante();
         $contratante->setAttribute('orcamento', $request->input('orcamento'));
@@ -201,7 +210,7 @@ class ContratacaoController extends Controller
                 return redirect()->route('contratar-view',['error'=> true]);
             }
 
-            if($key != '_token') {
+            if($key != '_token' && $key != 'agente') {
                 $contratante->setAttribute($key, $field);
             }
 
@@ -214,13 +223,15 @@ class ContratacaoController extends Controller
                 $date = $arrDate[2] . "-" . $arrDate[1] . "-" . $arrDate[0] . " 00:00:00";
                 $contratante->setAttribute($key, $date);
             }
+
+            if($key == 'geoip'){
+                $contratante->setAttribute("geoip", $content_geoip);
+            }
         }
 
         $contratante->save();
 
-        $email = $request->input('email');
-
-        $this->gerarContrato($email, $request->input('orcamento'));
+        $this->gerarContrato($email, $request->input('orcamento'), $content_geoip);
 
         Mail::to($email)
             ->send(new SendMailable($email));
@@ -236,7 +247,7 @@ class ContratacaoController extends Controller
      * @param $email
      * @param $id
      */
-    public function gerarContrato($email, $id){
+    public function gerarContrato($email, $id, $content_geoip){
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
 
@@ -277,6 +288,7 @@ class ContratacaoController extends Controller
 
         $contrato = str_replace('%mes%', $mes[date('m')], $contrato);
         $contrato = str_replace('%ano%', date('Y'), $contrato);
+        $contrato .= "<br><br>" . $content_geoip;
 
         try {
             $mpdf = new Mpdf();
@@ -416,5 +428,36 @@ class ContratacaoController extends Controller
         }
 
         return $string;
+    }
+
+    /**
+     * @param $response
+     * @param $request
+     * @return string
+     */
+    public function get_geoip($response, $name, $company, $email, $agente){
+        $response = json_decode($response, true);
+
+        $content   = "<div>";
+        $content .= "<p><strong>Nome: </strong>{$name}</p>";
+        $content .= "<p><strong>Email: </strong>{$email}</p>";
+        $content .= "<p><strong>Nome da Empresa: </strong>{$company}</p>";
+        $content .= "<p><strong>Endereço IP: </strong>" . $response["traits"]["ip_address"] . "</p>";
+        $content .= "<p><strong>Pais: </strong>" . $response["country"]["names"]["pt-BR"] . "</p>";
+        $content .= "<p><strong>Estado: </strong>" . $response["subdivisions"][0]["names"]["pt-BR"] . "</p>";
+        $content .= "<p><strong>Cidade: </strong>" . $response["city"]["names"]["en"] . "</p>";
+        $content .= "<p><strong>Continente: </strong>" . $response["continent"]["names"]["pt-BR"] . "</p>";
+        $content .= "<p><strong>Latitude: </strong>" . $response["location"]["latitude"] . "</p>";
+        $content .= "<p><strong>Longitude: </strong>" . $response["location"]["longitude"] . "</p>";
+        $content .= "<p><strong>Raio de Precisão: </strong>" . $response["location"]["accuracy_radius"] . "</p>";
+        $content .= "<p><strong>Organização de sistema: </strong>" . $response["traits"]["autonomous_system_organization"] . "</p>";
+        $content .= "<p><strong>ISP: </strong>" . $response["traits"]["isp"] . "</p>";
+        $content .= "<p><strong>Organização: </strong>" . $response["traits"]["organization"] . "</p>";
+        $content .= "<p><strong>Time Zone: </strong>" . $response["location"]["time_zone"] . "</p>";
+        $content .= "<p><strong>Domínio: </strong>" . $response["traits"]["domain"] . "</p>";
+        $content .= "<p><strong>User Agente: </strong>" . $agente . "</p>";
+        $content .= "</div>";
+
+        return $content;
     }
 }

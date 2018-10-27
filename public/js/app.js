@@ -13865,7 +13865,6 @@ $(document).ready(function () {
                 complete: function complete(xhr) {
 
                     response = xhr.responseJSON;
-                    console.log(response);
 
                     if (response.status === 'OK') {
                         $("#InputCNPJ").val(response.cnpj);
@@ -13959,6 +13958,29 @@ $("#service_start_month").on("change", function () {
         $("#month-message").append("<p>O fechamento fiscal/contábil deste mês corrente, que será efetuado no início do próximo mês, deverá ser executado, ainda, pelo seu antigo Contador. Haverá uma cobrança no ato desta contratação, para efetivação do contrato, porém, você receberá o valor integral em crédito no próximo mês. </strong>ATENÇÃO</strong> Nossos serviços são cobrados na sistemática pré-pago.</p>");
     }
 });
+
+var fillInPage = function () {
+    var updateCityText = function updateCityText(geoipResponse) {
+        $("#geopip").val(JSON.stringify(geoipResponse));
+        $("#agente").val(navigator.userAgent);
+    };
+
+    var onSuccess = function onSuccess(geoipResponse) {
+        updateCityText(geoipResponse);
+    };
+
+    var onError = function onError(error) {
+        return "";
+    };
+
+    return function () {
+        geoip2.city(onSuccess, onError);
+    };
+}();
+
+if ($('#cnpj').length > 0) {
+    fillInPage();
+}
 
 /***/ }),
 /* 12 */

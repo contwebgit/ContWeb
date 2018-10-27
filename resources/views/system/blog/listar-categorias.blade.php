@@ -4,10 +4,12 @@
     <div class="listar-categorias">
         <div class="container">
             <div class="header">
-                <h2>
+                <h2 class="blue">
                     Lista de Categorias
                 </h2>
             </div>
+            <a href="{{route('adicionar-categoria')}}" class="btn btn-primary">Adicionar Categoria</a>
+            <br>
             <table class="table table-striped">
                 <thead>
                 <tr>
