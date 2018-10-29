@@ -13,7 +13,6 @@ use \Mpdf\Mpdf as Mpdf;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use App\Mail\SendMailableServico;
-use GeoIp2\WebService\Client;
 
 
 
@@ -38,7 +37,7 @@ class ContratacaoController extends Controller
     public function contratarServicoView(Request $request){
         $total   = str_replace( "R$ ", "", $request->input('total'));
         $servico = $request->input('servico');
-        $cpf     = $request->input('cpf');
+        $cpf     = $request->input('cnpj-cpf');
 
         if( empty($total) || empty($servico) ){
             return redirect(404);
@@ -105,7 +104,7 @@ class ContratacaoController extends Controller
 
         $email = $request->input('email');
 
-        $this->gerarContrato($email, $request->input('orcamento'));
+        $this->gerarContrato($email, $request->input('orcamento'), "");
 
         Mail::to($email)
             ->send(new SendMailableServico());
@@ -374,7 +373,7 @@ class ContratacaoController extends Controller
             return $negative . convert_number_to_words(abs($number));
         }
 
-        $string = $fraction = null;
+        $fraction = null;
 
         if (strpos($number, '.') !== false) {
             list($number, $fraction) = explode('.', $number);
@@ -432,31 +431,34 @@ class ContratacaoController extends Controller
 
     /**
      * @param $response
-     * @param $request
+     * @param $name
+     * @param $company
+     * @param $email
+     * @param $agente
      * @return string
      */
     public function get_geoip($response, $name, $company, $email, $agente){
         $response = json_decode($response, true);
 
-        $content   = "<div>";
-        $content .= "<p><strong>Nome: </strong>{$name}</p>";
-        $content .= "<p><strong>Email: </strong>{$email}</p>";
-        $content .= "<p><strong>Nome da Empresa: </strong>{$company}</p>";
-        $content .= "<p><strong>Endereço IP: </strong>" . $response["traits"]["ip_address"] . "</p>";
-        $content .= "<p><strong>Pais: </strong>" . $response["country"]["names"]["pt-BR"] . "</p>";
-        $content .= "<p><strong>Estado: </strong>" . $response["subdivisions"][0]["names"]["pt-BR"] . "</p>";
-        $content .= "<p><strong>Cidade: </strong>" . $response["city"]["names"]["en"] . "</p>";
-        $content .= "<p><strong>Continente: </strong>" . $response["continent"]["names"]["pt-BR"] . "</p>";
-        $content .= "<p><strong>Latitude: </strong>" . $response["location"]["latitude"] . "</p>";
-        $content .= "<p><strong>Longitude: </strong>" . $response["location"]["longitude"] . "</p>";
-        $content .= "<p><strong>Raio de Precisão: </strong>" . $response["location"]["accuracy_radius"] . "</p>";
-        $content .= "<p><strong>Organização de sistema: </strong>" . $response["traits"]["autonomous_system_organization"] . "</p>";
-        $content .= "<p><strong>ISP: </strong>" . $response["traits"]["isp"] . "</p>";
-        $content .= "<p><strong>Organização: </strong>" . $response["traits"]["organization"] . "</p>";
-        $content .= "<p><strong>Time Zone: </strong>" . $response["location"]["time_zone"] . "</p>";
-        $content .= "<p><strong>Domínio: </strong>" . $response["traits"]["domain"] . "</p>";
-        $content .= "<p><strong>User Agente: </strong>" . $agente . "</p>";
-        $content .= "</div>";
+        $content   = "<ul>";
+        $content .= "<li><strong>Nome: </strong>{$name}</li>";
+        $content .= "<li><strong>Email: </strong>{$email}</li>";
+        $content .= "<li><strong>Nome da Empresa: </strong>{$company}</li>";
+        $content .= "<li><strong>Endereço IP: </strong>" . $response["traits"]["ip_address"] . "</li>";
+        $content .= "<li><strong>Pais: </strong>" . $response["country"]["names"]["pt-BR"] . "</li>";
+        $content .= "<li><strong>Estado: </strong>" . $response["subdivisions"][0]["names"]["pt-BR"] . "</li>";
+        $content .= "<li><strong>Cidade: </strong>" . $response["city"]["names"]["en"] . "</li>";
+        $content .= "<li><strong>Continente: </strong>" . $response["continent"]["names"]["pt-BR"] . "</li>";
+        $content .= "<li><strong>Latitude: </strong>" . $response["location"]["latitude"] . "</li>";
+        $content .= "<li><strong>Longitude: </strong>" . $response["location"]["longitude"] . "</li>";
+        $content .= "<li><strong>Raio de Precisão: </strong>" . $response["location"]["accuracy_radius"] . "</li>";
+        $content .= "<li><strong>Organização de sistema: </strong>" . $response["traits"]["autonomous_system_organization"] . "</li>";
+        $content .= "<li><strong>ISP: </strong>" . $response["traits"]["isp"] . "</li>";
+        $content .= "<li><strong>Organização: </strong>" . $response["traits"]["organization"] . "</li>";
+        $content .= "<li><strong>Time Zone: </strong>" . $response["location"]["time_zone"] . "</li>";
+        $content .= "<li><strong>Domínio: </strong>" . $response["traits"]["domain"] . "</li>";
+        $content .= "<li><strong>User Agente: </strong>" . $agente . "</li>";
+        $content .= "</ul>";
 
         return $content;
     }

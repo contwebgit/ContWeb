@@ -83,33 +83,40 @@ body{
   padding: 30px 60px 30px 60px;
   .question{
     img{
-      width: 25%;
+      width: 32%;
     }
     h5{
       text-align: center;
       padding: 20px 20px 20px 0;
       font-size: 1.5em;
       font-weight: bold;
-      color: #2f426e;
+      color: #305284;
       text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    }
+    a:hover{
+      text-decoration:none!important;
+    }
+  }
+  .question:hover{
+    img{
+      transform: scale(1.08);
     }
   }
 }
 
 .statistics{
   padding: 30px 30px 30px 10px;
-  background-color: #142940;
+  background-color: #204070;
   text-align: center;
   .statistic {
     .circ{
-      box-shadow: inset 3px 3px 4px 0 rgba(0, 0, 0, 0.1);
-      background-color: #e88e2f;
+      background-color: #f67b30;
       border-radius: 120px;
       h5{
         padding: 45px 0 45px 0;
         font-size: 2em;
         font-weight: 600;
-        color: #142940;
+        color: #1c3e6b;
         text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
       }
     }
@@ -131,7 +138,7 @@ body{
     background-position-x: 5px;
     text-align: center;
     h5{
-      color: #2f426e;
+      color: #1c3e6b;
     }
   }
   .info2{
@@ -141,6 +148,7 @@ body{
     background-size: 100%;
     padding: 124px 10px 68px 10px;
     text-align: center;
+    color: #1c3e6b;
   }
 }
 
@@ -203,6 +211,9 @@ body{
       }
     }
   }
+  .plan:hover{
+    transform: scale(1.005);
+  }
 }
 
 .services{
@@ -231,6 +242,9 @@ body{
         transform: scale(1.05);
       }
     }
+  }
+  .service:hover{
+    transform: scale(1.005);
   }
 }
 
@@ -964,6 +978,7 @@ body{
     padding: 10px 50px;
     color: #dc6f2b;
     background-color: rgba(27, 75, 114, 0.04);
+    min-height: 590px;
     form{
       width: 50%;
       float: left;
@@ -1240,10 +1255,12 @@ body > div.modal-backdrop.show{
 #total-calc{
   display: block;
   float: right;
-  width: 100%;
-  margin-top: -309px;
   padding-right: 15px;
   margin-right: -534px;
+  position: absolute;
+  width: 38%;
+  margin-left: 40%;
+  top: 602px;
   .economia{
     float: right;
     width: 100%;
@@ -1252,6 +1269,26 @@ body > div.modal-backdrop.show{
   .total{
     float: right;
     width: 100%;
+  }
+}
+
+#total-calc-servico{
+  display: block;
+  float: right;
+  padding-right: 15px;
+  position: absolute;
+  width: 100%;
+  top: 594px;
+  .economia{
+    float: right;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .total{
+    float: right;
+    width: 38%;
+    position: absolute;
+    margin-left: 38%;
   }
 }
 
@@ -1304,4 +1341,52 @@ body > div.modal-backdrop.show{
 
 .modal-body, .modal-header{
   color: #1b4b72;
+}
+
+.editor{
+  #editor {
+    width: 800px;
+    margin: 10px auto 10px auto;
+    padding: 7px 20px 20px 20px;
+    border: none;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+    background: rgba(27, 75, 114, 0.14);
+  }
+
+  #toolbar {
+    margin-left: -20px;
+    margin-right: -20px;
+    border-bottom: 1px solid #464646;
+    padding: 8px 20px;
+    overflow: hidden;
+    background: rgb(27, 75, 114);
+    color: #f67b30;
+    margin-top: -7px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  #page {
+    padding-top: 30px;
+    min-height: 300px;
+    outline: none;
+  }
+
+  .icon {
+    float: left;
+    margin-left: 20px;
+    background: #fafafa;
+    font-size: 1.3em;
+    color: #464646;
+    text-align: center;
+    cursor: pointer;
+    &:before{
+      background: rgb(27, 75, 114);
+      color: #f67b30;
+    }
+  }
+
+  .icon:hover {
+    border-color: #3e7086;
+    color: #3e7086;
+  }
 }

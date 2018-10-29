@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
    <div class="container">
-       <a style="margin-left: 20px" class="navbar-brand col-md-5" href="/">
+       <a style="margin-left: 5px" class="navbar-brand col-md-5" href="/">
            <img src="{{asset('img/logo.png')}}" alt="contweb">
        </a>
        <div class="collapse navbar-collapse col-md-7" id="navbar">
@@ -9,7 +9,7 @@
                    <a class="nav-link" href="{{route('quem-somos')}}">QUEM SOMOS </a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/#plans">PLANOS </a>
+                   <a class="nav-link" id="link-planos">PLANOS </a>
                </li>
                <li class="nav-item">
                    <a class="nav-link" href="">LINKS </a>
