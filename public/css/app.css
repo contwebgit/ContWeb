@@ -11602,6 +11602,7 @@ body {
   color: #dc6f2b;
   background-color: rgba(27, 75, 114, 0.04);
   min-height: 590px;
+  position: relative;
 }
 
 .orcamentos .bg-orcamentos form {
@@ -11943,9 +11944,9 @@ body > div.modal-backdrop.show {
   padding-right: 15px;
   margin-right: -534px;
   position: absolute;
-  width: 38%;
-  margin-left: 40%;
-  top: 602px;
+  width: 45%;
+  margin-left: 47%;
+  top: 112px;
 }
 
 #total-calc .economia {
@@ -11964,7 +11965,7 @@ body > div.modal-backdrop.show {
   float: right;
   padding-right: 15px;
   position: absolute;
-  width: 100%;
+  width: 47%;
   top: 594px;
 }
 
@@ -11976,9 +11977,10 @@ body > div.modal-backdrop.show {
 
 #total-calc-servico .total {
   float: right;
-  width: 38%;
+  width: 94%;
   position: absolute;
-  margin-left: 38%;
+  top: -490px;
+  left: 97%;
 }
 
 .btn-adicionar {
