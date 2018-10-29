@@ -45,7 +45,7 @@
                         @endif
                     </div>
                     <div id="total-calc-servico">
-                        <div class="total col-md-6">
+                        <div class="total">
                             <h3>Seu orçamento é de:</h3>
                             <div class="line">
                                 <input id="total" class="input-line totalAtual" name="total" value="R$ 0,00">
