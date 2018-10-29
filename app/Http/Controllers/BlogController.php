@@ -20,13 +20,15 @@ class BlogController extends Controller
         $post->setAttribute('conteudo', $request->input('conteudo'));
         $post->setAttribute('author', Auth::id());
         $post->setAttribute('categoria', 1);
-        $post->save();
 
         $img = $request->file('imagem');
         $ext = $img->extension();
-        $img->storeAs('post/', $post->getAttribute('id') . '.' . $ext);
+        $path = $img->storeAs('post/', $post->getAttribute('id') . '.' . $ext);
 
-        return redirect()->route('blog');
+        $post->setAttribute('path', $path);
+        $post->save();
+
+        return redirect()->route('listar-posts');
     }
 
     public function listarPosts(){

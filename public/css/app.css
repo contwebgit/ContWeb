@@ -10556,7 +10556,7 @@ body {
 }
 
 .questions .question img {
-  width: 25%;
+  width: 32%;
 }
 
 .questions .question h5 {
@@ -10564,20 +10564,27 @@ body {
   padding: 20px 20px 20px 0;
   font-size: 1.5em;
   font-weight: bold;
-  color: #2f426e;
+  color: #305284;
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.questions .question a:hover {
+  text-decoration: none !important;
+}
+
+.questions .question:hover img {
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
 }
 
 .statistics {
   padding: 30px 30px 30px 10px;
-  background-color: #142940;
+  background-color: #204070;
   text-align: center;
 }
 
 .statistics .statistic .circ {
-  -webkit-box-shadow: inset 3px 3px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: inset 3px 3px 4px 0 rgba(0, 0, 0, 0.1);
-  background-color: #e88e2f;
+  background-color: #f67b30;
   border-radius: 120px;
 }
 
@@ -10585,7 +10592,7 @@ body {
   padding: 45px 0 45px 0;
   font-size: 2em;
   font-weight: 600;
-  color: #142940;
+  color: #1c3e6b;
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -10608,7 +10615,7 @@ body {
 }
 
 .info .info1 h5 {
-  color: #2f426e;
+  color: #1c3e6b;
 }
 
 .info .info2 {
@@ -10618,6 +10625,7 @@ body {
   background-size: 100%;
   padding: 124px 10px 68px 10px;
   text-align: center;
+  color: #1c3e6b;
 }
 
 .plans {
@@ -10696,6 +10704,11 @@ body {
           transform: scale(1.05);
 }
 
+.plans .plan:hover {
+  -webkit-transform: scale(1.005);
+          transform: scale(1.005);
+}
+
 .services {
   text-align: center;
   padding: 50px;
@@ -10731,6 +10744,11 @@ body {
 .services .service .pad button:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.services .service:hover {
+  -webkit-transform: scale(1.005);
+          transform: scale(1.005);
 }
 
 #accordion > div:nth-child(4) > div.panel-heading > h4 > i,
@@ -11583,6 +11601,7 @@ body {
   padding: 10px 50px;
   color: #dc6f2b;
   background-color: rgba(27, 75, 114, 0.04);
+  min-height: 590px;
 }
 
 .orcamentos .bg-orcamentos form {
@@ -11921,10 +11940,12 @@ body > div.modal-backdrop.show {
 #total-calc {
   display: block;
   float: right;
-  width: 100%;
-  margin-top: -309px;
   padding-right: 15px;
   margin-right: -534px;
+  position: absolute;
+  width: 38%;
+  margin-left: 40%;
+  top: 602px;
 }
 
 #total-calc .economia {
@@ -11936,6 +11957,28 @@ body > div.modal-backdrop.show {
 #total-calc .total {
   float: right;
   width: 100%;
+}
+
+#total-calc-servico {
+  display: block;
+  float: right;
+  padding-right: 15px;
+  position: absolute;
+  width: 100%;
+  top: 594px;
+}
+
+#total-calc-servico .economia {
+  float: right;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#total-calc-servico .total {
+  float: right;
+  width: 38%;
+  position: absolute;
+  margin-left: 38%;
 }
 
 .btn-adicionar {
@@ -11988,5 +12031,54 @@ body > div.modal-backdrop.show {
 .modal-body,
 .modal-header {
   color: #1b4b72;
+}
+
+.editor #editor {
+  width: 800px;
+  margin: 10px auto 10px auto;
+  padding: 7px 20px 20px 20px;
+  border: none;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  background: rgba(27, 75, 114, 0.14);
+}
+
+.editor #toolbar {
+  margin-left: -20px;
+  margin-right: -20px;
+  border-bottom: 1px solid #464646;
+  padding: 8px 20px;
+  overflow: hidden;
+  background: #1b4b72;
+  color: #f67b30;
+  margin-top: -7px;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.editor #page {
+  padding-top: 30px;
+  min-height: 300px;
+  outline: none;
+}
+
+.editor .icon {
+  float: left;
+  margin-left: 20px;
+  background: #fafafa;
+  font-size: 1.3em;
+  color: #464646;
+  text-align: center;
+  cursor: pointer;
+}
+
+.editor .icon:before {
+  background: #1b4b72;
+  color: #f67b30;
+}
+
+.editor .icon:hover {
+  border-color: #3e7086;
+  color: #3e7086;
 }
 

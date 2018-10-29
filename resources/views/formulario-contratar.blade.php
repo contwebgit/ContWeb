@@ -224,11 +224,32 @@
                     <h2 class="text-center title">ORÇAMENTO</h2>
                 </div>
                 <div class="form-perguntas col-md-12 col-xs-12" style="color: #1b4b72;">
-                    <h4>Respostas</h4>
-                    @foreach($perguntas as $key => $pergunta)
-                        <h5>{{$pergunta}} R:{{explode(":",$respostas[$key]->resposta)[0]}}</h5><br>
-                    @endforeach
-                    <h4>Total: R$ {{$total}}</h4>
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Pergunta</th>
+                            <th scope="col">Resposta</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($perguntas as $key => $pergunta)
+                        <tr>
+                            <th scope="row">{{$key}}</th>
+                            <td>{{$pergunta}}</td>
+                            <td>{{explode(":",$respostas[$key]->resposta)[0]}}</td>
+                        </tr>
+                        @endforeach
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2">
+                                <h4>Total: R$ {{$total}}</h4>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div id="termos-contrato" class="wrapper-budget margin_top_50 padding_top_50 padding_bottom_50 text-center background_arm">
                     <div class="container">

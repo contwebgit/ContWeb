@@ -44,9 +44,7 @@
                                     <img src="{{asset('img/blog.jpg')}}" alt="contweb contabilidade">
                                 </div>
                                 <div class="col-md-9 col-xs-9">
-                                    <p>
-                                        {{$post->conteudo}}
-                                    </p>
+                                    {{strip_tags(html_entity_decode($post->conteudo))}}
                                 </div>
                             </div>
                         </div>

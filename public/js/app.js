@@ -13725,12 +13725,18 @@ function animateCount(id, max, time) {
 //$('html, body').animate({scrollTop : 0},100)
 
 $(document).ready(function () {
+
+    $('#link-planos').click(function () {
+        console.log("trwy5");
+        $('html, body').animate({ scrollTop: 1500 }, 'slow');
+        return false;
+    });
+
     var first = true;
     $(window).scroll(function () {
         if ($(".questions").is(":visible")) {
             $(".question").fadeIn(3000);
         } // fim do if
-
         if ($(".statistics").is(":visible")) {
 
             if (first) {
@@ -13763,6 +13769,10 @@ $(document).ready(function () {
         $("#modal-cnpj").modal();
     });
 
+    $("#contratar-servico").on("click", function () {
+        $("#modal-cnpj").modal();
+    });
+
     $("#preencher").on("click", function () {
         var a = $("#preencher").is(":checked");
         $("#cpreencher").val(a);
@@ -13773,6 +13783,12 @@ $(document).ready(function () {
         var cnpj = $("#cnpj-aux").val();
         $("#cnpj").val(cnpj);
         $("#form-orcamento").submit();
+    });
+
+    $("#autopreencher").on("click", function () {
+        var cnpj = $("#cnpj-aux").val();
+        $("#cnpj-cpf").val(cnpj);
+        $("#form-orcamento-servico").submit();
     });
 
     $("#adicionar-pergunta").on("click", function () {
@@ -13819,12 +13835,11 @@ $(document).ready(function () {
         $("#total").val(text);
     });
 
-    $("#atualmente").on("change", function () {
+    $("#atualmente").keyup(function () {
         var atual = $(this).val();
 
-        console.log(parseFloat($("#total").val()));
-
         var total = parseFloat(atual) - parseFloat($("#total").val().split("R$ ")[1]);
+        console.log(parseFloat($("#total").val().split("R$ ")[1]));
         $("#economia-mes").val("R$ " + total + ",00 /mês");
         $("#economia-ano").val("R$ " + total * 12 + ",00 /ano");
     });
@@ -13981,6 +13996,62 @@ var fillInPage = function () {
 if ($('#cnpj').length > 0) {
     fillInPage();
 }
+
+$("#btn-add-post").on("click", function () {
+    var conteudo = $("#page").html();
+    $("#conteudo").val(conteudo);
+    $("#form-add-post").submit();
+});
+
+var richTextEditor = {
+    bindEvents: function bindEvents() {
+        this.bindDesignModeToggle();
+        this.bindToolbarButtons();
+    },
+
+    bindDesignModeToggle: function bindDesignModeToggle() {
+        $('#page').on('click', function (e) {
+            document.designMode = 'on';
+        });
+
+        $(document.body).on('click', function (e) {
+            var $target = $(e.target);
+
+            if ($target.is('body')) {
+                document.designMode = 'off';
+            }
+        });
+    },
+
+    bindToolbarButtons: function bindToolbarButtons() {
+        $('#toolbar').on('mousedown', '.icon', function (e) {
+            e.preventDefault();
+            var btnId = $(e.target).attr('id');
+            this.editStyle(btnId);
+        }.bind(this));
+    },
+
+    editStyle: function editStyle(btnId) {
+        var value = null;
+
+        if (btnId === 'createLink') {
+            if (this.isSelection()) value = prompt('Enter a link:');
+        }
+
+        document.execCommand(btnId, true, value);
+    },
+
+    isSelection: function isSelection() {
+        var selection = window.getSelection();
+        return selection.anchorOffset !== selection.focusOffset;
+    },
+
+    init: function init() {
+        this.bindEvents();
+    }
+};
+
+richTextEditor.init();
 
 /***/ }),
 /* 12 */

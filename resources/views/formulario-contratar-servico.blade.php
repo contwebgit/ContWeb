@@ -3,6 +3,7 @@
 @section('content')
     <form action="{{route('contratar-servico-action')}}" method="POST">
         @csrf
+
         <input type="hidden" name="total" value="{{$total}}">
         <input type="hidden" name="servico" value="{{$servico}}">
         <input type="hidden" name="orcamento" value="{{$orcamento}}">

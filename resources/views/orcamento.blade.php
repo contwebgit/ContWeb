@@ -25,28 +25,34 @@
                                 <option id="RS" value="RS">RS</option>
                             </select>
                         </div>
-                        @foreach($perguntas as $pergunta)
+                        @if(count($perguntas) > 0)
+                            @foreach($perguntas as $pergunta)
+                                <div class="pergunta">
+                                    <label for="{{$pergunta->id}}">{{$pergunta->pergunta}}</label>
+                                    @if(!empty($pergunta->respostas))
+                                        <select name="{{$pergunta->id}}" id="{{$pergunta->id}}" class="form-control" required>
+                                            <option value="0:0">0</option>
+                                            @foreach(explode("\n", $pergunta->respostas) as $resposta)
+                                                <option value="{{explode("|", $resposta)[0]}}:{{intval(explode("|", $resposta)[1])}}">{{explode("|", $resposta)[0]}}</option>
+                                            @endforeach
+                                        </select>
+                                    @else
+                                        <input type="text" name="resposta-{{$pergunta->id}}" id="{{$pergunta->id}}" class="input-line" placeholder="0">
+                                    @endif
+                                </div>
+                            @endforeach
+                        @else
                             <div class="pergunta">
-                                <label for="{{$pergunta->id}}">{{$pergunta->pergunta}}</label>
-                                @if(!empty($pergunta->respostas))
-                                    <select name="{{$pergunta->id}}" id="{{$pergunta->id}}" class="form-control" required>
-                                        <option value="0:0">0</option>
-                                        @foreach(explode("\n", $pergunta->respostas) as $resposta)
-                                            <option value="{{explode("|", $resposta)[0]}}:{{intval(explode("|", $resposta)[1])}}">{{explode("|", $resposta)[0]}}</option>
-                                        @endforeach
-                                    </select>
-                                @else
-                                    <input type="text" name="resposta-{{$pergunta->id}}" id="{{$pergunta->id}}" class="input-line" placeholder="0">
-                                @endif
+                                <h4>INFELIZMENTE ESTE SERVIÇO NÃO ESTÁ DISPONÍVEL PARA O SEU ESTADO</h4>
                             </div>
-                        @endforeach
+                        @endif
                     </div>
                     <div id="total-calc">
                         @if(@!empty($perguntas[0]->plano))
                             <div class="economia" id="fixed-content">
                                 <div class="atual">
                                     <h3>R$ </h3>
-                                    <input type="number" name="atualmente" id="atualmente" autocomplete="off"  placeholder="Quanto você gasta atualmente?">
+                                    <input type="text" name="atualmente" id="atualmente" autocomplete="off"  placeholder="Quanto você gasta atualmente?">
                                 </div>
                                 <div class="economia-total">
                                     <p>Você irá economizar:</p>
