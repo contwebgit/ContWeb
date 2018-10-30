@@ -51,7 +51,6 @@
                                 <input id="total" class="input-line totalAtual" name="total" value="R$ 0,00">
                                 <input id="servico" type="hidden" name="servico" value="{{$obj->id}}">
                                 <input type="hidden" id="cnpj-cpf" name="cnpj-cpf" value="">
-                                <input type="hidden" id="cpreencher" name="preencher" value="">
                             </div>
                         </div>
                     </div>
@@ -80,10 +79,6 @@
                 </div>
                 <div class="modal-body">
                     <input type="text" id="cnpj-aux" class="form-control" placeholder="CNPJ" required><br>
-                    <label for="preencher">
-                        <input type="checkbox" id="preencher" value="true">
-                        Fazer Consulta de CNPJ na Base da RFB
-                    </label>
                 </div>
                 <div class="modal-footer">
                     <button id="autopreencher" class="btn btn-primary">Ir</button>

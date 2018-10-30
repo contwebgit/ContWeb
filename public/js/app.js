@@ -13785,12 +13785,6 @@ $(document).ready(function () {
         $("#form-orcamento").submit();
     });
 
-    $("#autopreencher").on("click", function () {
-        var cnpj = $("#cnpj-aux").val();
-        $("#cnpj-cpf").val(cnpj);
-        $("#form-orcamento-servico").submit();
-    });
-
     $("#adicionar-pergunta").on("click", function () {
         $("#modal-planos").modal();
     });
