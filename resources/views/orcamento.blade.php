@@ -56,16 +56,16 @@
                                 </div>
                                 <div class="economia-total">
                                     <p>Você irá economizar:</p>
-                                    <input id="economia-mes" type="text" class="input-line totalAtual" value="R$ 0,00 / Mês"><br>
+                                    <input id="economia-mes" type="text" class="input-line totalAtual" value="R$ 0,00 / Mês" disabled><br>
                                     <span class="menor">ou</span><br>
-                                    <input id="economia-ano" type="text" class="input-line totalAtual" value="R$ 0,00 / Ano">
+                                    <input id="economia-ano" type="text" class="input-line totalAtual" value="R$ 0,00 / Ano" disabled>
                                 </div>
                             </div>
                         @endif
                         <div class="total">
                             <h3>Seu orçamento é de:</h3>
                             <div class="line">
-                                <input id="total" class="input-line totalAtual" name="total" value="R$ 0,00">
+                                <input id="total" class="input-line totalAtual" name="total" value="R$ 0,00" disabled>
                                 <input id="plano" type="hidden" name="plan" value="{{$obj->id}}">
                                 <input type="hidden" id="cnpj" name="cnpj" value="">
                                 <input type="hidden" id="cpreencher" name="preencher" value="">
@@ -77,7 +77,11 @@
         </div>
        <div class="container">
            <div class="contratar col-md-6 offset-md-3">
-               <a href="" id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal">Contratar</a>
+               @if(count($perguntas) > 0)
+                   <a href="" id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal">Contratar</a>
+               @else
+                   <button id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
+               @endif
            </div>
        </div>
     </div>
