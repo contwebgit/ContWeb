@@ -111,8 +111,7 @@ class ContratacaoController extends Controller
 
         unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
 
-        return view('agradecimentos');
-
+        return redirect()->route("agradecimento");
     }
 
     /**
@@ -188,18 +187,19 @@ class ContratacaoController extends Controller
             "qualification"
         ];
         $geoip = $request->input('geoip');
+        echo 1;
         $agente = $request->input('agente');
+        echo 2;
         $email = $request->input('email');
-        $name = $request->input('name_fantasy');
+
+        echo 3;$name = $request->input('name_fantasy');
         $company = $request->input('company');
-
-
 
         $content_geoip = $this->get_geoip($geoip, $name, $company, $email, $agente);
 
         $contratante = new Contratante();
         $contratante->setAttribute('orcamento', $request->input('orcamento'));
-
+        echo 4;
         foreach ($request->input() as $key => $field){
             if(!in_array($key, $fields) && empty($field)){
                 unset($contratante);
@@ -234,7 +234,7 @@ class ContratacaoController extends Controller
 
         unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
 
-        return view('agradecimentos');
+        return redirect()->route("agradecimento");
     }
 
     /**

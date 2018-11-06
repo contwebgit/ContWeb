@@ -148,6 +148,10 @@ Route::group(['prefix' => 'contratar'], function(){
 /** MAIL */
 Route::get('/send/email', 'MailController@emailConfirmacao')->name('send-email-confirmation');
 
+Route::get("/agradecimento", function(){
+    return view('agradecimentos');
+})->name("agradecimento");
+
 /** AUTH ROUTES */
 Auth::routes();
 
