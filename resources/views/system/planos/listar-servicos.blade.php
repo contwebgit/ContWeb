@@ -22,6 +22,7 @@
                     <th scope="col">Serviço</th>
                     <th scope="col">Preço</th>
                     <th scope="col">Estados</th>
+                    <th scope="col">Fazer consulta?</th>
                     <th scope="col">Publicado</th>
                     <th></th>
                 </tr>
@@ -33,6 +34,7 @@
                         <td>{{$servico->servico}}</td>
                         <td>{{$servico->preco}}</td>
                         <td>{{$servico->estados}}</td>
+                        <td>{{$servico->preencher}}</td>
                         <td>{{$servico->created_at}}</td>
                         <td>
                             <a class="action-icon" href="{{route('editar-servico', ['id' => $servico->id])}}">

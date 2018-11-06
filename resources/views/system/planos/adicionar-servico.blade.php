@@ -21,6 +21,11 @@
                         </div>
                     @endforeach
                 </div>
+                <br><br>
+                <div>
+                    <input type="checkbox" name="preencher" value="1">
+                    Fazer Consulta na RFB
+                </div>
                 <br>
                 <button type="submit" class="btn btn-primary">Adicionar</button>
             </form>

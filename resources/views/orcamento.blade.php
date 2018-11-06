@@ -31,7 +31,7 @@
                                     <label for="{{$pergunta->id}}">{{$pergunta->pergunta}}</label>
                                     @if(!empty($pergunta->respostas))
                                         <select name="{{$pergunta->id}}" id="{{$pergunta->id}}" class="form-control" required>
-                                            <option value="0:0">0</option>
+                                            <option value="0:0" checked>---</option>
                                             @foreach(explode("\n", $pergunta->respostas) as $resposta)
                                                 <option value="{{explode("|", $resposta)[0]}}:{{intval(explode("|", $resposta)[1])}}">{{explode("|", $resposta)[0]}}</option>
                                             @endforeach
@@ -78,14 +78,13 @@
        <div class="container">
            <div class="contratar col-md-6 offset-md-3">
                @if(count($perguntas) > 0)
-                   <a href="" id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal">Contratar</a>
+                   <button id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
                @else
                    <button id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
                @endif
            </div>
        </div>
     </div>
-
     <div class="modal" id="modal-cnpj" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

@@ -71,10 +71,6 @@ $(document).ready(function() {
         $("#modal-cnpj").modal();
     });
 
-    $("#contratar-servico").on("click", function () {
-        $("#modal-cnpj").modal();
-    });
-
     $("#preencher").on("click", function(){
         var a = $("#preencher").is(":checked");
         $("#cpreencher").val(a);
@@ -121,12 +117,21 @@ $(document).ready(function() {
     $(".pergunta > select").on("change", function(){
         var pergunta = $(".pergunta > select");
         var total = 0;
+        var valid = true;
 
         pergunta.each(function(key, value){
             if(key !== 0) {
                 total = total + parseFloat(value.value.split(':')[1]);
             }
+            if(value.value === "0:0"){
+                valid = false;
+            }
         });
+
+        if(valid){
+            $("#contratar").removeAttr("disabled");
+            $("#contratar-servico").removeAttr("disabled");
+        }
 
         var text = "R$ " + total.toFixed(2).toString().replace(".", ",");
         $("#total").val(text);
@@ -219,6 +224,42 @@ $(document).ready(function() {
             });
         }
     }
+
+    if($("#preencher").val() === "1") {
+        $("#contratar-servico").attr("type", "submit");
+    }else{
+        $("#contratar-servico").on("click", function () {
+            $("#modal-cnpj").modal();
+        });
+    }
+
+    if($("#preencher-count").val() === "1"){
+        var cpf = $('#cpf').val().replace(/[^0-9]/g, '');
+
+        if(cpf.length === 14) {
+            let url = 'https://www.receitaws.com.br/v1/cnpj/' + cpf;
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                dataType: 'jsonp',
+                complete: function (xhr) {
+                    response = xhr.responseJSON;
+
+                    if (response.status === 'OK') {
+                        $("#InputCPF").val(cpf);
+                        $("#InputName").val(response.nome);
+                        $("#InputCep").val(response.cep);
+                        $("#InputLogradouro").val(response.logradouro);
+                        $("#InputNumero").val(response.numero);
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        }
+    }
+
 
     $("#estado-orcamento").on("change", function(){
         if(window.location.href.indexOf('plano') !== -1) {

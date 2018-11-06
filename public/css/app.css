@@ -11279,12 +11279,13 @@ body {
   text-align: justify;
 }
 
-.blog .sidebar {
+.sidebar {
+  margin-top: 130px;
   float: right;
 }
 
-.blog .sidebar .popular,
-.blog .sidebar .recent {
+.sidebar .popular,
+.sidebar .recent {
   border-radius: 3px;
   margin-top: 30px;
   background-color: white;
@@ -11292,28 +11293,28 @@ body {
           box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.21);
 }
 
-.blog .sidebar .popular .post-thumb img,
-.blog .sidebar .recent .post-thumb img {
+.sidebar .popular .post-thumb img,
+.sidebar .recent .post-thumb img {
   width: 60px;
   height: 40px;
   margin-top: 3px;
 }
 
-.blog .sidebar .popular h5,
-.blog .sidebar .recent h5 {
+.sidebar .popular h5,
+.sidebar .recent h5 {
   padding: 7px 15px;
 }
 
-.blog .sidebar .popular .side-pad,
-.blog .sidebar .recent .side-pad {
+.sidebar .popular .side-pad,
+.sidebar .recent .side-pad {
   margin-bottom: 3px;
 }
 
-.blog .sidebar .recent {
+.sidebar .recent {
   margin-top: 20px;
 }
 
-.blog .sidebar .search {
+.sidebar .search {
   margin-top: 21px;
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.21);
           box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.21);
@@ -11321,13 +11322,13 @@ body {
   padding: 10px;
 }
 
-.blog .sidebar .search i {
+.sidebar .search i {
   position: absolute;
   margin-left: 80%;
   margin-top: 12px;
 }
 
-.blog .sidebar .categories {
+.sidebar .categories {
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.21);
           box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.21);
   border-radius: 3px;
@@ -11336,11 +11337,11 @@ body {
   padding-bottom: 1px;
 }
 
-.blog .sidebar .categories h5 {
+.sidebar .categories h5 {
   padding: 7px 15px;
 }
 
-.blog .sidebar .categories ul {
+.sidebar .categories ul {
   list-style: none;
 }
 
@@ -11769,9 +11770,13 @@ body {
   position: fixed;
 }
 
-.post-single .header {
-  margin-top: 90px;
-  margin-left: 50px;
+.post-single .header-post {
+  margin-top: 100px;
+  color: white;
+  background-color: #1b4b72;
+  text-align: center;
+  padding: 3px;
+  margin-bottom: 6px;
 }
 
 .post-single .info-post {
@@ -11782,7 +11787,7 @@ body {
 .post-single .info-post .author,
 .post-single .info-post .date,
 .post-single .info-post .category {
-  margin-left: 50px;
+  margin-left: 40px;
   font-size: .7em;
 }
 
