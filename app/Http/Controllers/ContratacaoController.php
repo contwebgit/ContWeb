@@ -193,6 +193,8 @@ class ContratacaoController extends Controller
         $name = $request->input('name_fantasy');
         $company = $request->input('company');
 
+
+
         $content_geoip = $this->get_geoip($geoip, $name, $company, $email, $agente);
 
         $contratante = new Contratante();

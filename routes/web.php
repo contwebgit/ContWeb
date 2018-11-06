@@ -137,11 +137,13 @@ Route::group(['prefix' => '/blog'], function () {
 });
 
 /** CONTRATAR */
-Route::post('/contratar-plano', 'ContratacaoController@contratarView')->name('contratar-view');
-Route::post('/contratar', 'ContratacaoController@contratar')->name('contratar-action');
+Route::group(['prefix' => 'contratar'], function(){
+    Route::post('/plano', 'ContratacaoController@contratarView')->name('contratar-view');
+    Route::post('/plano-action', 'ContratacaoController@contratar')->name('contratar-action');
 
-Route::post('/contratar-servico', 'ContratacaoController@contratarServicoView')->name('contratar-servico-view');
-Route::post('/contratar-servico-action', 'ContratacaoController@contratarServico')->name('contratar-servico-action');
+    Route::post('/servico', 'ContratacaoController@contratarServicoView')->name('contratar-servico-view');
+    Route::post('/servico-action', 'ContratacaoController@contratarServico')->name('contratar-servico-action');
+});
 
 /** MAIL */
 Route::get('/send/email', 'MailController@emailConfirmacao')->name('send-email-confirmation');
