@@ -10,7 +10,7 @@
                 <br><br>
                 <h1 class="blue">FORMULÁRIO DE CONTRATAÇÃO</h1>
             </div>
-            <form action="{{route('contratar-action')}}" method="post">
+            <form action="{{route('contratar-action')}}" method="POST">
                 @csrf
                 <input type="hidden" name="plan" value="{{$plano}}">
                 <input type="hidden" name="total" value="{{$total}}">
