@@ -41,7 +41,24 @@ class BlogController extends Controller
 
     public function listarPostsOnPage(){
         $posts = Post::orderBy('id', 'desc')->paginate(5);
-        return view('blogs', compact('posts'));
+
+        $ids = Hit::all()->groupBy('postid');
+
+        $populares = [];
+        foreach ($ids as $id){
+            $populares[] = Post::find($id[0]->postid);
+        }
+
+        $recentes = Post::orderBy('id', 'desc')->limit(3)->get();
+
+        $categorias = Categoria::all();
+
+        return view('blogs', [
+            'posts' => $posts,
+            'recentes' => $recentes,
+            'categorias' => $categorias,
+            'populares' => $populares
+        ]);
     }
 
     public function addCategoria(Request $request){
