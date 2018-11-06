@@ -125,11 +125,6 @@ class ContratacaoController extends Controller
         $total = str_replace( "R$ ", "", $request->input('total'));
         $plano = $request->input('plan');
         $cnpj = $request->input('cnpj');
-        $preencher = $request->input('preencher');
-
-        if($preencher != true){
-            $cnpj = "";
-        }
 
         if( empty($total) || empty($plano) ){
             return redirect(404);

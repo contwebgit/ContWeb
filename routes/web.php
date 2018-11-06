@@ -148,3 +148,4 @@ Route::get('/send/email', 'MailController@emailConfirmacao')->name('send-email-c
 
 /** AUTH ROUTES */
 Auth::routes();
+

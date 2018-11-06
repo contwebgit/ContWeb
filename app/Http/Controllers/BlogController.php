@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Hit;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
@@ -23,9 +25,10 @@ class BlogController extends Controller
 
         $img = $request->file('imagem');
         $ext = $img->extension();
-        $path = $img->storeAs('post/', $post->getAttribute('id') . '.' . $ext);
+        $filename = time() . '.' . $ext;
+        $img->move(public_path('img/'), $filename);
 
-        $post->setAttribute('path', $path);
+        $post->setAttribute('path', 'img/' . $filename);
         $post->save();
 
         return redirect()->route('listar-posts');
@@ -50,12 +53,37 @@ class BlogController extends Controller
     }
 
     public function listarCategorias(){
-        $categorias = Categoria::all();;
+        $categorias = Categoria::all();
         return view('system.blog.listar-categorias', compact('categorias'));
     }
 
     public function mostrarPost($id){
         $post = Post::find($id);
-        return view('post', compact('post'));
+        $hit = new Hit();
+        $hit->setAttribute('postid', $id);
+        $hit->save();
+
+        $ids = Hit::all()->groupBy('postid');
+
+        $populares = [];
+        foreach ($ids as $id){
+            $populares[] = Post::find($id[0]->postid);
+        }
+
+        $recentes = Post::orderBy('id', 'desc')->limit(3)->get();
+
+        $categorias = Categoria::all();
+
+        $post_cat = Categoria::find($post->categoria)->categoria;
+        $autor = User::find($post->author)->name;
+
+        return view('post',[
+            'post' => $post,
+            'populares' => $populares,
+            'recentes' => $recentes,
+            'categorias'=> $categorias,
+            'post_cat' => $post_cat,
+            'autor' => $autor
+        ]);
     }
 }

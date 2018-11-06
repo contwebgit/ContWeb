@@ -13769,10 +13769,6 @@ $(document).ready(function () {
         $("#modal-cnpj").modal();
     });
 
-    $("#contratar-servico").on("click", function () {
-        $("#modal-cnpj").modal();
-    });
-
     $("#preencher").on("click", function () {
         var a = $("#preencher").is(":checked");
         $("#cpreencher").val(a);
@@ -13783,12 +13779,6 @@ $(document).ready(function () {
         var cnpj = $("#cnpj-aux").val();
         $("#cnpj").val(cnpj);
         $("#form-orcamento").submit();
-    });
-
-    $("#autopreencher").on("click", function () {
-        var cnpj = $("#cnpj-aux").val();
-        $("#cnpj-cpf").val(cnpj);
-        $("#form-orcamento-servico").submit();
     });
 
     $("#adicionar-pergunta").on("click", function () {
@@ -13824,12 +13814,21 @@ $(document).ready(function () {
     $(".pergunta > select").on("change", function () {
         var pergunta = $(".pergunta > select");
         var total = 0;
+        var valid = true;
 
         pergunta.each(function (key, value) {
             if (key !== 0) {
                 total = total + parseFloat(value.value.split(':')[1]);
             }
+            if (value.value === "0:0") {
+                valid = false;
+            }
         });
+
+        if (valid) {
+            $("#contratar").removeAttr("disabled");
+            $("#contratar-servico").removeAttr("disabled");
+        }
 
         var text = "R$ " + total.toFixed(2).toString().replace(".", ",");
         $("#total").val(text);
@@ -13913,6 +13912,41 @@ $(document).ready(function () {
                         $("#InputShareCapital").val(response.capital_social);
 
                         $("#InputEmail").focus();
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        }
+    }
+
+    if ($("#preencher").val() === "1") {
+        $("#contratar-servico").attr("type", "submit");
+    } else {
+        $("#contratar-servico").on("click", function () {
+            $("#modal-cnpj").modal();
+        });
+    }
+
+    if ($("#preencher-count").val() === "1") {
+        var cpf = $('#cpf').val().replace(/[^0-9]/g, '');
+
+        if (cpf.length === 14) {
+            var _url = 'https://www.receitaws.com.br/v1/cnpj/' + cpf;
+
+            $.ajax({
+                url: _url,
+                method: 'GET',
+                dataType: 'jsonp',
+                complete: function complete(xhr) {
+                    response = xhr.responseJSON;
+
+                    if (response.status === 'OK') {
+                        $("#InputCPF").val(cpf);
+                        $("#InputName").val(response.nome);
+                        $("#InputCep").val(response.cep);
+                        $("#InputLogradouro").val(response.logradouro);
+                        $("#InputNumero").val(response.numero);
                     } else {
                         alert(response.message);
                     }

@@ -25,6 +25,15 @@
                         </div>
                     @endforeach
                 </div>
+                <br><br>
+                <div>
+                    @if($servico->preencher == 1)
+                        <input type="checkbox" name="preencher" value="1" checked>
+                    @else
+                        <input type="checkbox" name="preencher" value="1">
+                    @endif
+                    Fazer Consulta na RFB
+                </div>
                 <br>
                 <button type="submit" class="btn btn-primary">Adicionar</button>
             </form>

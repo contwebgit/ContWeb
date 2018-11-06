@@ -17,6 +17,7 @@ class RedirectIfAuthenticated
             'quem-somos',
             'contato',
             'blog',
+            'mostrar-post',
             'orcamento-plano',
             'orcamento-servico',
             'contratar-view',

@@ -31,7 +31,7 @@
                                     <label for="{{$pergunta->id}}">{{$pergunta->pergunta}}</label>
                                     @if(!empty($pergunta->respostas))
                                         <select name="{{$pergunta->id}}" id="{{$pergunta->id}}" class="form-control" required>
-                                            <option value="0:0">0</option>
+                                            <option value="0:0" checked>---</option>
                                             @foreach(explode("\n", $pergunta->respostas) as $resposta)
                                                 <option value="{{explode("|", $resposta)[0]}}:{{intval(explode("|", $resposta)[1])}}">{{explode("|", $resposta)[0]}}</option>
                                             @endforeach
@@ -65,10 +65,10 @@
                         <div class="total">
                             <h3>Seu orçamento é de:</h3>
                             <div class="line">
-                                <input id="total" class="input-line totalAtual" name="total" value="R$ 0,00" disabled>
+                                <input id="total" class="input-line totalAtual" value="R$ 0,00" disabled>
+                                <input type="hidden" class="totalAtual" name="total" value="R$ 0,00">
                                 <input id="plano" type="hidden" name="plan" value="{{$obj->id}}">
                                 <input type="hidden" id="cnpj" name="cnpj" value="">
-                                <input type="hidden" id="cpreencher" name="preencher" value="">
                             </div>
                         </div>
                     </div>
@@ -78,14 +78,13 @@
        <div class="container">
            <div class="contratar col-md-6 offset-md-3">
                @if(count($perguntas) > 0)
-                   <a href="" id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal">Contratar</a>
+                   <button id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
                @else
                    <button id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
                @endif
            </div>
        </div>
     </div>
-
     <div class="modal" id="modal-cnpj" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -96,11 +95,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" id="cnpj-aux" class="form-control" placeholder="CNPJ" required><br>
-                    <label for="preencher">
-                        <input type="checkbox" id="preencher" value="true">
-                        Fazer Consulta de CNPJ na Base da RFB
-                    </label>
+                    <input type="text" id="cnpj-aux" class="form-control" placeholder="CNPJ" required>
                 </div>
                 <div class="modal-footer">
                     <button id="autopreencher" class="btn btn-primary">Ir</button>
