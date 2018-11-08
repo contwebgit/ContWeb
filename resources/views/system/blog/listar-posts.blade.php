@@ -27,7 +27,14 @@
                        <td>{{str_limit($post->conteudo, 40)}}</td>
                        <td>{{$post->author}}</td>
                        <td>{{$post->created_at}}</td>
-                       <td></td>
+                       <td>
+                           <a class="action-icon" href="{{route('editar-post', ['id' => $post->id])}}">
+                               <i class="fas fa-edit"></i>
+                           </a>
+                           <a class="action-icon" href="{{route('delete-post', ['id' => $post->id])}}">
+                               <i class="fas fa-trash-alt"></i>
+                           </a>
+                       </td>
                    </tr>
                @endforeach
                </tbody>

@@ -134,6 +134,12 @@ Route::group(['prefix' => '/blog'], function () {
     })->name('adicionar-categoria');
 
     Route::get('/listar-categorias', 'BlogController@listarCategorias')->name('listar-categorias');
+
+    Route::get('/editar-post/{id}', 'BlogController@editarPostView')->name('editar-post');
+    Route::post('/editar-post', 'BlogController@editarPostView')->name('editar-post-action');
+
+    Route::post('/delete-post', 'BlogController@deletePost')->name('delete-post');
+
 });
 
 /** CONTRATAR */

@@ -18,7 +18,7 @@ class CreateServicosTable extends Migration
             $table->string('servico');
             $table->float('preco');
             $table->string('estados');
-            $table->integer('preencher');
+            $table->integer('preencher')->nullable();
             $table->timestamps();
         });
     }

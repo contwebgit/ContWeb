@@ -103,4 +103,10 @@ class BlogController extends Controller
             'autor' => $autor
         ]);
     }
+
+    public function editarPostView($id){
+        $post = Post::find($id);
+        $categorias = Categoria::all();
+        return view("system.blog.editar-post", compact('post', 'categorias'));
+    }
 }
