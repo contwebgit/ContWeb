@@ -66,7 +66,7 @@
                             <h3>Seu orçamento é de:</h3>
                             <div class="line">
                                 <input id="total" class="input-line totalAtual" value="R$ 0,00" disabled>
-                                <input type="hidden" class="totalAtual" name="total" value="R$ 0,00">
+                                <input id="totalVal" type="hidden" class="totalAtual" name="total" value="R$ 0,00">
                                 <input id="plano" type="hidden" name="plan" value="{{$obj->id}}">
                                 <input type="hidden" id="cnpj" name="cnpj" value="">
                             </div>

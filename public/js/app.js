@@ -13831,7 +13831,9 @@ $(document).ready(function () {
         }
 
         var text = "R$ " + total.toFixed(2).toString().replace(".", ",");
+
         $("#total").val(text);
+        $("#totalVal").val(text);
     });
 
     $("#atualmente").keyup(function () {
