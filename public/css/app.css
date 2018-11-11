@@ -12088,3 +12088,7 @@ body > div.modal-backdrop.show {
   color: #3e7086;
 }
 
+.planos-list {
+  z-index: -1;
+}
+

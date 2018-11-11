@@ -82,7 +82,7 @@ $(document).ready(function() {
     });
 
     $("#autopreencher").on("click", function () {
-        if(!$("#cpf").length) {
+        if($("#cpf").length > 1) {
             let cnpj = $("#cnpj-aux").val();
             $("#cnpj").val(cnpj);
             $("#form-orcamento").submit();

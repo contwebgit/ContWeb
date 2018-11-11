@@ -137,6 +137,17 @@ class PlanosController extends Controller
         return view('system.planos.editar-servico', compact('servico', 'perguntas'));
     }
 
+    public function editarServico(Request $request, $id){
+        $servico = Servico::find($id);
+        $servico->setAttribute("servico", $request->input("servico"));
+        $servico->setAttribute("preco", $request->input("preco"));
+        $servico->setAttribute('estados', implode(",", $request->input('estados')));
+        $servico->setAttribute('preencher', $request->input('preencher'));
+        $servico->save();
+
+        return redirect()->route('listar-servicos');
+    }
+
     /**
      * Function that return the view to add question.
      *
