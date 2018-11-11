@@ -58,12 +58,12 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="contratar col-md-6 offset-md-3">
-                    <button type="button" id="contratar-servico" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
-                </div>
-            </div>
         </form>
+        <div class="container">
+            <div class="contratar col-md-6 offset-md-3">
+                <button type="button" id="contratar-servico" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
+            </div>
+        </div>
     </div>
 
     <div class="modal" id="modal-cnpj" tabindex="-1" role="dialog">
