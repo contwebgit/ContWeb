@@ -60,11 +60,7 @@
             </div>
             <div class="container">
                 <div class="contratar col-md-6 offset-md-3">
-                    @if(count($perguntas) > 0)
-                        <button type="button" id="contratar-servico" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
-                    @else
-                        <button id="contratar" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
-                    @endif
+                    <button type="button" id="contratar-servico" class="btn btn-contratar" data-toggle="modal" data-target="#modal" disabled>Contratar</button>
                 </div>
             </div>
         </form>
