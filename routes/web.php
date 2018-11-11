@@ -108,7 +108,7 @@ Route::group(['prefix' => '/planos'], function () {
     Route::get('/delete-servico/{id}', 'PlanosController@deleteServico')->name('delete-servico');
 
     Route::get('/editar-servico/{id}', 'PlanosController@editarServicoView')->name('editar-servico');
-    Route::post('/editar-servico', 'PlanosController@editarServicoView')->name('editar-servico-action');
+    Route::post('/editar-servico/{id}', 'PlanosController@editarServico')->name('editar-servico-action');
 
 });
 

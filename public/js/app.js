@@ -13769,6 +13769,10 @@ $(document).ready(function () {
         $("#modal-cnpj").modal();
     });
 
+    $("#contratar-servico").on("click", function () {
+        $("#modal-cnpj").modal();
+    });
+
     $("#preencher").on("click", function () {
         var a = $("#preencher").is(":checked");
         $("#cpreencher").val(a);
@@ -13776,9 +13780,15 @@ $(document).ready(function () {
     });
 
     $("#autopreencher").on("click", function () {
-        var cnpj = $("#cnpj-aux").val();
-        $("#cnpj").val(cnpj);
-        $("#form-orcamento").submit();
+        if ($("#cpf").length > 1) {
+            var _cnpj = $("#cnpj-aux").val();
+            $("#cnpj").val(_cnpj);
+            $("#form-orcamento").submit();
+        } else {
+            var _cpf = $("#cpf").val();
+            $("#cpf").val(_cpf);
+            $("#form-orcamento-servico").submit();
+        }
     });
 
     $("#adicionar-pergunta").on("click", function () {
@@ -13826,7 +13836,6 @@ $(document).ready(function () {
         });
 
         if (valid) {
-            $("#contratar").removeAttr("disabled");
             $("#contratar-servico").removeAttr("disabled");
         }
 
@@ -13922,7 +13931,7 @@ $(document).ready(function () {
         }
     }
 
-    if ($("#preencher").val() === "1") {
+    if ($("#preencher").val() !== "1") {
         $("#contratar-servico").attr("type", "submit");
     } else {
         $("#contratar-servico").on("click", function () {
