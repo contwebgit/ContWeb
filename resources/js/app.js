@@ -237,9 +237,10 @@ $(document).ready(function() {
         }
     }
 
-    if($("#preencher").val() === "1") {
+    if($("#preencher").val() !== "1") {
         $("#contratar-servico").attr("type", "submit");
     }else{
+        $("#contratar-servico").attr("type", "button");
         $("#contratar-servico").on("click", function () {
             $("#modal-cnpj").modal();
         });
