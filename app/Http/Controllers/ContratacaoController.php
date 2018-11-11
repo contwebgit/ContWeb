@@ -234,7 +234,7 @@ class ContratacaoController extends Controller
 
         unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
 
-        return redirect()->route("agradecimento");
+        return view('agradecimentos');
     }
 
     /**
