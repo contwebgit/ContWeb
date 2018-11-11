@@ -13726,6 +13726,17 @@ function animateCount(id, max, time) {
 
 $(document).ready(function () {
 
+    if ($("#preencher").length === 1) {
+        if ($("#preencher").length === 0 && $("#preencher").val() !== "1") {
+            $("#contratar-servico").attr("type", "submit");
+        } else {
+            $("#contratar-servico").attr("type", "button");
+            $("#contratar-servico").on("click", function () {
+                $("#modal-cnpj").modal();
+            });
+        }
+    }
+
     $('#link-planos').click(function () {
         console.log("trwy5");
         $('html, body').animate({ scrollTop: 1500 }, 'slow');
@@ -13929,15 +13940,6 @@ $(document).ready(function () {
                 }
             });
         }
-    }
-
-    if ($("#preencher").val() !== "1") {
-        $("#contratar-servico").attr("type", "submit");
-    } else {
-        $("#contratar-servico").attr("type", "button");
-        $("#contratar-servico").on("click", function () {
-            $("#modal-cnpj").modal();
-        });
     }
 
     if ($("#preencher-count").val() === "1") {
