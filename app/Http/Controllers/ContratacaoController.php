@@ -13,6 +13,7 @@ use \Mpdf\Mpdf as Mpdf;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use App\Mail\SendMailableServico;
+use Exception;
 
 
 
@@ -169,72 +170,77 @@ class ContratacaoController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function contratar(Request $request){
-        $fields = [
-            'date',
-            "name_fantasy" ,
-            "cnae_main" ,
-            "cnae_secondary" ,
-            "legal",
-            "complement",
-            "ente_federative" ,
-            "status",
-            "status_date",
-            "status_reason" ,
-            "special" ,
-            "special_date" ,
-            "share_capital" ,
-            "partner" ,
-            "qualification"
-        ];
-        $geoip = $request->input('geoip');
-        echo 1;
-        $agente = $request->input('agente');
-        echo 2;
-        $email = $request->input('email');
+        try {
+            $fields = [
+                'date',
+                "name_fantasy",
+                "cnae_main",
+                "cnae_secondary",
+                "legal",
+                "complement",
+                "ente_federative",
+                "status",
+                "status_date",
+                "status_reason",
+                "special",
+                "special_date",
+                "share_capital",
+                "partner",
+                "qualification"
+            ];
+            $geoip = $request->input('geoip');
 
-        echo 3;$name = $request->input('name_fantasy');
-        $company = $request->input('company');
+            $agente = $request->input('agente');
 
-        $content_geoip = $this->get_geoip($geoip, $name, $company, $email, $agente);
+            $email = $request->input('email');
 
-        $contratante = new Contratante();
-        $contratante->setAttribute('orcamento', $request->input('orcamento'));
-        echo 4;
-        foreach ($request->input() as $key => $field){
-            if(!in_array($key, $fields) && empty($field)){
-                unset($contratante);
-                return redirect()->route('contratar-view',['error'=> true]);
+            $name = $request->input('name_fantasy');
+            $company = $request->input('company');
+
+            $content_geoip = $this->get_geoip($geoip, $name, $company, $email, $agente);
+
+            $contratante = new Contratante();
+            $contratante->setAttribute('orcamento', $request->input('orcamento'));
+
+            foreach ($request->input() as $key => $field) {
+                if (!in_array($key, $fields) && empty($field)) {
+                    unset($contratante);
+                    return redirect()->route('contratar-view', ['error' => true]);
+                }
+
+                if ($key != '_token' && $key != 'agente') {
+                    $contratante->setAttribute($key, $field);
+                }
+
+                if ($key == 'total') {
+                    $contratante->setAttribute($key, str_replace(",", ".", str_replace("R$ ", "", $field)));
+                }
+
+                if ($key == 'date') {
+                    $arrDate = explode('/', $field);
+                    $date = $arrDate[2] . "-" . $arrDate[1] . "-" . $arrDate[0] . " 00:00:00";
+                    $contratante->setAttribute($key, $date);
+                }
+
+                if ($key == 'geoip') {
+                    $contratante->setAttribute("geoip", $content_geoip);
+                }
             }
 
-            if($key != '_token' && $key != 'agente') {
-                $contratante->setAttribute($key, $field);
-            }
+            $contratante->save();
 
-            if($key == 'total'){
-                $contratante->setAttribute($key, str_replace(",", ".", str_replace("R$ ", "", $field)));
-            }
+            $this->gerarContrato($email, $request->input('orcamento'), $content_geoip);
 
-            if($key == 'date'){
-                $arrDate = explode('/', $field);
-                $date = $arrDate[2] . "-" . $arrDate[1] . "-" . $arrDate[0] . " 00:00:00";
-                $contratante->setAttribute($key, $date);
-            }
+            Mail::to($email)
+                ->send(new SendMailable($email));
 
-            if($key == 'geoip'){
-                $contratante->setAttribute("geoip", $content_geoip);
-            }
+            unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
+
+            return view('agradecimentos');
+        }catch(Exception $e){
+            echo $e->getMessage();
         }
 
-        $contratante->save();
-
-        $this->gerarContrato($email, $request->input('orcamento'), $content_geoip);
-
-        Mail::to($email)
-            ->send(new SendMailable($email));
-
-        unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
-
-        return view('agradecimentos');
     }
 
     /**
