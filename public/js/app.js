@@ -13846,7 +13846,7 @@ $(document).ready(function () {
                 valid = false;
             }
         });
-        console.log(valid);
+
         if (valid) {
             $("#contratar-servico").removeAttr("disabled");
             $("#contratar").removeAttr("disabled");
@@ -13947,7 +13947,7 @@ $(document).ready(function () {
         }
     }
 
-    if ($("#InputCPF").length === 1) {
+    if ($("#cpf").length === 1) {
         var cpf = $('#cpf').val().replace(/[^0-9]/g, '');
 
         if (cpf.length === 14) {
