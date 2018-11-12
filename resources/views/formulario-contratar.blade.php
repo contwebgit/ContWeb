@@ -258,7 +258,7 @@
                                 <input type="hidden" name="code" value="43575a4dd326c21f9c6665b5f4fe0901">
                                 <button type="submit" class="btn btn-success btn-lg btn-block" id="buttonContrate" title="Clique Aqui para Concluir a Contratação" disabled>Clique Aqui para Concluir a Contratação</button>
                                 <br>
-                                <label for="checkbox-termos"><input type="checkbox" id="checkbox-termos" required> Ao prosseguir você concorda com os <a href="http://www.contweb.com.br/uploads/pdf/budget/43575a4dd326c21f9c6665b5f4fe0901.pdf" target="_blank" title="termos contratuais">termos contratuais</a></label>
+                                <label for="checkbox-termos"><input type="checkbox" id="checkbox-termos" required> Ao prosseguir você concorda com os <a href="" target="_blank" title="termos contratuais">termos contratuais</a></label>
                             </div>
                         </div>
                     </div>

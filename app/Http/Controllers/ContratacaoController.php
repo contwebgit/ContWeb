@@ -170,6 +170,10 @@ class ContratacaoController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function contratar(Request $request){
+        if( ! $request->getMethod() == 'POST'){
+            return redirect(503);
+        }
+
         try {
             $fields = [
                 'date',
@@ -236,7 +240,7 @@ class ContratacaoController extends Controller
 
             unlink(public_path('/tmp/contrato-' . $email . '.pdf'));
 
-            return view('agradecimentos');
+            return redirect()->route('agradecimento');
         }catch(Exception $e){
             echo $e->getMessage();
         }

@@ -145,7 +145,7 @@ Route::group(['prefix' => '/blog'], function () {
 /** CONTRATAR */
 Route::group(['prefix' => 'contratar'], function(){
     Route::post('/plano', 'ContratacaoController@contratarView')->name('contratar-view');
-    Route::post('/plano-action', 'ContratacaoController@contratar')->name('contratar-action');
+    Route::any('/plano-action', 'ContratacaoController@contratar')->name('contratar-action');
 
     Route::post('/servico', 'ContratacaoController@contratarServicoView')->name('contratar-servico-view');
     Route::post('/servico-action', 'ContratacaoController@contratarServico')->name('contratar-servico-action');
