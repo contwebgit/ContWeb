@@ -94,7 +94,6 @@ $(document).ready(function() {
 
     $("#autopreencher").on("click", function () {
         if($("#cnpj").length > 0) {
-            console.log(2);
             let cnpj = $("#cnpj-aux").val();
             $("#cnpj").val(cnpj);
             $("#form-orcamento").submit();
@@ -162,6 +161,7 @@ $(document).ready(function() {
 
         $("#total").val(text);
         $("#totalVal").val(text);
+        $(".totalAtual").val(text);
 
     });
 
@@ -265,7 +265,7 @@ $(document).ready(function() {
                 dataType: 'jsonp',
                 complete: function (xhr) {
                     response = xhr.responseJSON;
-                    console.log(response);
+
                     if (response.status === 'OK') {
                         $("#InputCPF").val(cpf);
                         $("#InputName").val(response.nome);
