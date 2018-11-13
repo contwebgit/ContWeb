@@ -263,7 +263,7 @@ class PlanosController extends Controller
     public function orcamentoServico($id, $estado){
         $perguntas = Perguntas::where('servico', $id)->where('estados', 'like', '%'.$estado.'%')->get();
 
-        $obj = Servico::find($id)->first();
+        $obj = Servico::find($id);
 
         return view('orcamento-servico', compact('perguntas', 'obj'));
     }
