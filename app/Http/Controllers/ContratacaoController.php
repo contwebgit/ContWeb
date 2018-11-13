@@ -169,7 +169,7 @@ class ContratacaoController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function contratar(Request $request){
+    public function contratarPlano(Request $request){
         if( ! $request->getMethod() == 'POST'){
             return redirect(503);
         }

@@ -10,7 +10,7 @@
                 <br><br>
                 <h1 class="blue">FORMULÁRIO DE CONTRATAÇÃO</h1>
             </div>
-            <form id="frm-contratar" action="{{route('contratar-action')}}" method="POST">
+            <form id="frm-contratar" action="{{route('contratar-plano-aaction')}}" method="POST">
                 @csrf
                 <input type="hidden" name="plan" value="{{$plano}}">
                 <input type="hidden" name="total" value="{{$total}}">
@@ -250,12 +250,11 @@
                         </tr>
                         </tbody>
                     </table>
-                </div>
+                </div>s
                 <div id="termos-contrato" class="wrapper-budget margin_top_50 padding_top_50 padding_bottom_50 text-center background_arm">
                     <div class="container">
                         <div class="row" style="background-color: #f8fafc;">
                             <div class="col-md-6 offset-md-3">
-                                <input type="hidden" name="code" value="43575a4dd326c21f9c6665b5f4fe0901">
                                 <button type="submit" class="btn btn-success btn-lg btn-block" id="buttonContrate" title="Clique Aqui para Concluir a Contratação" disabled>Clique Aqui para Concluir a Contratação</button>
                                 <br>
                                 <label for="checkbox-termos"><input type="checkbox" id="checkbox-termos" required> Ao prosseguir você concorda com os <a href="" target="_blank" title="termos contratuais">termos contratuais</a></label>
