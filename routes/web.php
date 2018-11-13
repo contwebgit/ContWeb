@@ -141,17 +141,18 @@ Route::group(['prefix' => '/blog'], function () {
     Route::post('/delete-post', 'BlogController@deletePost')->name('delete-post');
 });
 
+
+/** MAIL */
+Route::get('/send/email', 'MailController@emailConfirmacao')->name('send-email-confirmation');
+
 /** CONTRATAR */
 Route::group(['prefix' => 'contratar'], function(){
-    Route::post('/plano', 'ContratacaoController@contratarView')->name('contratar-view');
-    Route::any('/plano-action', 'ContratacaoController@contratar')->name('contratar-action');
+    Route::any('/plano', 'ContratacaoController@contratarView')->name('contratar-view');
+    Route::post('/plano-action', 'ContratacaoController@contratarPlano')->name('contratar-action');
 
     Route::post('/servico', 'ContratacaoController@contratarServicoView')->name('contratar-servico-view');
     Route::post('/servico-action', 'ContratacaoController@contratarServico')->name('contratar-servico-action');
 });
-
-/** MAIL */
-Route::get('/send/email', 'MailController@emailConfirmacao')->name('send-email-confirmation');
 
 Route::get("/agradecimento", function(){
     return view('agradecimentos');
