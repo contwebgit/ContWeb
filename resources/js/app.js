@@ -29,7 +29,7 @@ function animateCount(id, max, time){
 $(document).ready(function() {
 
     if($("#preencher").length === 1) {
-        if ($("#preencher").length === 0 && $("#preencher").val() !== "1") {
+        if ($("#preencher").val() !== "1") {
             $("#contratar-servico").attr("type", "submit");
         } else {
             $("#contratar-servico").attr("type", "button");
@@ -93,13 +93,13 @@ $(document).ready(function() {
     });
 
     $("#autopreencher").on("click", function () {
-        if($("#cpf").length > 1) {
+        if($("#cnpj").length > 0) {
             let cnpj = $("#cnpj-aux").val();
             $("#cnpj").val(cnpj);
             $("#form-orcamento").submit();
         }else {
-            let cpf = $("#cpf").val();
-            $("#cpf").val(cpf);
+            let cpf = $("#cnpj-aux").val();
+            $("#cnpj-cpf").val(cpf);
             $("#form-orcamento-servico").submit();
         }
     });
@@ -151,12 +151,17 @@ $(document).ready(function() {
 
         if(valid){
             $("#contratar-servico").removeAttr("disabled");
+            $("#contratar").removeAttr("disabled");
+        }else{
+            $("#contratar-servico").attr("disabled", "disabled");
+            $("#contratar").attr("disabled", "disabled");
         }
 
         var text = "R$ " + total.toFixed(2).toString().replace(".", ",");
 
         $("#total").val(text);
         $("#totalVal").val(text);
+        $(".totalAtual").val(text);
 
     });
 
@@ -248,7 +253,7 @@ $(document).ready(function() {
         }
     }
 
-    if($("#preencher-count").val() === "1"){
+    if($("#cpf").length === 1){
         var cpf = $('#cpf').val().replace(/[^0-9]/g, '');
 
         if(cpf.length === 14) {
@@ -301,7 +306,7 @@ if($("#estado-orcamento").length > 0){
 if($("#InputEstado").length > 0){
     $.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados', function(data){
        data.forEach(function(value){
-          $("#InputEstado").append('<option value="'+ value.id + ":" + value.name +'">' + value.nome + '</option>' );
+          $("#InputEstado").append('<option value="'+ value.id + ":" + value.nome +'">' + value.nome + '</option>' );
        });
     });
 
