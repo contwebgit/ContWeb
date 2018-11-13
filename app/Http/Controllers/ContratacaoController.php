@@ -170,10 +170,6 @@ class ContratacaoController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function contratar(Request $request){
-        if( ! $request->getMethod() == 'POST'){
-            return redirect(503);
-        }
-
         try {
             $fields = [
                 'date',
