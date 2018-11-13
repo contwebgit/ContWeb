@@ -139,7 +139,6 @@ Route::group(['prefix' => '/blog'], function () {
     Route::post('/editar-post', 'BlogController@editarPostView')->name('editar-post-action');
 
     Route::post('/delete-post', 'BlogController@deletePost')->name('delete-post');
-
 });
 
 /** CONTRATAR */
