@@ -148,7 +148,7 @@ Route::get('/send/email', 'MailController@emailConfirmacao')->name('send-email-c
 /** CONTRATAR */
 Route::group(['prefix' => 'contratar'], function(){
     Route::any('/plano', 'ContratacaoController@contratarView')->name('contratar-view');
-    Route::post('/plano-action', 'ContratacaoController@contratarPlano')->name('contratar-action');
+    Route::post('/plano-action', 'ContratacaoController@contratarPlano')->name('contratar-plano-action');
 
     Route::post('/servico', 'ContratacaoController@contratarServicoView')->name('contratar-servico-view');
     Route::post('/servico-action', 'ContratacaoController@contratarServico')->name('contratar-servico-action');
