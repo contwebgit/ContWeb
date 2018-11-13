@@ -44,7 +44,7 @@ class CreateContratantesTable extends Migration
             $table->text("partner")->nullable();
             $table->text("qualification")->nullable();
             $table->string("service_start_month");
-            $table->string("code");
+            $table->string("code")->nullable();
             $table->integer('plan');
             $table->string("payment_day");
             $table->text("geoip");
