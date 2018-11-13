@@ -26,7 +26,8 @@ class RedirectIfAuthenticated
             'contratar-servico-action',
             'send-email-confirmation',
             'register', //remover
-            'agradecimento'
+            'agradecimento',
+            'contratar-plano-action'
         ];
 
     /**
